@@ -19,7 +19,7 @@ straying_locations
 }
 \description{
 Straying matrix from the Atlantic salmon Dam 
-Impact Analysis model v67.Straying locations of adult Atlantic 
+Impact Analysis model v67. Straying locations of adult Atlantic 
 salmon based on behavioral patterns.
 }
 \keyword{datasets}
