@@ -7,11 +7,11 @@
 \format{
 A dataframe with 15 observations of 19 variables
 \describe{
-  \code{dam_failed_to_pass } The dam the adults fail to pass
-  \code{p_die } The proportion of failed migrants that die
-  \code{p_return_to_sea } The proportion of failed migrants that return to sea
-  \code{p_go_elsewhere } The proportion going elsewhere
-  \code{PU_01...PU14 } The destination PUs for failed migrants at each dam with proportion going to each
+  \code{dam_failed_to_pass } The dam the adults fail to pass \cr \cr
+  \code{p_die } The proportion of failed migrants that die \cr \cr
+  \code{p_return_to_sea } The proportion of failed migrants that return to sea \cr \cr
+  \code{p_go_elsewhere } The proportion going elsewhere \cr \cr
+  \code{PU_01...PU14 } The destination PUs for failed migrants at each dam with proportion going to each \cr \cr
 }
 }
 \source{

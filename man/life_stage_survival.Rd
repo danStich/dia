@@ -7,12 +7,12 @@
 \format{
 A dataframe with 5 observations of 6 variables
 \describe{
-  \code{rate } Vital rate of interest
-  \code{means } Mean of vital rate
-  \code{medians } Median of vital rate
-  \code{sds } Standard deviation of vital rate
-  \code{mins } Minimum value (where applicable)
-  \code{maxes } Maximum value (where applicable)
+  \code{rate } Vital rate of interest \cr \cr
+  \code{means } Mean of vital rate \cr \cr
+  \code{medians } Median of vital rate \cr \cr
+  \code{sds } Standard deviation of vital rate \cr \cr
+  \code{mins } Minimum value (where applicable) \cr \cr
+  \code{maxes } Maximum value (where applicable) \cr \cr
 }
 }
 \source{
