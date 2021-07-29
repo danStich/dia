@@ -99,7 +99,9 @@ run_dia <- function(n_generations = 1,
                     p_stillwater = NULL,
                     indirect_latent_mortality = 0.06,
                     p_female = 0.60,
-                    new_or_old = "new"
+                    new_or_old = "new",
+                    marine_s_hatchery = NULL,
+                    marine_s_wild = NULL
                     ){
   
   # Year 1 Adults ---- 
@@ -108,21 +110,18 @@ run_dia <- function(n_generations = 1,
     n = 1, 
     size = n_wild, 
     prob = dia::production_units$Proportion_of_HUs_in_scenario)
+  
   # Multinomial draw to distribute hatchery adults in PUs
   hatchery_adults <- stats::rmultinom(
     n = 1, 
     size = n_hatchery, 
-    prob = dia::production_units$Proportion_of_HUs_in_scenario)  
+    prob = dia::production_units$Proportion_of_HUs_in_scenario) 
+  
   # Sum wild and hatchery adults 
   adults <- wild_adults + hatchery_adults
   
   # Year 1 Eggs ----
-  eggs_per_female <- truncnorm::rtruncnorm(
-    n = 1,
-    a = 4000,
-    b = 12000,
-    mean = dia::life_stage_survival[1, 2],
-    sd = dia::life_stage_survival[1, 4])
+  eggs_per_female <- dia::make_eggs_per_female()
   
   wild_eggs <- as.vector(wild_adults * dia::life_stage_survival[1, 2] +
                hatchery_adults * dia::life_stage_survival[1, 2])
@@ -133,7 +132,7 @@ run_dia <- function(n_generations = 1,
   
   # Year 4 Smolts ----
   # Starting number based on Year 1 eggs and survival rate
-  egg_to_smolt_survival <- truncnorm::rtruncnorm(1, 0, 0.23, 0.013305, 0.00862)
+  egg_to_smolt_survival <- make_egg_to_smolt_survival()
   
   wild_smolts <- wild_eggs * egg_to_smolt_survival
   
@@ -150,7 +149,7 @@ run_dia <- function(n_generations = 1,
   downstream_passage <- unlist(downstream)
   # Get flow-correlated survival values for each dam and probability of
   # using Stillwater Branch
-  dam_stuff <- get_dam_passage(new_or_old = "new")
+  dam_stuff <- dia::get_dam_passage(new_or_old = "new")
   dam_survival <- dam_stuff$dam_survival
   if(is.null(p_stillwater)) p_stillwater <- dam_stuff$p_stillwater
     
@@ -160,9 +159,40 @@ run_dia <- function(n_generations = 1,
   
   
   # Run the downstream_passage module
+  downstream_out <- dia::run_downstream_passage(
+    hatchery_smolt_total = hatchery_smolt_total,
+    wild_smolts = wild_smolts,
+    downstream_passage = downstream_passage,
+    p_stillwater = p_stillwater,
+    mattaceunk_impoundment_mortality = mattaceunk_impoundment_mortality,
+    n_dams = dia::n_dams,
+    indirect_latent_mortality = indirect_latent_mortality,
+    p_female = p_female
+    )
+  
+  hatchery_out <- downstream_out$hatchery_out
+  wild_out <- downstream_out$wild_out
+  hatchery_p_out <- downstream_out$hatchery_p_out
+  wild_p_out <- downstream_out$wild_p_out
+  
+  # Year 5 dynamics (Marine) ----
+  # Simulate marine survival if not specified by user
+  if(is.null(marine_s_hatchery)){
+    marine_s_hatchery <- dia::make_marine_s(hatchery = TRUE)
+  }
+  if(is.null(marine_s_wild)){
+    marine_s_wild <- dia::make_marine_s(hatchery = FALSE)
+  }
+  
+  # Apply marine_s to outmigrants to make them adult returns
+  hatchery_returns <- hatchery_out * marine_s_hatchery
+  wild_returns <- wild_out * marine_s_wild
   
   
-  # Year 6 dynamics ----
+  
+  # . Upstream migration model ----
+  
+  
   
   
   

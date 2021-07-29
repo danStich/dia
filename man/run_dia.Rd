@@ -20,7 +20,9 @@ run_dia(
   p_stillwater = NULL,
   indirect_latent_mortality = 0.06,
   p_female = 0.6,
-  new_or_old = "new"
+  new_or_old = "new",
+  marine_s_hatchery = NULL,
+  marine_s_wild = NULL
 )
 }
 \arguments{
