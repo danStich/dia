@@ -7,17 +7,17 @@
 #'
 #' @format A dataframe with 15 observations of 12 variables
 #' \describe{
-#'   \code{PU }{Production unit number (Neiland et al. 2015)}
-#'   \code{Boundaries }{Boundaries used to delimit PU}
-#'   \code{HU } Habitat units
-#'   \code{HU_scen } Habitat units in default scenario
-#'   \code{Proportion_of_HUS_in_scenario} Proportion of habitat units within PU (of entire watershed)
-#'   \code{Adjusted_proportion_of_HUs_in_scenario} Adjusted cumulative proportion of habitat units within PU (of entire watershed)
-#'   \code{Smolt_production_potential} Number of smolts that can be produced in each PU based on HUs
-#'   \code{Longest_segment_length_km} Maximum segment length of PU (km)
-#'   \code{Partial_segment_length_1} First partial segment length, if applicable
-#'   \code{Partial_segment_length_2} Second partial segment length, if applicable
-#'   \code{Hatchery_segment_length} Length of hatchery stocking segment
+#'   \code{PU }{Production unit number (Neiland et al. 2015)} \cr \cr
+#'   \code{Boundaries }{Boundaries used to delimit PU} \cr \cr
+#'   \code{HU } Habitat units \cr \cr
+#'   \code{HU_scen } Habitat units in default scenario \cr \cr
+#'   \code{Proportion_of_HUS_in_scenario} Proportion of habitat units within PU (of entire watershed) \cr \cr
+#'   \code{Adjusted_proportion_of_HUs_in_scenario} Adjusted cumulative proportion of habitat units within PU (of entire watershed) \cr \cr
+#'   \code{Smolt_production_potential} Number of smolts that can be produced in each PU based on HUs \cr \cr
+#'   \code{Longest_segment_length_km} Maximum segment length of PU (km) \cr \cr
+#'   \code{Partial_segment_length_1} First partial segment length, if applicable \cr \cr
+#'   \code{Partial_segment_length_2} Second partial segment length, if applicable \cr \cr
+#'   \code{Hatchery_segment_length} Length of hatchery stocking segment \cr \cr
 #'   \code{Dam} Name of dam at downstream end of PU
 #' }
 #'
@@ -33,8 +33,8 @@
 #' 
 #' @format A dataframe with 15 observations of 16 variables.
 #' \describe{
-#'   \code{Natal_PU }{Natal production unit as smolt}
-#'   \code{PU_01, ..., PU14 } Destination production unit as adult
+#'   \code{Natal_PU }{Natal production unit as smolt} \cr \cr
+#'   \code{PU_01, ..., PU14 } Destination production unit as adult \cr \cr
 #' }
 #' 
 #' @source Nieland et al. (2013, 2015, 2020)
@@ -50,11 +50,11 @@
 #' 
 #' @format A dataframe with 15 observations of 19 variables
 #' \describe{
-#'   \code{dam_failed_to_pass } The dam the adults fail to pass
-#'   \code{p_die } The proportion of failed migrants that die
-#'   \code{p_return_to_sea } The proportion of failed migrants that return to sea
-#'   \code{p_go_elsewhere } The proportion going elsewhere
-#'   \code{PU_01...PU14 } The destination PUs for failed migrants at each dam with proportion going to each
+#'   \code{dam_failed_to_pass } The dam the adults fail to pass \cr \cr
+#'   \code{p_die } The proportion of failed migrants that die \cr \cr
+#'   \code{p_return_to_sea } The proportion of failed migrants that return to sea \cr \cr
+#'   \code{p_go_elsewhere } The proportion going elsewhere \cr \cr
+#'   \code{PU_01...PU14 } The destination PUs for failed migrants at each dam with proportion going to each \cr \cr
 #' }
 #' 
 #' @source Nieland et al. (2013, 2015, 2020)
@@ -70,12 +70,12 @@
 #' 
 #' @format A dataframe with 5 observations of 6 variables
 #' \describe{
-#'   \code{rate } Vital rate of interest
-#'   \code{means } Mean of vital rate
-#'   \code{medians } Median of vital rate
-#'   \code{sds } Standard deviation of vital rate
-#'   \code{mins } Minimum value (where applicable)
-#'   \code{maxes } Maximum value (where applicable)
+#'   \code{rate } Vital rate of interest \cr \cr
+#'   \code{means } Mean of vital rate \cr \cr
+#'   \code{medians } Median of vital rate \cr \cr
+#'   \code{sds } Standard deviation of vital rate \cr \cr
+#'   \code{mins } Minimum value (where applicable) \cr \cr
+#'   \code{maxes } Maximum value (where applicable) \cr \cr
 #' }
 #' 
 #' @source Nieland et al. (2013, 2015, 2020)
@@ -92,8 +92,8 @@
 #' 
 #' @format A dataframe with 5,000 observations of 2 variables
 #' \describe{
-#'   \code{cum_prob } Cumulative probability for proportion
-#'   \code{proportion } Proportion of smolts using Stillwater Branch
+#'   \code{cum_prob } Cumulative probability for proportion \cr \cr
+#'   \code{proportion } Proportion of smolts using Stillwater Branch \cr \cr
 #' }
 #' 
 #' @source Nieland et al. (2020)
@@ -109,8 +109,8 @@
 #' 
 #' @format A dataframe with 5,000 observations of 2 variables
 #' \describe{
-#'   \code{cum_prob } Cumulative probability for proportion
-#'   \code{proportion } Proportion of smolts using Stillwater Branch
+#'   \code{cum_prob } Cumulative probability for proportion \cr \cr
+#'   \code{proportion } Proportion of smolts using Stillwater Branch \cr \cr
 #' }
 #' 
 #' @source Nieland et al. (2013, 2015)
@@ -125,10 +125,10 @@
 #' 
 #' @format A dataframe with 857 observations of 4 variables
 #' \describe{
-#'   \code{flow_cfs } Value of flow (discharge)
-#'   \code{cumulative_prob } Cumulative flow probability
-#'   \code{flow_prob } Probability of individual flow value
-#'   \code{smolt_surv_prob } Smolt survival probability given flow
+#'   \code{flow_cfs } Value of flow (discharge) \cr \cr
+#'   \code{cumulative_prob } Cumulative flow probability \cr \cr
+#'   \code{flow_prob } Probability of individual flow value \cr \cr
+#'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
 #' @source Nieland et al. (2013, 2015)
@@ -143,10 +143,10 @@
 #' 
 #' @format A dataframe with 300 observations of 4 variables
 #' \describe{
-#'   \code{flow_cfs } Value of flow (discharge)
-#'   \code{cumulative_prob } Cumulative flow probability
-#'   \code{flow_prob } Probability of individual flow value
-#'   \code{smolt_surv_prob } Smolt survival probability given flow
+#'   \code{flow_cfs } Value of flow (discharge) \cr \cr
+#'   \code{cumulative_prob } Cumulative flow probability \cr \cr
+#'   \code{flow_prob } Probability of individual flow value \cr \cr
+#'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
 #' @source Nieland et al. (2013, 2015)
@@ -161,10 +161,10 @@
 #' 
 #' @format A dataframe with 7,168 observations of 4 variables
 #' \describe{
-#'   \code{flow_cfs } Value of flow (discharge)
-#'   \code{cumulative_prob } Cumulative flow probability
-#'   \code{flow_prob } Probability of individual flow value
-#'   \code{smolt_surv_prob } Smolt survival probability given flow
+#'   \code{flow_cfs } Value of flow (discharge) \cr \cr
+#'   \code{cumulative_prob } Cumulative flow probability \cr \cr
+#'   \code{flow_prob } Probability of individual flow value \cr \cr
+#'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
 #' @source Nieland et al. (2013, 2015)
@@ -179,10 +179,10 @@
 #' 
 #' @format A dataframe with 3,315 observations of 4 variables
 #' \describe{
-#'   \code{flow_cfs } Value of flow (discharge)
-#'   \code{cumulative_prob } Cumulative flow probability
-#'   \code{flow_prob } Probability of individual flow value
-#'   \code{smolt_surv_prob } Smolt survival probability given flow
+#'   \code{flow_cfs } Value of flow (discharge) \cr \cr
+#'   \code{cumulative_prob } Cumulative flow probability \cr \cr
+#'   \code{flow_prob } Probability of individual flow value \cr \cr
+#'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
 #' @source Nieland et al. (2013, 2015)
@@ -197,10 +197,10 @@
 #' 
 #' @format A dataframe with 450 observations of 4 variables
 #' \describe{
-#'   \code{flow_cfs } Value of flow (discharge)
-#'   \code{cumulative_prob } Cumulative flow probability
-#'   \code{flow_prob } Probability of individual flow value
-#'   \code{smolt_surv_prob } Smolt survival probability given flow
+#'   \code{flow_cfs } Value of flow (discharge) \cr \cr
+#'   \code{cumulative_prob } Cumulative flow probability \cr \cr
+#'   \code{flow_prob } Probability of individual flow value \cr \cr
+#'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #'  
 #' @source Nieland et al. (2013, 2015)
@@ -215,10 +215,10 @@
 #' 
 #' @format A dataframe with 8,681 observations of 4 variables
 #' \describe{
-#'   \code{flow_cfs } Value of flow (discharge)
-#'   \code{cumulative_prob } Cumulative flow probability
-#'   \code{flow_prob } Probability of individual flow value
-#'   \code{smolt_surv_prob } Smolt survival probability given flow
+#'   \code{flow_cfs } Value of flow (discharge) \cr \cr
+#'   \code{cumulative_prob } Cumulative flow probability \cr \cr
+#'   \code{flow_prob } Probability of individual flow value \cr \cr
+#'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
 #' @source Nieland et al. (2013, 2015)
@@ -233,10 +233,10 @@
 #' 
 #' @format A dataframe with 7,589 observations of 4 variables
 #' \describe{
-#'   \code{flow_cfs } Value of flow (discharge)
-#'   \code{cumulative_prob } Cumulative flow probability
-#'   \code{flow_prob } Probability of individual flow value
-#'   \code{smolt_surv_prob } Smolt survival probability given flow
+#'   \code{flow_cfs } Value of flow (discharge) \cr \cr
+#'   \code{cumulative_prob } Cumulative flow probability \cr \cr
+#'   \code{flow_prob } Probability of individual flow value \cr \cr
+#'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
 #' @source Nieland et al. (2013, 2015)
@@ -252,10 +252,10 @@
 #' 
 #' @format A dataframe with 9,356 observations of 4 variables
 #' \describe{
-#'   \code{flow_cfs } Value of flow (discharge)
-#'   \code{cumulative_prob } Cumulative flow probability
-#'   \code{flow_prob } Probability of individual flow value
-#'   \code{smolt_surv_prob } Smolt survival probability given flow
+#'   \code{flow_cfs } Value of flow (discharge) \cr \cr
+#'   \code{cumulative_prob } Cumulative flow probability \cr \cr
+#'   \code{flow_prob } Probability of individual flow value \cr \cr
+#'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
 #' @source Nieland et al. (2020)
@@ -270,10 +270,10 @@
 #' 
 #' @format A dataframe with 7,168 observations of 4 variables
 #' \describe{
-#'   \code{flow_cfs } Value of flow (discharge)
-#'   \code{cumulative_prob } Cumulative flow probability
-#'   \code{flow_prob } Probability of individual flow value
-#'   \code{smolt_surv_prob } Smolt survival probability given flow
+#'   \code{flow_cfs } Value of flow (discharge) \cr \cr
+#'   \code{cumulative_prob } Cumulative flow probability \cr \cr
+#'   \code{flow_prob } Probability of individual flow value \cr \cr
+#'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
 #' @source Nieland et al. (2013, 2015)
@@ -288,10 +288,10 @@
 #' 
 #' @format A dataframe with 925 observations of 4 variables
 #' \describe{
-#'   \code{flow_cfs } Value of flow (discharge)
-#'   \code{cumulative_prob } Cumulative flow probability
-#'   \code{flow_prob } Probability of individual flow value
-#'   \code{smolt_surv_prob } Smolt survival probability given flow
+#'   \code{flow_cfs } Value of flow (discharge) \cr \cr
+#'   \code{cumulative_prob } Cumulative flow probability \cr \cr
+#'   \code{flow_prob } Probability of individual flow value \cr \cr
+#'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
 #' @source Nieland et al. (2013, 2015)
@@ -306,10 +306,10 @@
 #' 
 #' @format A dataframe with 753 observations of 4 variables
 #' \describe{
-#'   \code{flow_cfs } Value of flow (discharge)
-#'   \code{cumulative_prob } Cumulative flow probability
-#'   \code{flow_prob } Probability of individual flow value
-#'   \code{smolt_surv_prob } Smolt survival probability given flow
+#'   \code{flow_cfs } Value of flow (discharge) \cr \cr
+#'   \code{cumulative_prob } Cumulative flow probability \cr \cr
+#'   \code{flow_prob } Probability of individual flow value \cr \cr
+#'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
 #' @source Nieland et al. (2013, 2015)
@@ -325,10 +325,10 @@
 #' 
 #' @format A dataframe with 4,457 observations of 4 variables
 #' \describe{
-#'   \code{flow_cfs } Value of flow (discharge)
-#'   \code{cumulative_prob } Cumulative flow probability
-#'   \code{flow_prob } Probability of individual flow value
-#'   \code{smolt_surv_prob } Smolt survival probability given flow
+#'   \code{flow_cfs } Value of flow (discharge) \cr \cr
+#'   \code{cumulative_prob } Cumulative flow probability \cr \cr
+#'   \code{flow_prob } Probability of individual flow value \cr \cr
+#'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
 #' @source Nieland et al. (2020)
@@ -343,15 +343,33 @@
 #' 
 #' @format A dataframe with 3,692 observations of 4 variables
 #' \describe{
-#'   \code{flow_cfs } Value of flow (discharge)
-#'   \code{cumulative_prob } Cumulative flow probability
-#'   \code{flow_prob } Probability of individual flow value
-#'   \code{smolt_surv_prob } Smolt survival probability given flow
+#'   \code{flow_cfs } Value of flow (discharge) \cr \cr
+#'   \code{cumulative_prob } Cumulative flow probability \cr \cr
+#'   \code{flow_prob } Probability of individual flow value \cr \cr
+#'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
 #' @source Nieland et al. (2013, 2015)
 #' 
 "downstream_orono_old"
+
+#' @title Downstream data for Sebec
+#' 
+#' @description Alden research estimates of downstream survival from the 
+#' Atlantic salmon Dam Impact analysis model v67. Estimates are based on 
+#' in-river flow.
+#' 
+#' @format A dataframe with 745 observations of 4 variables
+#' \describe{
+#'   \code{flow_cfs } Value of flow (discharge) \cr \cr
+#'   \code{cumulative_prob } Cumulative flow probability \cr \cr
+#'   \code{flow_prob } Probability of individual flow value \cr \cr
+#'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
+#' }
+#' 
+#' @source Nieland et al. (2013, 2015)
+#' 
+"downstream_sebec"
 
 #' @title Downstream data for Stillwater
 #' 
@@ -362,10 +380,10 @@
 #' 
 #' @format A dataframe with 4,456 observations of 4 variables
 #' \describe{
-#'   \code{flow_cfs } Value of flow (discharge)
-#'   \code{cumulative_prob } Cumulative flow probability
-#'   \code{flow_prob } Probability of individual flow value
-#'   \code{smolt_surv_prob } Smolt survival probability given flow
+#'   \code{flow_cfs } Value of flow (discharge) \cr \cr
+#'   \code{cumulative_prob } Cumulative flow probability \cr \cr
+#'   \code{flow_prob } Probability of individual flow value \cr \cr
+#'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
 #' @source Nieland et al. (2020)
@@ -380,10 +398,10 @@
 #' 
 #' @format A dataframe with 3,692 observations of 4 variables
 #' \describe{
-#'   \code{flow_cfs } Value of flow (discharge)
-#'   \code{cumulative_prob } Cumulative flow probability
-#'   \code{flow_prob } Probability of individual flow value
-#'   \code{smolt_surv_prob } Smolt survival probability given flow
+#'   \code{flow_cfs } Value of flow (discharge) \cr \cr
+#'   \code{cumulative_prob } Cumulative flow probability \cr \cr
+#'   \code{flow_prob } Probability of individual flow value \cr \cr
+#'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
 #' @source Nieland et al. (2013, 2015)
@@ -398,10 +416,10 @@
 #' 
 #' @format A dataframe with 13,939 observations of 4 variables
 #' \describe{
-#'   \code{flow_cfs } Value of flow (discharge)
-#'   \code{cumulative_prob } Cumulative flow probability
-#'   \code{flow_prob } Probability of individual flow value
-#'   \code{smolt_surv_prob } Smolt survival probability given flow
+#'   \code{flow_cfs } Value of flow (discharge) \cr \cr
+#'   \code{cumulative_prob } Cumulative flow probability \cr \cr
+#'   \code{flow_prob } Probability of individual flow value \cr \cr
+#'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
 #' @source Nieland et al. (2013, 2015)
@@ -416,10 +434,10 @@
 #' 
 #' @format A dataframe with 9,368 observations of 4 variables
 #' \describe{
-#'   \code{flow_cfs } Value of flow (discharge)
-#'   \code{cumulative_prob } Cumulative flow probability
-#'   \code{flow_prob } Probability of individual flow value
-#'   \code{smolt_surv_prob } Smolt survival probability given flow
+#'   \code{flow_cfs } Value of flow (discharge) \cr \cr
+#'   \code{cumulative_prob } Cumulative flow probability \cr \cr
+#'   \code{flow_prob } Probability of individual flow value \cr \cr
+#'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
 #' @source Nieland et al. (2013, 2015)
@@ -433,11 +451,28 @@
 #' 
 #' @format A dataframe with 15 observations of 2 variables
 #' \describe{
-#'   \code{PU } Production unit
-#'   \code{proportion_stocked } Proportion of hatchery smolts stocked in PU
+#'   \code{PU } Production unit \cr \cr
+#'   \code{proportion_stocked } Proportion of hatchery smolts stocked in PU \cr \cr
 #' }
 #' 
 #' @source Nieland et al. (2020)
+"stocking_default"
 
-
+#' @title Number of dams by natal production unit (PU) and migration route
+#' 
+#' @description Number of dams passed by out-migrating smolts starting in
+#' different production units by downstream migration route (`stillwater` or
+#' `mainstem`) 
+#' 
+#' @format A dataframe with 15 observations of 3 variables
+#' \describe{
+#'   \code{PU } Production unit of origin \cr \cr
+#'   \code{stillwater } Number of dams by natal PU encountered during 
+#'   downstream migration if fish move through the Stillwater Branch \cr \cr
+#'   \code{mainstem } Number of dams by natal PU encountered during 
+#'   downstream migration if fish move through the mainstem Penobscot River \cr \cr  
+#' }
+#' 
+#' @source Nieland et al. (2020)
+"n_dams"
 
