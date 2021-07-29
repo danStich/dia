@@ -2,7 +2,7 @@
 % Please edit documentation in R/run_downstream_passage.R
 \name{run_downstream_passage}
 \alias{run_downstream_passage}
-\title{Create downstream survival rates by dam}
+\title{Run downstream passage routine}
 \usage{
 run_downstream_passage(
   hatchery_smolt_total,
@@ -46,11 +46,13 @@ Atlantic salmon smolts at each dam passed. Default usage is to inherit this valu
 inherit this value from the \code{link{run_dia}} function.}
 }
 \value{
-A matrix with
+A named list with four elements including total number of hatchery and
+wild smolts exiting the Penobscot River (elements 1 & 2) as well as the 
+proportion of wild and hatchery smolts exiting the river from each natal PU.
 }
 \description{
-Create downstream survival rates by production 
-unit (PU) for 2-year smolts through dams.
+Run the downstream passage routine for Atlantic salmon Dam
+Impact Analysis (DIA) model v67.
 }
 \references{
 Nieland et al. (2015, 2020).

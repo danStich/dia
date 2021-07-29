@@ -1,7 +1,7 @@
-#' @title Create downstream survival rates by dam
+#' @title Run downstream passage routine
 #' 
-#' @description Create downstream survival rates by production 
-#' unit (PU) for 2-year smolts through dams.
+#' @description Run the downstream passage routine for Atlantic salmon Dam
+#' Impact Analysis (DIA) model v67.
 #' 
 #' @param hatchery_smolt_total Number of hatchery smolts stocked and naturally
 #' produced.
@@ -32,7 +32,9 @@
 #' @param p_female Proportion of females in population. Default usage is to 
 #' inherit this value from the \code{link{run_dia}} function.
 #' 
-#' @return A matrix with 
+#' @return A named list with four elements including total number of hatchery and
+#' wild smolts exiting the Penobscot River (elements 1 & 2) as well as the 
+#' proportion of wild and hatchery smolts exiting the river from each natal PU.
 #' 
 #' @references Nieland et al. (2015, 2020).
 #' 
@@ -49,7 +51,7 @@ run_downstream_passage <- function(hatchery_smolt_total,
                                    indirect_latent_mortality,
                                    p_female
                                    ){
-  
+
   # Initial and subsequent reach survival rates for smolts ----
   #. Hatchery stocking survival rates by PU ----
   hatchery_init <- dia::make_inriver_s(m = NULL,
@@ -479,13 +481,13 @@ run_downstream_passage <- function(hatchery_smolt_total,
   # Summary calculations for adult migration module ----
   # . Female smolts at Verona Island ----
   hatchery_female_out <- round(hatchery_after_verona * p_female, 0)
-  wild_female_out <- round(hatchery_after_verona * p_female, 0)
+  wild_female_out <- round(wild_after_verona * p_female, 0)
 
   # . Proportion female in PU ----
-  hatchery_proportion_female_in_PU <- round(
-    hatchery_female_out / sum(hatchery_female_out), 0)
-  wild_proportion_female_in_PU <- round(
-    wild_female_out / sum(wild_female_out), 0)
+  hatchery_proportion_female_in_PU <- 
+    hatchery_female_out / sum(hatchery_female_out)
+  wild_proportion_female_in_PU <- 
+    wild_female_out / sum(wild_female_out)
     
   # Data return to calling environment ----
   # Can update and add toggles as needed
@@ -499,14 +501,3 @@ run_downstream_passage <- function(hatchery_smolt_total,
   )
   
 }
-
-
-
-
-
-
-
-
-
-
-
