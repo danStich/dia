@@ -50,6 +50,16 @@
 #' probabilities of p_stillwater as well as flow-correlated survival at 
 #' `milford`, `orono`, and `stillwater` dams.
 #' 
+#' @param marine_s_hatchery Numeric indicating marine survival rate for 
+#' post-smolt to adult survival of hatchery outmigrants. The default (`NULL`)
+#' simulates values from a truncated normal distribution using hatchery smolt
+#' survival estimates from the Penobscot River, ME, USA.
+#' 
+#' @param marine_s_wild Numeric indicating marine survival rate for 
+#' post-smolt to adult survival of wild outmigrants. The default (`NULL`)
+#' simulates values from a truncated normal distribution using wild smolt
+#' survival estimates from the Narraguagus River, ME, USA.
+#' 
 #' @return A dataframe containing inputs and outputs. Will add more
 #' of an explanation here once we know what they all are.
 #' 

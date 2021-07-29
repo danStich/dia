@@ -71,6 +71,16 @@ in Nieland et al. (2020), derived from estimates in Stich et al. (2015b).}
 (Nieland et al. 2013, 2015) or `"old"` (Nieland et al. 2020) flow-correlated
 probabilities of p_stillwater as well as flow-correlated survival at 
 `milford`, `orono`, and `stillwater` dams.}
+
+\item{marine_s_hatchery}{Numeric indicating marine survival rate for 
+post-smolt to adult survival of hatchery outmigrants. The default (`NULL`)
+simulates values from a truncated normal distribution using hatchery smolt
+survival estimates from the Penobscot River, ME, USA.}
+
+\item{marine_s_wild}{Numeric indicating marine survival rate for 
+post-smolt to adult survival of wild outmigrants. The default (`NULL`)
+simulates values from a truncated normal distribution using wild smolt
+survival estimates from the Narraguagus River, ME, USA.}
 }
 \value{
 A dataframe containing inputs and outputs. Will add more
