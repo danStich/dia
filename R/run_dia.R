@@ -4,6 +4,9 @@
 #' generation of 2 sea-winter female Atlantic salmon through time using data
 #' and inputs from Nieland et al. (2013, 2015, 2020) as implemented in `@Risk`.
 #' 
+#' @param n_generations Number of generations to simulate for simulation. One 
+#' complete generation from egg to returning adult is six years.
+#' 
 #' @param n_wild Number of starting wild adult salmon.
 #' 
 #' @param n_hatchery Number of starting hatchery adult salmon.
@@ -76,125 +79,110 @@
 #' 
 #' @export
 #' 
-run_one_gen <- function(n_wild, 
-                        n_hatchery,
-                        stocking,
-                        n_stocked,
-                        upstream,
-                        downstream,
-                        mattaceunk_impoundment_mortality,
-                        p_stillwater,
-                        indirect_latent_mortality,
-                        p_female,
-                        new_or_old,
-                        marine_s_hatchery,
-                        marine_s_wild,
-                        straying_matrix,
-                        p_mainstem_up,
-                        n_broodstock
-                        ){
+run_dia <- function(n_generations = 3,
+                    n_wild = 31, 
+                    n_hatchery = 306,
+                    stocking = 1,
+                    n_stocked = 545000,
+                    upstream = list(
+                      medway = 0,
+                      mattaceunk = 0.90,
+                      west_enfield = 0.95,
+                      upper_dover = 0.92,
+                      browns_mills = 0.92,
+                      sebec = 0,
+                      milo = 0,
+                      howland = 0.95,
+                      lowel = 0.92,
+                      stillwater = 0,
+                      milford = 0.95,
+                      great_works = 1,
+                      orono = 0,
+                      veazie = 1,
+                      frankfort = 1),
+                    downstream = list(
+                      medway = 0,
+                      mattaceunk = 1,
+                      west_enfield = 0.96,
+                      upper_dover = 0.9215,
+                      browns_mills = NA,
+                      sebec = NA,
+                      milo = NA,
+                      howland = 1,
+                      lowell = NA,
+                      stillwater = 0.96,
+                      milford = 0.96,
+                      great_works = 1,
+                      orono = 0.96,
+                      veazie = 1,
+                      frankfort = NA),
+                    mattaceunk_impoundment_mortality = 0.072,
+                    p_stillwater = NULL,
+                    indirect_latent_mortality = 0.06,
+                    p_female = 0.60,
+                    new_or_old = "new",
+                    marine_s_hatchery = NULL,
+                    marine_s_wild = NULL,
+                    straying_matrix = NULL,
+                    p_mainstem_up = 1,
+                    n_broodstock = 150
+                    ){
       
-  # Sum wild and hatchery adults 
-  adults <- wild_adults + hatchery_adults
+  # Seed starting population ---- 
+  # Multinomial draw to distribute wild adults in PUs
+  wild_adults <- stats::rmultinom(
+    n = 1, 
+    size = n_wild, 
+    prob = dia::production_units$Proportion_of_HUs_in_scenario)
   
-  # Year 1 Eggs ----
-  eggs_per_female <- dia::make_eggs_per_female()
+  # Multinomial draw to distribute hatchery adults in PUs
+  hatchery_adults <- stats::rmultinom(
+    n = 1, 
+    size = n_hatchery, 
+    prob = dia::production_units$Proportion_of_HUs_in_scenario) 
   
-  wild_eggs <- as.vector(wild_adults * dia::life_stage_survival[1, 2] +
-               hatchery_adults * dia::life_stage_survival[1, 2])
-    
-  stocked_eggs <- rep(0, length(wild_eggs))
+  # Run one generation of the model ----
+  out_list <- vector(mode = "list", length = n_generations)
+  out_list[[1]] <- run_one_gen(n_wild, 
+                       n_hatchery,
+                       stocking,
+                       n_stocked,
+                       upstream,
+                       downstream,
+                       mattaceunk_impoundment_mortality,
+                       p_stillwater,
+                       indirect_latent_mortality,
+                       p_female,
+                       new_or_old,
+                       marine_s_hatchery,
+                       marine_s_wild,
+                       straying_matrix,
+                       p_mainstem_up,
+                       n_broodstock
+                       )
   
-  all_eggs <- wild_eggs + stocked_eggs
-  
-  # Year 4 Smolts ----
-  # Starting number based on Year 1 eggs and survival rate
-  egg_to_smolt_survival <- make_egg_to_smolt_survival()
-  
-  wild_smolts <- round(all_eggs * egg_to_smolt_survival, 0)
-
-  stocked_smolts <- round(dia::smolt_stocking(n_stocked) * stocking, 0)
-  
-  # . Downstream migration ----
-  # Get user-specified and/or Alden estimated downstream survival
-  # of smolts through dams
-  # Make the user-specified list into a vector
-  downstream_passage <- unlist(downstream)
-  # Get flow-correlated survival values for each dam and probability of
-  # using Stillwater Branch
-  dam_stuff <- dia::get_dam_passage(new_or_old = "new")
-  dam_survival <- dam_stuff$dam_survival
-  if(is.null(p_stillwater)) p_stillwater <- dam_stuff$p_stillwater
-    
-  # Replace any NA values with the flow-correlated survival values
-  downstream_passage[is.na(downstream_passage)] <- dam_survival[is.na(downstream_passage)]
-  names(downstream_passage) <- NULL
-  
-  # Run the downstream_passage module
-  downstream_out <- dia::run_downstream_passage(
-    stocked_smolts = stocked_smolts,
-    wild_smolts = wild_smolts,
-    downstream_passage = downstream_passage,
-    p_stillwater = p_stillwater,
-    mattaceunk_impoundment_mortality = mattaceunk_impoundment_mortality,
-    n_dams = dia::n_dams,
-    indirect_latent_mortality = indirect_latent_mortality,
-    p_female = p_female
+    for(g in 2:n_generations){
+    out_list[[g]] <- run_one_gen(
+                       n_wild = sum(out_list[[g - 1]]$hatchery_adults), 
+                       n_hatchery = sum(out_list[[g - 1]]$hatchery_adults),
+                       stocking,
+                       n_stocked,
+                       upstream,
+                       downstream,
+                       mattaceunk_impoundment_mortality,
+                       p_stillwater,
+                       indirect_latent_mortality,
+                       p_female,
+                       new_or_old,
+                       marine_s_hatchery,
+                       marine_s_wild,
+                       straying_matrix,
+                       p_mainstem_up,
+                       n_broodstock
     )
+    
+    }
   
-  hatchery_out <- downstream_out$hatchery_out
-  wild_out <- downstream_out$wild_out
-  hatchery_proportions <- downstream_out$hatchery_p_out
-  wild_proportions <- downstream_out$wild_p_out
+  return(out_list)
   
-  # Year 5 dynamics (Marine) ----
-  # Simulate marine survival if not specified by user
-  if(is.null(marine_s_hatchery)){
-    marine_s_hatchery <- dia::make_marine_s(hatchery = TRUE)
-  }
-  if(is.null(marine_s_wild)){
-    marine_s_wild <- dia::make_marine_s(hatchery = FALSE)
-  }
-  
-  # Apply marine_s to outmigrants to make them adult returns
-  hatchery_returns <- round(hatchery_out * marine_s_hatchery, 0)
-  wild_returns <- round(wild_out * marine_s_wild, 0)
-  
-  
-  # . Upstream migration model ----
-  upstream_passage <- unlist(upstream)
-  names(upstream_passage) <- NULL  
-  
-  if(is.null(straying_matrix)){
-    straying_matrix <- dia::straying_matrix
-  }
-  
-  if(is.null(inefficiency_matrix)){
-    inefficiency_matrix <- dia::inefficiency_matrix
-  }  
-  
-  spawners <- dia::run_upstream_passage(
-    hatchery_returns,
-    hatchery_proportions,
-    wild_returns,
-    wild_proportions,
-    upstream_passage,
-    straying_matrix,
-    p_mainstem_up,
-    stocking,
-    n_broodstock,
-    inefficiency_matrix
-  )
-  
-  hatchery_adults <- spawners$hatchery_adults
-  wild_adults <- spawners$wild_adults
-  
-  # Output ----
-    return(list(
-      n_hatchery = n_hatchery,
-      n_wild = n_wild,
-      hatchery_adults = hatchery_adults,
-      wild_adults = wild_adults
-    ))
-
 }
