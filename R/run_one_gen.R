@@ -1,7 +1,7 @@
 #' @title Run the Dam Impact Analysis
 #' 
-#' @description Use functions from \code{\link{dia}} to simulate
-#' cohorts of 2 sea-winter female Atlantic salmon through time using data
+#' @description Use functions from \code{\link{dia}} to simulate one
+#' generation of 2 sea-winter female Atlantic salmon through time using data
 #' and inputs from Nieland et al. (2013, 2015, 2020) as implemented in `@Risk`.
 #' 
 #' @param n_generations Number of generations to simulate for simulation. One 
@@ -79,55 +79,54 @@
 #' 
 #' @export
 #' 
-run_dia <- function(n_generations = 1,
-                    n_wild = 31, 
-                    n_hatchery = 306,
-                    stocking = 1,
-                    n_stocked = 545000,
-                    upstream = list(
-                      medway = 1,
-                      mattaceunk = 1,
-                      west_enfield = 1,
-                      upper_dover = 1,
-                      browns_mills = 1,
-                      sebec = 1,
-                      milo = 1,
-                      howland = 1,
-                      lowel = 1,
-                      stillwater = 1,
-                      milford = 1,
-                      great_works = 1,
-                      orono = 1,
-                      veazie = 1,
-                      frankfort = 1),
-                    downstream = list(
-                      medway = 0,
-                      mattaceunk = 1,
-                      west_enfield = 0.96,
-                      upper_dover = 0.9215,
-                      browns_mills = NA,
-                      sebec = NA,
-                      milo = NA,
-                      howland = 1,
-                      lowell = NA,
-                      stillwater = 0.96,
-                      milford = 0.96,
-                      great_works = 1,
-                      orono = 0.96,
-                      veazie = 1,
-                      frankfort = NA),
-                    mattaceunk_impoundment_mortality = 0.072,
-                    p_stillwater = NULL,
-                    indirect_latent_mortality = 0.06,
-                    p_female = 0.60,
-                    new_or_old = "new",
-                    marine_s_hatchery = NULL,
-                    marine_s_wild = NULL,
-                    straying_matrix = NULL,
-                    p_mainstem_up = 1,
-                    n_broodstock = 150
-                    ){
-  
+run_one_gen <- function(n_wild = 31, 
+                        n_hatchery = 306,
+                        stocking = 1,
+                        n_stocked = 545000,
+                        upstream = list(
+                          medway = 1,
+                          mattaceunk = 1,
+                          west_enfield = 1,
+                          upper_dover = 1,
+                          browns_mills = 1,
+                          sebec = 1,
+                          milo = 1,
+                          howland = 1,
+                          lowel = 1,
+                          stillwater = 1,
+                          milford = 1,
+                          great_works = 1,
+                          orono = 1,
+                          veazie = 1,
+                          frankfort = 1),
+                        downstream = list(
+                          medway = 0,
+                          mattaceunk = 1,
+                          west_enfield = 0.96,
+                          upper_dover = 0.9215,
+                          browns_mills = NA,
+                          sebec = NA,
+                          milo = NA,
+                          howland = 1,
+                          lowell = NA,
+                          stillwater = 0.96,
+                          milford = 0.96,
+                          great_works = 1,
+                          orono = 0.96,
+                          veazie = 1,
+                          frankfort = NA),
+                        mattaceunk_impoundment_mortality = 0.072,
+                        p_stillwater = NULL,
+                        indirect_latent_mortality = 0.06,
+                        p_female = 0.60,
+                        new_or_old = "new",
+                        marine_s_hatchery = NULL,
+                        marine_s_wild = NULL,
+                        straying_matrix = NULL,
+                        p_mainstem_up = 1,
+                        n_broodstock = 150
+                        ){
+      
   # Year 1 Adults ---- 
   # Multinomial draw to distribute wild adults in PUs
   wild_adults <- stats::rmultinom(
