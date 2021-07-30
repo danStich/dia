@@ -5,7 +5,7 @@
 \title{Run downstream passage routine}
 \usage{
 run_downstream_passage(
-  hatchery_smolt_total,
+  stocked_smolts,
   wild_smolts,
   downstream_passage,
   p_stillwater,
@@ -16,8 +16,7 @@ run_downstream_passage(
 )
 }
 \arguments{
-\item{hatchery_smolt_total}{Number of hatchery smolts stocked and naturally
-produced.}
+\item{stocked_smolts}{Number of hatchery smolts stocked by PU.}
 
 \item{wild_smolts}{Number of wild-reared smolts.}
 

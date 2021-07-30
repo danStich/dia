@@ -5,25 +5,25 @@
 #' 
 #' @param returns Total number of fish returning to river.
 #' 
-#' @param straying_matrix A dataframe identical in structure to the built-in
-#' \code{\link{straying_locations}} dataset.
+#' @param straying_matrix A matrix identical in structure to the built-in
+#' \code{\link{straying_matrix}} dataset.
 #' 
 #' @references Nieland et al. (2015, 2020).
 #' 
-#' @seealso straying_locations
+#' @seealso straying_matrix, straying_locations
 #' 
 #' @export
 #' 
 run_straying <- function(returns, straying_matrix){
 
-  after_straying <- vector(
-    mode = "numeric", 
-    length = nrow(dia::straying_locations))
+  after_straying <- matrix(data = 0, nrow = 15, ncol = 15)
   
-  for( i in 2:(length(returns) + 1) ){
-    after_straying[i - 1] <- sum( returns[i - 1] * straying_matrix[, i], na.rm = TRUE )
+  for( i in 1:15 ){
+    after_straying[i, ] <- returns[i] * as.vector(straying_matrix[i, ])
   }
+  
+  destinations <- apply(after_straying, 2, sum)
     
-  return(round(after_straying, 0))
+  return(round(destinations, 0))
   
 }

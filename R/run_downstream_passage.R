@@ -3,8 +3,7 @@
 #' @description Run the downstream passage routine for Atlantic salmon Dam
 #' Impact Analysis (DIA) model v67.
 #' 
-#' @param hatchery_smolt_total Number of hatchery smolts stocked and naturally
-#' produced.
+#' @param stocked_smolts Number of hatchery smolts stocked by PU.
 #' 
 #' @param wild_smolts Number of wild-reared smolts.
 #' 
@@ -42,7 +41,7 @@
 #' 
 #' @export
 #' 
-run_downstream_passage <- function(hatchery_smolt_total,
+run_downstream_passage <- function(stocked_smolts,
                                    wild_smolts,
                                    downstream_passage,
                                    p_stillwater,
@@ -74,7 +73,7 @@ run_downstream_passage <- function(hatchery_smolt_total,
   
   # Upper Mainstem production units ----
   # . Production unit 1 dynamics ----
-  hatchery_after_inriver_PU01 <- round(hatchery_smolt_total[1] * hatchery_init[1], 0)
+  hatchery_after_inriver_PU01 <- round(stocked_smolts[1] * hatchery_init[1], 0)
   wild_after_inriver_PU01 <- round(wild_smolts[1] * wild_init[1], 0)
 
   # . Production unit 2 dynamics ----
@@ -85,7 +84,7 @@ run_downstream_passage <- function(hatchery_smolt_total,
 
   hatchery_after_inriver_PU02 <- c(
     round(hatchery_after_medway * alt_1[2], 0),
-    round(hatchery_smolt_total[2] * hatchery_init[2], 0)
+    round(stocked_smolts[2] * hatchery_init[2], 0)
     )
 
   wild_after_inriver_PU02 <- c(
@@ -112,7 +111,7 @@ run_downstream_passage <- function(hatchery_smolt_total,
   # . Production unit 3 dynamics ----
   hatchery_after_inriver_PU03 <- c(
     round(hatchery_after_mattaceunk * alt_1[3], 0),
-    round(hatchery_smolt_total[3] * hatchery_init[3])
+    round(stocked_smolts[3] * hatchery_init[3])
   )
   
   wild_after_inriver_PU03 <- c(
@@ -130,7 +129,7 @@ run_downstream_passage <- function(hatchery_smolt_total,
   # . Production unit 6 dynamics ----
   hatchery_after_inriver_PU06 <- c(
     0, 0, 0, # PUs 1-3 should be blank so these align later
-    round(hatchery_smolt_total[4] * hatchery_init[4], 0)
+    round(stocked_smolts[4] * hatchery_init[4], 0)
   )
   
   wild_after_inriver_PU06 <- c(
@@ -149,7 +148,7 @@ run_downstream_passage <- function(hatchery_smolt_total,
   # . Production unit 5 dynamics ----
   hatchery_after_inriver_PU05 <- c(
     round(hatchery_after_upper_dover * alt_1[5], 0),
-    round(hatchery_smolt_total[5] * hatchery_init[5], 0)
+    round(stocked_smolts[5] * hatchery_init[5], 0)
   )
   
   wild_after_inriver_PU05 <- c(
@@ -170,7 +169,7 @@ run_downstream_passage <- function(hatchery_smolt_total,
   # . Production unit 8 dynamics ----
   hatchery_after_inriver_PU08 <- c(
     0, 0, 0, 0, 0,
-    round(hatchery_smolt_total[6] * hatchery_init[6], 0)
+    round(stocked_smolts[6] * hatchery_init[6], 0)
   )
   
   wild_after_inriver_PU08 <- c(
@@ -189,7 +188,7 @@ run_downstream_passage <- function(hatchery_smolt_total,
   # . Production unit 7 dynamics ----
   hatchery_after_inriver_PU07 <- c(
     round(hatchery_after_inriver_PU08 * subseq[7], 0),
-    round(hatchery_smolt_total[7] * hatchery_init[7], 0)
+    round(stocked_smolts[7] * hatchery_init[7], 0)
   )
   
   wild_after_inriver_PU07 <- c(
@@ -216,7 +215,7 @@ run_downstream_passage <- function(hatchery_smolt_total,
   hatchery_after_inriver_PU04 <- 
     c(round(hatchery_after_brownsmills * alt_2[8], 0)+
       round(hatchery_after_milo * alt_1[8], 0),
-      round(hatchery_smolt_total[8] * hatchery_init[8], 0)
+      round(stocked_smolts[8] * hatchery_init[8], 0)
     )
 
   wild_after_inriver_PU04 <- 
@@ -237,7 +236,7 @@ run_downstream_passage <- function(hatchery_smolt_total,
   # . Production Unit 15 dynamics ----
   hatchery_after_inriver_PU15 <- c(
     rep(0, 8),
-    hatchery_smolt_total[9] * hatchery_init[9]
+    stocked_smolts[9] * hatchery_init[9]
   )
   
   wild_after_inriver_PU15 <- c(
@@ -261,7 +260,7 @@ run_downstream_passage <- function(hatchery_smolt_total,
   hatchery_after_inriver_PU09 <- c(
     round(hatchery_after_howland * alt_1[10], 0) +
     round(hatchery_after_lowell * alt_2[10], 0),
-    round(hatchery_smolt_total[10] * hatchery_init[10], 0)
+    round(stocked_smolts[10] * hatchery_init[10], 0)
   )
   
   wild_after_inriver_PU09 <- c(
@@ -307,7 +306,7 @@ run_downstream_passage <- function(hatchery_smolt_total,
   # . Production unit 10 (mainstem) dynamics ----
   hatchery_after_inriver_PU10 <- c(
     round(hatchery_after_milford * subseq[11], 0),
-    round(hatchery_smolt_total[11] * hatchery_init[11], 0)
+    round(stocked_smolts[11] * hatchery_init[11], 0)
   )
   
   wild_after_inriver_PU10 <- c(
@@ -326,7 +325,7 @@ run_downstream_passage <- function(hatchery_smolt_total,
   # . Production unit 11 (Stillwater Branch) dynamics ----
   hatchery_after_inriver_PU11 <- c(
     round(hatchery_after_stillwater * subseq[12], 0),
-    round(hatchery_smolt_total[12] * hatchery_init[12], 0)
+    round(stocked_smolts[12] * hatchery_init[12], 0)
   )  
   
   wild_after_inriver_PU11 <- c(
@@ -363,7 +362,7 @@ run_downstream_passage <- function(hatchery_smolt_total,
   hatchery_after_inriver_PU12 <- c(
     hatchery_after_inriver_PU12_mainstem +
     hatchery_after_inriver_PU12_stillwater,
-    round(hatchery_smolt_total[13] * hatchery_init[13], 0)
+    round(stocked_smolts[13] * hatchery_init[13], 0)
   )
   
   wild_after_inriver_PU12 <- c(
@@ -385,7 +384,7 @@ run_downstream_passage <- function(hatchery_smolt_total,
   # Production Unit 13 dynamics ----
   hatchery_after_inriver_PU13 <- c(
     rep(0, 13),
-    round(hatchery_smolt_total[14] * hatchery_init[14], 0)
+    round(stocked_smolts[14] * hatchery_init[14], 0)
   )
   
   wild_after_inriver_PU13 <- c(
@@ -409,7 +408,7 @@ run_downstream_passage <- function(hatchery_smolt_total,
   hatchery_after_inriver_PU14 <- c(
     round(hatchery_after_veazie * alt_2[15], 0) +
     round(hatchery_after_frankfort * alt_1[15], 0),
-    hatchery_smolt_total[15] * hatchery_init[15]
+    stocked_smolts[15] * hatchery_init[15]
   )
   
   wild_after_inriver_PU14 <- c(

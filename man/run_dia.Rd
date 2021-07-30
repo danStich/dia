@@ -14,15 +14,19 @@ run_dia(
     browns_mills = 1, sebec = 1, milo = 1, howland = 1, lowel = 1, stillwater = 1,
     milford = 1, great_works = 1, orono = 1, veazie = 1, frankfort = 1),
   downstream = list(medway = 0, mattaceunk = 1, west_enfield = 0.96, upper_dover =
-    0.9215, browns_mills = NA, sebec = NA, milo = NA, howland = 1, lowel = NA, stillwater
-    = 0.96, milford = 0.96, great_works = 1, orono = 0.96, veazie = 1, frankfort = NA),
+    0.9215, browns_mills = NA, sebec = NA, milo = NA, howland = 1, lowell = NA,
+    stillwater = 0.96, milford = 0.96, great_works = 1, orono = 0.96, veazie = 1,
+    frankfort = NA),
   mattaceunk_impoundment_mortality = 0.072,
   p_stillwater = NULL,
   indirect_latent_mortality = 0.06,
   p_female = 0.6,
   new_or_old = "new",
   marine_s_hatchery = NULL,
-  marine_s_wild = NULL
+  marine_s_wild = NULL,
+  straying_matrix = NULL,
+  p_mainstem_up = 1,
+  n_broodstock = 150
 )
 }
 \arguments{
@@ -81,6 +85,17 @@ survival estimates from the Penobscot River, ME, USA.}
 post-smolt to adult survival of wild outmigrants. The default (`NULL`)
 simulates values from a truncated normal distribution using wild smolt
 survival estimates from the Narraguagus River, ME, USA.}
+
+\item{straying_matrix}{A dataframe identical in structure to the built-in
+\code{\link{straying_locations}} dataset.}
+
+\item{p_mainstem_up}{Probability that fish use the mainstem Penobscot River
+(and not Stillwater Branch) for upstream migration around Marsh Island.}
+
+\item{n_broodstock}{Target number of adult returns collected at Milford Dam 
+for spawning at US Fish and Wildlife Service Craig Brook National Fish 
+Hatchery each year. Broodstock are collected upstream of Milford Dam
+in \code{\link{run_upstream_passage}}.}
 }
 \value{
 A dataframe containing inputs and outputs. Will add more

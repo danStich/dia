@@ -9,8 +9,8 @@ run_straying(returns, straying_matrix)
 \arguments{
 \item{returns}{Total number of fish returning to river.}
 
-\item{straying_matrix}{A dataframe identical in structure to the built-in
-\code{\link{straying_locations}} dataset.}
+\item{straying_matrix}{A matrix identical in structure to the built-in
+\code{\link{straying_matrix}} dataset.}
 }
 \description{
 Adult straying (homing) routine for Atlantic salmon in
@@ -20,5 +20,5 @@ the Dam Impact Analysis (DIA) model v67 during year 6.
 Nieland et al. (2015, 2020).
 }
 \seealso{
-straying_locations
+straying_matrix, straying_locations
 }

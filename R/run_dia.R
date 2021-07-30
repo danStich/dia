@@ -38,7 +38,7 @@
 #' a cumulative distribution of flows with paired estimates of p_stillwater
 #' used by Nieland et al. (2020), based on empirical results in Holbrook et al.
 #' (2006), Stich et al. (2014), and Stich et al. (2015a).
-#' 
+#'
 #' @param indirect_latent_mortality Indirect, latent mortality incurred by 
 #' Atlantic salmon smolts at each dam passed. The default value is what was used
 #' in Nieland et al. (2020), derived from estimates in Stich et al. (2015b).
@@ -59,6 +59,17 @@
 #' post-smolt to adult survival of wild outmigrants. The default (`NULL`)
 #' simulates values from a truncated normal distribution using wild smolt
 #' survival estimates from the Narraguagus River, ME, USA.
+#' 
+#' @param straying_matrix A dataframe identical in structure to the built-in
+#' \code{\link{straying_locations}} dataset.
+#' 
+#' @param p_mainstem_up Probability that fish use the mainstem Penobscot River
+#' (and not Stillwater Branch) for upstream migration around Marsh Island.
+#'  
+#' @param n_broodstock Target number of adult returns collected at Milford Dam 
+#' for spawning at US Fish and Wildlife Service Craig Brook National Fish 
+#' Hatchery each year. Broodstock are collected upstream of Milford Dam
+#' in \code{\link{run_upstream_passage}}.
 #' 
 #' @return A dataframe containing inputs and outputs. Will add more
 #' of an explanation here once we know what they all are.
@@ -98,7 +109,7 @@ run_dia <- function(n_generations = 1,
                       sebec = NA,
                       milo = NA,
                       howland = 1,
-                      lowel = NA,
+                      lowell = NA,
                       stillwater = 0.96,
                       milford = 0.96,
                       great_works = 1,
@@ -111,7 +122,10 @@ run_dia <- function(n_generations = 1,
                     p_female = 0.60,
                     new_or_old = "new",
                     marine_s_hatchery = NULL,
-                    marine_s_wild = NULL
+                    marine_s_wild = NULL,
+                    straying_matrix = NULL,
+                    p_mainstem_up = 1,
+                    n_broodstock = 150
                     ){
   
   # Year 1 Adults ---- 
@@ -136,21 +150,17 @@ run_dia <- function(n_generations = 1,
   wild_eggs <- as.vector(wild_adults * dia::life_stage_survival[1, 2] +
                hatchery_adults * dia::life_stage_survival[1, 2])
     
-  hatchery_eggs <- rep(0, length(wild_eggs))
+  stocked_eggs <- rep(0, length(wild_eggs))
   
-  all_eggs <- wild_eggs + hatchery_eggs
+  all_eggs <- wild_eggs + stocked_eggs
   
   # Year 4 Smolts ----
   # Starting number based on Year 1 eggs and survival rate
   egg_to_smolt_survival <- make_egg_to_smolt_survival()
   
-  wild_smolts <- wild_eggs * egg_to_smolt_survival
-  
-  hatchery_smolts <- round(hatchery_eggs * egg_to_smolt_survival, 0)
-  
+  wild_smolts <- round(all_eggs * egg_to_smolt_survival, 0)
+
   stocked_smolts <- round(dia::smolt_stocking(n_stocked) * stocking, 0)
-  
-  hatchery_smolt_total <- hatchery_smolts + stocked_smolts
   
   # . Downstream migration ----
   # Get user-specified and/or Alden estimated downstream survival
@@ -167,10 +177,9 @@ run_dia <- function(n_generations = 1,
   downstream_passage[is.na(downstream_passage)] <- dam_survival[is.na(downstream_passage)]
   names(downstream_passage) <- NULL
   
-  
   # Run the downstream_passage module
   downstream_out <- dia::run_downstream_passage(
-    hatchery_smolt_total = hatchery_smolt_total,
+    stocked_smolts = stocked_smolts,
     wild_smolts = wild_smolts,
     downstream_passage = downstream_passage,
     p_stillwater = p_stillwater,
@@ -182,8 +191,8 @@ run_dia <- function(n_generations = 1,
   
   hatchery_out <- downstream_out$hatchery_out
   wild_out <- downstream_out$wild_out
-  hatchery_p_out <- downstream_out$hatchery_p_out
-  wild_p_out <- downstream_out$wild_p_out
+  hatchery_proportions <- downstream_out$hatchery_p_out
+  wild_proportions <- downstream_out$wild_p_out
   
   # Year 5 dynamics (Marine) ----
   # Simulate marine survival if not specified by user
@@ -195,17 +204,45 @@ run_dia <- function(n_generations = 1,
   }
   
   # Apply marine_s to outmigrants to make them adult returns
-  hatchery_returns <- hatchery_out * marine_s_hatchery
-  wild_returns <- wild_out * marine_s_wild
-  
+  hatchery_returns <- round(hatchery_out * marine_s_hatchery, 0)
+  wild_returns <- round(wild_out * marine_s_wild, 0)
   
   
   # . Upstream migration model ----
+  upstream_passage <- unlist(upstream)
+  names(upstream_passage) <- NULL  
+  
+  if(is.null(straying_matrix)){
+    straying_matrix <- dia::straying_matrix
+  }
+  
+  if(is.null(inefficiency_matrix)){
+    inefficiency_matrix <- dia::inefficiency_matrix
+  }  
   
   
+  spawners <- dia::run_upstream_passage(
+    hatchery_returns,
+    hatchery_proportions,
+    wild_returns,
+    wild_proportions,
+    upstream_passage,
+    straying_matrix,
+    p_mainstem_up,
+    stocking,
+    n_broodstock,
+    inefficiency_matrix
+  )
   
+  hatchery_adults <- spawners$hatchery_adults
+  wild_adults <- spawners$wild_adults
   
-  
-  
-  
+  # Output ----
+    return(list(
+      n_hatchery = n_hatchery,
+      n_wild = n_wild,
+      hatchery_adults = hatchery_adults,
+      wild_adults = wild_adults
+    ))
+
 }

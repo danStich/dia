@@ -37,6 +37,7 @@ get_dam_passage <- function(stoch_val = 0.1695, new_or_old){
     if(threshold < 0.0025){quants <- 0.0025}
     if(threshold > 1){quants <- 1}
     if(threshold >= 0.025 & threshold <= 1){quants <- threshold}
+    if(!exists("quants")){quants <- stats::runif(1, 0.025, 1)}
     
     # Extract correlated flow-contingent survival rates
     dam_survival <- c(
