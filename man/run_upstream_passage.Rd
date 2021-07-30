@@ -13,7 +13,8 @@ run_upstream_passage(
   straying_matrix,
   p_mainstem_up,
   stocking,
-  n_broodstock
+  n_broodstock,
+  inefficiency_matrix
 )
 }
 \arguments{
@@ -49,6 +50,9 @@ off (`0`). Will be a vector corresponding to `n_generations` at some point.}
 for spawning at US Fish and Wildlife Service Craig Brook National Fish 
 Hatchery each year. Broodstock are collected upstream of Milford Dam
 in \code{\link{run_upstream_passage}}.}
+
+\item{inefficiency_matrix}{A matrix identical in structure to the built-in
+\code{\link{inefficiency_matrix}} dataset.}
 }
 \description{
 Run the upstream migration routine for adult Atlantic salmon in

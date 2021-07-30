@@ -41,6 +41,16 @@
 #' 
 "straying_locations"
 
+#' @title Straying matrix
+#' 
+#' @description Numeric columns only from \code{\link{straying_locations}}
+#' 
+#' @format A matrix with 15 observations of 16 variables.
+#' 
+#' @source Nieland et al. (2013, 2015, 2020)
+#' 
+"straying_matrix"
+
 #' @title Upstream inefficiency of adult migrants
 #' 
 #' @description Upstream inefficiency table from the Atlantic salmon 
@@ -48,7 +58,7 @@
 #' pass a dam, a proportion of those fish die, a proportion return 
 #' to sea, and a proportion go elsewhere to attempt to spawn.
 #' 
-#' @format A dataframe with 15 observations of 19 variables
+#' @format A dataframe with 15 observations of 15 variables
 #' \describe{
 #'   \code{dam_failed_to_pass } The dam the adults fail to pass \cr \cr
 #'   \code{p_die } The proportion of failed migrants that die \cr \cr
@@ -60,6 +70,16 @@
 #' @source Nieland et al. (2013, 2015, 2020)
 #' 
 "upstream_inefficiency"
+
+#' @title Inefficiency matrix
+#' 
+#' @description Numeric columns 5 - 20 from \code{\link{upstream_inefficiency}}
+#' 
+#' @format A matrix with 15 observations of 15 variables.
+#' 
+#' @source Nieland et al. (2013, 2015, 2020)
+#' 
+"inefficiency_matrix"
 
 #' @title Life-stage survival rates
 #' 
