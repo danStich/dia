@@ -5,7 +5,7 @@
 \alias{upstream_inefficiency}
 \title{Upstream inefficiency of adult migrants}
 \format{
-A dataframe with 15 observations of 19 variables
+A dataframe with 15 observations of 15 variables
 \describe{
   \code{dam_failed_to_pass } The dam the adults fail to pass \cr \cr
   \code{p_die } The proportion of failed migrants that die \cr \cr
