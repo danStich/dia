@@ -50,14 +50,14 @@ make_marine_s <- function(n = 1,
         a = a,
         b = b,
         mean = mean,
-        sd = dia::life_stage_survival[5, 4])    
+        sd = dia::life_stage_survival[4, 4])    
     }
     if(is.null(mean) & !is.null(sd)){
     marine_s <- truncnorm::rtruncnorm(
         n = n,
         a = a,
         b = b,
-        mean = dia::life_stage_survival[5, 2],
+        mean = dia::life_stage_survival[4, 2],
         sd = sd)  
     }  
     if(is.null(mean) & is.null(sd)){
@@ -65,8 +65,8 @@ make_marine_s <- function(n = 1,
         n = n,
         a = a,
         b = b,
-        mean = dia::life_stage_survival[5, 2],
-        sd = dia::life_stage_survival[5, 4])  
+        mean = dia::life_stage_survival[4, 2],
+        sd = dia::life_stage_survival[4, 4])  
     }    
   }
   
@@ -85,14 +85,14 @@ make_marine_s <- function(n = 1,
         a = a,
         b = b,
         mean = mean,
-        sd = dia::life_stage_survival[4, 4])    
+        sd = dia::life_stage_survival[5, 4])    
     }
     if(is.null(mean) & !is.null(sd)){
     marine_s <- truncnorm::rtruncnorm(
         n = n,
         a = a,
         b = b,
-        mean = dia::life_stage_survival[4, 2],
+        mean = dia::life_stage_survival[5, 2],
         sd = sd)  
     }  
     if(is.null(mean) & is.null(sd)){
@@ -100,8 +100,8 @@ make_marine_s <- function(n = 1,
         n = n,
         a = a,
         b = b,
-        mean = dia::life_stage_survival[4, 2],
-        sd = dia::life_stage_survival[4, 4])  
+        mean = dia::life_stage_survival[5, 2],
+        sd = dia::life_stage_survival[5, 4])  
     }    
   }  
 
