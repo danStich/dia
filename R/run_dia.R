@@ -130,21 +130,21 @@ run_dia <- function(n_generations = 3,
       
   # Seed starting population ---- 
   # Multinomial draw to distribute wild adults in PUs
-  wild_adults <- stats::rmultinom(
+  wild_adults <- as.vector(stats::rmultinom(
     n = 1, 
     size = n_wild, 
-    prob = dia::production_units$Proportion_of_HUs_in_scenario)
+    prob = dia::production_units$Proportion_of_HUs_in_scenario))
   
   # Multinomial draw to distribute hatchery adults in PUs
-  hatchery_adults <- stats::rmultinom(
+  hatchery_adults <- as.vector(stats::rmultinom(
     n = 1, 
     size = n_hatchery, 
-    prob = dia::production_units$Proportion_of_HUs_in_scenario) 
+    prob = dia::production_units$Proportion_of_HUs_in_scenario) )
   
   # Run one generation of the model ----
   out_list <- vector(mode = "list", length = n_generations)
-  out_list[[1]] <- run_one_gen(n_wild, 
-                       n_hatchery,
+  out_list[[1]] <- run_one_gen(wild_adults, 
+                       hatchery_adults,
                        stocking,
                        n_stocked,
                        upstream,
@@ -160,27 +160,27 @@ run_dia <- function(n_generations = 3,
                        p_mainstem_up,
                        n_broodstock
                        )
-  
-    for(g in 2:n_generations){
-    out_list[[g]] <- run_one_gen(
-                       n_wild = sum(out_list[[g - 1]]$hatchery_adults), 
-                       n_hatchery = sum(out_list[[g - 1]]$hatchery_adults),
-                       stocking,
-                       n_stocked,
-                       upstream,
-                       downstream,
-                       mattaceunk_impoundment_mortality,
-                       p_stillwater,
-                       indirect_latent_mortality,
-                       p_female,
-                       new_or_old,
-                       marine_s_hatchery,
-                       marine_s_wild,
-                       straying_matrix,
-                       p_mainstem_up,
-                       n_broodstock
-    )
-    
+    if(n_generations > 1){
+      for(g in 2:n_generations){
+        out_list[[g]] <- run_one_gen(
+                           hatchery_adults = out_list[[g - 1]]$hatchery_adults,
+                           wild_adults = out_list[[g - 1]]$wild_adults,
+                           stocking,
+                           n_stocked,
+                           upstream,
+                           downstream,
+                           mattaceunk_impoundment_mortality,
+                           p_stillwater,
+                           indirect_latent_mortality,
+                           p_female,
+                           new_or_old,
+                           marine_s_hatchery,
+                           marine_s_wild,
+                           straying_matrix,
+                           p_mainstem_up,
+                           n_broodstock
+                           )
+      }
     }
   
   return(out_list)

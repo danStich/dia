@@ -4,9 +4,9 @@
 #' generation of 2 sea-winter female Atlantic salmon through time using data
 #' and inputs from Nieland et al. (2013, 2015, 2020) as implemented in `@Risk`.
 #' 
-#' @param n_wild Number of starting wild adult salmon.
+#' @param wild_adults Number of starting wild adult salmon.
 #' 
-#' @param n_hatchery Number of starting hatchery adult salmon.
+#' @param hatchery_adults Number of starting hatchery adult salmon.
 #' 
 #' @param stocking Number indicating whether hatchery stocking is on (`1`) or
 #' off (`0`). Will be a vector corresponding to `n_generations` at some point.
@@ -76,8 +76,8 @@
 #' 
 #' @export
 #' 
-run_one_gen <- function(n_wild, 
-                        n_hatchery,
+run_one_gen <- function(wild_adults, 
+                        hatchery_adults,
                         stocking,
                         n_stocked,
                         upstream,
@@ -160,7 +160,6 @@ run_one_gen <- function(n_wild,
   hatchery_returns <- round(hatchery_out * marine_s_hatchery, 0)
   wild_returns <- round(wild_out * marine_s_wild, 0)
   
-  
   # . Upstream migration model ----
   upstream_passage <- unlist(upstream)
   names(upstream_passage) <- NULL  
@@ -191,8 +190,8 @@ run_one_gen <- function(n_wild,
   
   # Output ----
     return(list(
-      n_hatchery = n_hatchery,
-      n_wild = n_wild,
+      n_hatchery = sum(hatchery_adults),
+      n_wild = sum(wild_adults),
       hatchery_adults = hatchery_adults,
       wild_adults = wild_adults
     ))

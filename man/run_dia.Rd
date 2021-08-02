@@ -5,13 +5,15 @@
 \title{Run the Dam Impact Analysis}
 \usage{
 run_dia(
+  n_generations = 3,
   n_wild = 31,
   n_hatchery = 306,
   stocking = 1,
   n_stocked = 545000,
-  upstream = list(medway = 1, mattaceunk = 1, west_enfield = 1, upper_dover = 1,
-    browns_mills = 1, sebec = 1, milo = 1, howland = 1, lowel = 1, stillwater = 1,
-    milford = 1, great_works = 1, orono = 1, veazie = 1, frankfort = 1),
+  upstream = list(medway = 0, mattaceunk = 0.9, west_enfield = 0.95, upper_dover =
+    0.92, browns_mills = 0.92, sebec = 0, milo = 0, howland = 0.95, lowel = 0.92,
+    stillwater = 0, milford = 0.95, great_works = 1, orono = 0, veazie = 1, frankfort =
+    1),
   downstream = list(medway = 0, mattaceunk = 1, west_enfield = 0.96, upper_dover =
     0.9215, browns_mills = NA, sebec = NA, milo = NA, howland = 1, lowell = NA,
     stillwater = 0.96, milford = 0.96, great_works = 1, orono = 0.96, veazie = 1,
@@ -29,6 +31,9 @@ run_dia(
 )
 }
 \arguments{
+\item{n_generations}{Number of generations to simulate for simulation. One 
+complete generation from egg to returning adult is six years.}
+
 \item{n_wild}{Number of starting wild adult salmon.}
 
 \item{n_hatchery}{Number of starting hatchery adult salmon.}
@@ -92,9 +97,6 @@ survival estimates from the Narraguagus River, ME, USA.}
 for spawning at US Fish and Wildlife Service Craig Brook National Fish 
 Hatchery each year. Broodstock are collected upstream of Milford Dam
 in \code{\link{run_upstream_passage}}.}
-
-\item{n_generations}{Number of generations to simulate for simulation. One 
-complete generation from egg to returning adult is six years.}
 }
 \value{
 A dataframe containing inputs and outputs. Will add more

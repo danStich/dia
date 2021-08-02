@@ -5,8 +5,8 @@
 \title{Run the Dam Impact Analysis}
 \usage{
 run_one_gen(
-  n_wild,
-  n_hatchery,
+  wild_adults,
+  hatchery_adults,
   stocking,
   n_stocked,
   upstream,
@@ -24,9 +24,9 @@ run_one_gen(
 )
 }
 \arguments{
-\item{n_wild}{Number of starting wild adult salmon.}
+\item{wild_adults}{Number of starting wild adult salmon.}
 
-\item{n_hatchery}{Number of starting hatchery adult salmon.}
+\item{hatchery_adults}{Number of starting hatchery adult salmon.}
 
 \item{stocking}{Number indicating whether hatchery stocking is on (`1`) or
 off (`0`). Will be a vector corresponding to `n_generations` at some point.}
