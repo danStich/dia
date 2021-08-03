@@ -9,10 +9,10 @@
 #' @param hatchery_adults Number of starting hatchery adult salmon.
 #' 
 #' @param stocking Number indicating whether hatchery stocking is on (`1`) or
-#' off (`0`). Will be a vector corresponding to `n_generations` at some point.
+#' off (`0`).
 #' 
-#' @param n_stocked Number of fish to be stocked. Will also be a vector 
-#' corresponding to `n_generations` in length at some point.
+#' @param n_stocked A vector corresponding to `n_generations` in length 
+#' with number of smolts stocked in each generation simulated.
 #' 
 #' @param upstream Upstream passage efficiency of adult Atlantic salmon through
 #' dams.
@@ -159,7 +159,7 @@ run_one_gen <- function(wild_adults,
   # Apply marine_s to outmigrants to make them adult returns
   hatchery_returns <- round(hatchery_out * marine_s_hatchery, 0)
   wild_returns <- round(wild_out * marine_s_wild, 0)
-  
+
   # . Upstream migration model ----
   upstream_passage <- unlist(upstream)
   names(upstream_passage) <- NULL  

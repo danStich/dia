@@ -5,11 +5,11 @@
 \title{Run the Dam Impact Analysis}
 \usage{
 run_dia(
-  n_generations = 3,
+  n_generations = 15,
   n_wild = 31,
   n_hatchery = 306,
   stocking = 1,
-  n_stocked = 545000,
+  n_stocked = rep(545000, 15),
   upstream = list(medway = 0, mattaceunk = 0.9, west_enfield = 0.95, upper_dover =
     0.92, browns_mills = 0.92, sebec = 0, milo = 0, howland = 0.95, lowel = 0.92,
     stillwater = 0, milford = 0.95, great_works = 1, orono = 0, veazie = 1, frankfort =
@@ -106,6 +106,10 @@ of an explanation here once we know what they all are.
 Use functions from \code{\link{dia}} to simulate one
 generation of 2 sea-winter female Atlantic salmon through time using data
 and inputs from Nieland et al. (2013, 2015, 2020) as implemented in `@Risk`.
+}
+\examples{
+outlist <- run_dia(n_generations = 15)
+
 }
 \references{
 Holbrook et al. (2006); Nieland et al. (2013, 2015, 2020); Stich 

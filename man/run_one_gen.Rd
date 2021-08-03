@@ -29,10 +29,10 @@ run_one_gen(
 \item{hatchery_adults}{Number of starting hatchery adult salmon.}
 
 \item{stocking}{Number indicating whether hatchery stocking is on (`1`) or
-off (`0`). Will be a vector corresponding to `n_generations` at some point.}
+off (`0`).}
 
-\item{n_stocked}{Number of fish to be stocked. Will also be a vector 
-corresponding to `n_generations` in length at some point.}
+\item{n_stocked}{A vector corresponding to `n_generations` in length 
+with number of smolts stocked in each generation simulated.}
 
 \item{upstream}{Upstream passage efficiency of adult Atlantic salmon through
 dams.}

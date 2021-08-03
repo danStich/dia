@@ -113,6 +113,8 @@ run_upstream_passage <- function(hatchery_returns,
   total_available <- sum(hatchery_after_milford[1:9]) + 
     sum(wild_after_milford[1:9])
   
+  if(is.na(total_available)) total_available <- 0
+  
   # Default containers that will be unchanged if stocking turned off
   hatchery_after_broodstock <- hatchery_after_milford
   wild_after_broodstock <- wild_after_milford
@@ -133,7 +135,7 @@ run_upstream_passage <- function(hatchery_returns,
   
   # If fewer or same number of returns as broodstock target, then take them
   # all and zero out adults attempting to return to PUs 1 - 9
-  if(stocking == 1 & total_available <= n_broodstock){
+  if(stocking == 1 & total_available <= n_broodstock & !is.na(total_available)){
     broodstock_taken <- total_available
     hatchery_after_broodstock[1:9] <- 0
     wild_after_broodstock[1:9] <- 0

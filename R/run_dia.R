@@ -77,13 +77,16 @@
 #' @references Holbrook et al. (2006); Nieland et al. (2013, 2015, 2020); Stich 
 #' et al. (2014, 2015a, 2015b).
 #' 
+#' @examples 
+#' outlist <- run_dia(n_generations = 15)
+#' 
 #' @export
 #' 
-run_dia <- function(n_generations = 3,
+run_dia <- function(n_generations = 15,
                     n_wild = 31, 
                     n_hatchery = 306,
                     stocking = 1,
-                    n_stocked = 545000,
+                    n_stocked = rep(545000, 15),
                     upstream = list(
                       medway = 0,
                       mattaceunk = 0.90,
@@ -127,7 +130,12 @@ run_dia <- function(n_generations = 3,
                     p_mainstem_up = 1,
                     n_broodstock = 150
                     ){
-      
+  
+  # Make sure n_stocked is n_generations long
+  if(length(n_stocked) != n_generations){
+    stop("error: n_stocked must have n_generations number of elements")
+  }
+  
   # Seed starting population ---- 
   # Multinomial draw to distribute wild adults in PUs
   wild_adults <- as.vector(stats::rmultinom(
@@ -146,7 +154,7 @@ run_dia <- function(n_generations = 3,
   out_list[[1]] <- run_one_gen(wild_adults, 
                        hatchery_adults,
                        stocking,
-                       n_stocked,
+                       n_stocked = n_stocked[1],
                        upstream,
                        downstream,
                        mattaceunk_impoundment_mortality,
@@ -166,7 +174,7 @@ run_dia <- function(n_generations = 3,
                            wild_adults = out_list[[g - 1]]$wild_adults, 
                            hatchery_adults = out_list[[g - 1]]$hatchery_adults,
                            stocking,
-                           n_stocked,
+                           n_stocked = n_stocked[g],
                            upstream,
                            downstream,
                            mattaceunk_impoundment_mortality,
@@ -190,6 +198,17 @@ run_dia <- function(n_generations = 3,
     names(out_list) <- paste0("generation_", sprintf("%03d", 1:length(out_list)))
   }
   
-  return(out_list)
+  n_wild_start = n_wild
+  n_hatchery_start = n_hatchery
+  n_wild_end = out_list[[length(out_list)]]$n_wild
+  n_hatchery_end = out_list[[length(out_list)]]$n_hatchery
+  
+  if(is.na(n_wild_end)) n_wild_end <- 0
+  if(is.na(n_hatchery_end)) n_hatchery_end <- 0
+  
+  out_df <- data.frame(n_wild = n_wild_end, 
+                       n_hatchery = n_hatchery_end)
+  
+  return(out_df)
   
 }
