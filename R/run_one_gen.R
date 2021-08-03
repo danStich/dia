@@ -111,7 +111,12 @@ run_one_gen <- function(wild_adults,
   egg_to_smolt_survival <- make_egg_to_smolt_survival()
   
   wild_smolts <- round(all_eggs * egg_to_smolt_survival, 0)
-
+  
+  pp_check <- wild_smolts > dia::production_units$Smolt_production_potential
+  
+  wild_smolts[pp_check == TRUE] <- 
+    dia::production_units$Smolt_production_potential[pp_check == TRUE]
+  
   stocked_smolts <- round(dia::smolt_stocking(n_stocked) * stocking, 0)
   
   # . Downstream migration ----
