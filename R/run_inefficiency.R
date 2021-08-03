@@ -3,8 +3,8 @@
 #' @description Adult inefficiency (homing) routine for Atlantic salmon that 
 #' fail to pass a dam but that also do not die or return to sea.
 #' 
-#' @param n A vector of length 15 Total number of fish that failed to pass dams 
-#' and did not die or return to sea.
+#' @param n A vector of length 15 containing total number of fish that failed to
+#' pass dams and did not die or return to sea.
 #' 
 #' @param inefficiency_matrix A matrix identical in structure to the built-in
 #' \code{\link{inefficiency_matrix}} dataset.

@@ -19,7 +19,7 @@
 #' 
 #' @export
 #' 
-get_dam_passage <- function(stoch_val = 0.1695, new_or_old){
+get_dam_passage <- function(stoch_val = 0.1695, new_or_old = "new"){
   
     # Draw from a uniform based on Downstream Lookup in Model67.xlsx
     stoch_param <- stats::runif(1, -stoch_val, stoch_val)

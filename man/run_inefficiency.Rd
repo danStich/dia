@@ -7,8 +7,8 @@
 run_inefficiency(n, inefficiency_matrix)
 }
 \arguments{
-\item{n}{A vector of length 15 Total number of fish that failed to pass dams 
-and did not die or return to sea.}
+\item{n}{A vector of length 15 containing total number of fish that failed to
+pass dams and did not die or return to sea.}
 
 \item{inefficiency_matrix}{A matrix identical in structure to the built-in
 \code{\link{inefficiency_matrix}} dataset.}

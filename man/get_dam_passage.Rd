@@ -4,7 +4,7 @@
 \alias{get_dam_passage}
 \title{Get dam-specific survival rates}
 \usage{
-get_dam_passage(stoch_val = 0.1695, new_or_old)
+get_dam_passage(stoch_val = 0.1695, new_or_old = "new")
 }
 \arguments{
 \item{stoch_val}{Value to be used for a stochastic random draw from 

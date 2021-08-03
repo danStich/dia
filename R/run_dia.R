@@ -163,8 +163,8 @@ run_dia <- function(n_generations = 3,
     if(n_generations > 1){
       for(g in 2:n_generations){
         out_list[[g]] <- run_one_gen(
+                           wild_adults = out_list[[g - 1]]$wild_adults, 
                            hatchery_adults = out_list[[g - 1]]$hatchery_adults,
-                           wild_adults = out_list[[g - 1]]$wild_adults,
                            stocking,
                            n_stocked,
                            upstream,
@@ -182,6 +182,13 @@ run_dia <- function(n_generations = 3,
                            )
       }
     }
+    
+  if(n_generations < 100){
+    names(out_list) <- paste0("generation_", sprintf("%02d", 1:length(out_list)))
+  }
+  if(n_generations >= 100){
+    names(out_list) <- paste0("generation_", sprintf("%03d", 1:length(out_list)))
+  }
   
   return(out_list)
   
