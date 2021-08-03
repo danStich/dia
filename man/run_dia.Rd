@@ -41,8 +41,8 @@ complete generation from egg to returning adult is six years.}
 \item{stocking}{Number indicating whether hatchery stocking is on (`1`) or
 off (`0`). Will be a vector corresponding to `n_generations` at some point.}
 
-\item{n_stocked}{Number of fish to be stocked. Will also be a vector 
-corresponding to `n_generations` in length at some point.}
+\item{n_stocked}{A numeric vector corresponding to `n_generations` in length
+with number of stocked smolts per generation.}
 
 \item{upstream}{Upstream passage efficiency of adult Atlantic salmon through
 dams.}

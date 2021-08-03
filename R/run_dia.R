@@ -14,8 +14,8 @@
 #' @param stocking Number indicating whether hatchery stocking is on (`1`) or
 #' off (`0`). Will be a vector corresponding to `n_generations` at some point.
 #' 
-#' @param n_stocked Number of fish to be stocked. Will also be a vector 
-#' corresponding to `n_generations` in length at some point.
+#' @param n_stocked A numeric vector corresponding to `n_generations` in length
+#' with number of stocked smolts per generation.
 #' 
 #' @param upstream Upstream passage efficiency of adult Atlantic salmon through
 #' dams.
