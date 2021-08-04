@@ -12,6 +12,21 @@ River, Maine, USA.
 \section{Functions called directly}{
 
 The following functions can be called directly from dia.
+
+ \describe{
+   \code{\link{run_dia}}{ The primary user-facing function used to run the multi-generation DIA model for Atlantic salmon} \cr
+   \code{\link{run_one_gen}}{ Run the DIA model for a single generation} \cr
+   \code{\link{get_dam_passage}}{ Get flow-correlated downstream dam passage values and probability of using Stillwater Branch for smolts each year in `run_one_gen`} \cr
+   \code{\link{make_egg_to_smolt_survival}}{ Simulate survival from egg to smolt stage for naturally produced smolts in `run_one_gen`} \cr
+   \code{\link{make_eggs_per_female}}{ Simulate number of eggs per female each year in `run_one_gen`} \cr
+   \code{\link{make_inriver_s}}{ Simulate natural, in-river survival per km for downstream migrating smolts in `run_one_gen`} \cr   
+   \code{\link{make_marine_s}}{ Simulate marine survival each year in `run_one_gen`} \cr    
+   \code{\link{run_downstream_passage}}{ Run the downstream smolt passage module in `run_one_gen`} \cr
+   \code{\link{run_inefficiency}}{ Re-distribute adult upstream migrants following failed dam passage in `run_one_gen`} \cr    
+   \code{\link{run_straying}}{ Assign destination production units for adult returns in `run_one_gen`} \cr      
+   \code{\link{run_upstream_passage}}{ Function used to run the upstream passage module for adults in `run_one_gen`} \cr        
+   \code{\link{smolt_stocking}}{ Function used to distribute stocked smolts among production units in `run_one_gen`} \cr
+ }
 }
 
 \section{Data}{
@@ -43,6 +58,9 @@ The following built-in datasets are included:
     \code{\link{stillwater_use_old}}{ Original (2013) probability of smolts using Stillwater Branch for outmigration given discharge} \cr
     \code{\link{stocking_default}}{ Default stocking proportions of smolts by PU} \cr
     \code{\link{straying_locations}}{ Straying locations of adult Atlantic salmon based on behavioral patterns} \cr
+    \code{\link{straying_matrix}}{ Numeric columns only from `straying_locations`} \cr
+    \code{\link{upstream_inefficiency}}{ Destination PUs and probabilities for adults that fail to pass dams} \cr
+    \code{\link{inefficiency_matrix}}{ Columns 5 through 20 from `upstream_inefficiency`} \cr
   }
 }
 
