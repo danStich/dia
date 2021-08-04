@@ -37,32 +37,32 @@ off (`0`).}
 dams.}
 
 \item{downstream}{Downstream survival of Atlantic salmon smolts through dams.
-The default values are based on the most recent values used by Nieland et al. 
+The default values are based on the most recent values used by Nieland and Sheehan
 (2020) based on standards established in the the NOAA Species Protection Plan
 following implementation of the Penobscot River Restoration Project.
 The default `NULL` randomly samples correlated survival rates of smolts for 
 each dam based on cumulative flow probabilities and associated empirical 
-survival rates (Nieland et al. 2013, 2020).}
+survival rates (Nieland et al. 2013, Nieland and Sheehan 2020).}
 
 \item{mattaceunk_impoundment_mortality}{Mortality incurred by Atlantic salmon
 smolts during migration through the Mattaceunk (Weldon) Dam impoundment. The
-default value is based on Nieland et al. (2020). Based on results of 
+default value is based on Nieland and Sheehan (2020). Based on results of 
 Holbrook et al. (2011) and Stich et al. (2015a).}
 
 \item{p_stillwater}{Probability that fish use the Stillwater Branch for 
 downstream migration. The default (`NULL`) draws flow-correlated values from
 a cumulative distribution of flows with paired estimates of p_stillwater
-used by Nieland et al. (2020), based on empirical results in Holbrook et al.
+used by Nieland and Sheehan (2020), based on empirical results in Holbrook et al.
 (2006), Stich et al. (2014), and Stich et al. (2015a).}
 
 \item{indirect_latent_mortality}{Indirect, latent mortality incurred by 
 Atlantic salmon smolts at each dam passed. The default value is what was used
-in Nieland et al. (2020), derived from estimates in Stich et al. (2015b).}
+in Nieland and Sheehan (2020), derived from estimates in Stich et al. (2015b).}
 
 \item{p_female}{Proportion of females in population.}
 
 \item{new_or_old}{A character string indicating whether to use `"new"` 
-(Nieland et al. 2013, 2015) or `"old"` (Nieland et al. 2020) flow-correlated
+(Nieland et al. 2013, 2015) or `"old"` (Nieland and Sheehan 2020) flow-correlated
 probabilities of p_stillwater as well as flow-correlated survival at 
 `milford`, `orono`, and `stillwater` dams.}
 
@@ -80,7 +80,9 @@ survival estimates from the Narraguagus River, ME, USA.}
 \code{\link{straying_locations}} dataset.}
 
 \item{p_mainstem_up}{Probability that fish use the mainstem Penobscot River
-(and not Stillwater Branch) for upstream migration around Marsh Island.}
+(and not Stillwater Branch) for upstream migration around Marsh Island. 
+The default value (`NULL`) draws flow-correlated probabilities based on
+Holbrook et al. (2009).}
 
 \item{n_broodstock}{Target number of adult returns collected at Milford Dam 
 for spawning at US Fish and Wildlife Service Craig Brook National Fish 
@@ -97,6 +99,35 @@ generation of 2 sea-winter female Atlantic salmon through time using data
 and inputs from Nieland et al. (2013, 2015, 2020) as implemented in `@Risk`.
 }
 \references{
-Holbrook et al. (2006); Nieland et al. (2013, 2015, 2020); Stich 
-et al. (2014, 2015a, 2015b).
+Holbrook CM, Kinnison MT, Zydlewski J. 2011. Survival of migrating Atlantic 
+salmon smolts through the Penobscot River, Maine: a prerestoration assessment. 
+Transactions of the American Fisheries Society 140:1255–1268.
+
+Holbrook CM, Zydlewski J, Gorsky D, Shepard SL, Kinnison MT. 2009. Movements of 
+prespawn adult Atlantic salmon near hydroelectric dams in the lower Penobscot 
+River, Maine. North American Journal of Fisheries Management 29:495–505.
+
+Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
+in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
+Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
+Hole, MA.
+
+Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+Maine. ICES Journal of Marine Science 72:2423–2437. 
+
+Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+Department of Commerce, Northeast Fisheries Science Center Reference Document 
+13-09, Woods Hole, MA.
+
+Stich DS, Bailey MM, Holbrook CM, Kinnison MT, Zydlewski JD. 2015a. 
+Catchment-wide survival of wild- and hatchery-reared Atlantic salmon smolts in
+a changing system. Canadian Journal of Fisheries and Aquatic Sciences 
+72:1352–1365.
+Stich DS, Bailey MM, Zydlewski JD. 2014. Survival of Atlantic salmon Salmo salar
+smolts through a hydropower complex. Journal of Fish Biology 85:1074–1096.
+Stich DS, Kinnison MT, Kocik JF, Zydlewski JD. 2015b. Initiation of migration 
+and movement rates of Atlantic salmon smolts in fresh water. Canadian Journal 
+of Fisheries and Aquatic Sciences 72:1339–1351.
 }

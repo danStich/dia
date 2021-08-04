@@ -30,5 +30,8 @@ collected at the US Fish and Wildlife Service Craig Brook National Fish
 Hatchery.
 }
 \references{
-Nieland et al. (2020)
+Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
+in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
+Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
+Hole, MA.
 }

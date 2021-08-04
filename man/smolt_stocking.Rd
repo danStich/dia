@@ -10,7 +10,8 @@ smolt_stocking(n_stocked = 545000, stocking_proportions = NULL)
 \item{n_stocked}{Number of hatchery-reared 2-year smolts to be stocked.}
 
 \item{stocking_proportions}{Proportion of total to be stocked in each PU. The
-values must sum to 1.}
+values must sum to 1. Default values are based on smolt stocking locations
+2008 - 2017 (USASAC 2018).}
 }
 \value{
 A vector with 15 elements within which positions correspond to PUs
@@ -23,5 +24,16 @@ on starting number of smolts and proportion of smolts to be stocked in each
 PU.
 }
 \references{
-Nieland et al. (2015, 2020).
+Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
+in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
+Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
+Hole, MA.
+
+Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+Maine. ICES Journal of Marine Science 72:2423–2437. 
+
+USASAC (US Atlantic Salmon Assessment Committee). 2018. Annual Report of the 
+US Atlantic Salmon Assessment Committee, Report No. 30 - 2017 Activities, 
+Portland, ME.
 }

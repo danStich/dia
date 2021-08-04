@@ -5,7 +5,9 @@
 #' 
 #' @param m Natural in-river mortality rate per km. The default (`NULL`) 
 #' uses a truncated normal distribution with mean = 0.00329 and standard 
-#' deviation of 0.00459 defined on the interval (0, 0.29)
+#' deviation of 0.00459 defined on the interval (0, 0.29) used by Nieland and 
+#' Sheehan (2020) with empirical estimates from Holbrook et al. (2011) and
+#' Stich et al. (2015a)
 #' 
 #' @param initial Logical indicating Whether in-river mortality rate is for initial PU or
 #' a PU downstream from where smolts started. If `TRUE` then default hatchery 
@@ -25,9 +27,23 @@
 #' `"Partial_segment_length_2"` (`alt = 3`) from the `production_units` table to
 #' calculate whole-reach survival rates based on per-km mortality.
 #' 
-#' @return A vector with 15 elements, I think...
+#' @return A numeric vector with 15 elements corresponding to PUs in the 
+#' Penobscot River watershed.
 #' 
-#' @references Nieland et al. (2020).
+#' @references
+#' Holbrook CM, Kinnison MT, Zydlewski J. 2011. Survival of migrating Atlantic 
+#' salmon smolts through the Penobscot River, Maine: a prerestoration assessment. 
+#' Transactions of the American Fisheries Society 140:1255–1268.
+#' 
+#' Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
+#' in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
+#' Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
+#' Hole, MA.
+#' 
+#' Stich DS, Bailey MM, Holbrook CM, Kinnison MT, Zydlewski JD. 2015a. 
+#' Catchment-wide survival of wild- and hatchery-reared Atlantic salmon smolts in
+#' a changing system. Canadian Journal of Fisheries and Aquatic Sciences 
+#' 72:1352–1365.
 #' 
 #' @export
 #' 

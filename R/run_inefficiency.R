@@ -7,9 +7,22 @@
 #' pass dams and did not die or return to sea.
 #' 
 #' @param inefficiency_matrix A matrix identical in structure to the built-in
-#' \code{\link{inefficiency_matrix}} dataset.
+#' \code{\link{inefficiency_matrix}} dataset (NMFS 2012; Neiland et al. 2013).
 #' 
-#' @references Nieland et al. (2015, 2020).
+#' @references
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
+#' 
+#' NMFS (National Marine Fisheries Service). 2012. Biological Opinion regarding 
+#' effects to the endangered GOM DPS for Atlantic salmon (Salmo salar), endangered 
+#' shortnose sturgeon (Acipenser brevirostrum), and the threatened and endangered 
+#' DPSs of Atlantic sturgeon (Acipenser oxyrhynchus oxyrhynchus) from proposed 
+#' FERC license amendments for Black Bear Hydro Partners’ Hydroelectric Projects 
+#' on the Penobscot River in Maine. NMFS Greater Atlantic Regional Office, 
+#' Gloucester, MA.
 #' 
 #' @seealso inefficiency_matrix, upstream_inefficiency
 #' 

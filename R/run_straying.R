@@ -8,7 +8,20 @@
 #' @param straying_matrix A matrix identical in structure to the built-in
 #' \code{\link{straying_matrix}} dataset.
 #' 
-#' @references Nieland et al. (2015, 2020).
+#' @references
+#' Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
+#' in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
+#' Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
+#' Hole, MA.
+#' 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
 #' 
 #' @seealso straying_matrix, straying_locations
 #' 

@@ -35,7 +35,9 @@ these values are passed as output from `run_downstream_migration()`.}
 \item{upstream_passage}{Numeric vector with length = 15 corresponding to
 dam passage efficiencies at each of 15 dams in the watershed that are used 
 to delineate PUs. Default usage is to inherit these values from the 
-\code{link{run_dia}} function's `upstream_passage` argument.}
+\code{link{run_dia}} function's `upstream_passage` argument using default
+values based on NMFS (2013) prescriptions as implemented in Nieland and
+Sheehan (2020).}
 
 \item{straying_matrix}{A dataframe identical in structure to the built-in
 \code{\link{straying_locations}} dataset.}
@@ -59,7 +61,15 @@ Run the upstream migration routine for adult Atlantic salmon in
 the Dam Impact Analysis (DIA) model v67 during year 6.
 }
 \references{
-Nieland et al. (2015, 2020).
+Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
+in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
+Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
+Hole, MA.
+
+NMFS (National Marine Fisheries Service). 2013. Endangered Species Act 
+Biological Opinion: FERC amendment of license for the Mattaceunk Project 
+(Interim Species Protection Plan). NMFS Greater Atlantic Regional Office, 
+NER-2013-9640, Gloucester, MA.
 }
 \seealso{
 run_dia, run_downstream_passage

@@ -2,7 +2,10 @@
 #' 
 #' @description Simulate marine survival from the built-in
 #' \code{\link{life_stage_survival}} dataset using a truncated normal 
-#' distribution.
+#' distribution (Nieland and Sheehan 2020). For hatchery fish, smolt survival 
+#' is based on empirical results from Stich et al. (2015a, 2015c) and adult
+#' returns based on MDMR (2018). For wild fish, estimate is based on
+#' smolt-to-adult returns in the Narraguagus River (USASAC 2018).
 #' 
 #' @param n Number of samples
 #' 
@@ -12,7 +15,7 @@
 #' 
 #' @param mean Mean of distribution. When `mean = NULL` (default), the mean
 #' value is parameterized from the built-in \code{\link{life_stage_survival}}
-#' dataset.
+#' dataset. 
 #' 
 #' @param sd Standard deviation of distribution. When `mean = NULL` (default), 
 #' the mean value is parameterized from the built-in
@@ -23,8 +26,25 @@
 #' 
 #' @return A vector of length `n`
 #' 
-#' @references Nieland et al. (2020)
+#' @references
+#' Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
+#' in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
+#' Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
+#' Hole, MA.
 #' 
+#' Stich DS, Bailey MM, Holbrook CM, Kinnison MT, Zydlewski JD. 2015a. 
+#' Catchment-wide survival of wild- and hatchery-reared Atlantic salmon smolts in
+#' a changing system. Canadian Journal of Fisheries and Aquatic Sciences 
+#' 72:1352–1365.
+#'  
+#' Stich DS, Zydlewski GB, Kocik JF, Zydlewski JD. 2015c. Linking behavior, 
+#' physiology, and survival of Atlantic salmon smolts during estuary migration. 
+#' Marine and Coastal Fisheries 7:68–86.  
+#'  
+#' USASAC (US Atlantic Salmon Assessment Committee). 2018. Annual Report of the 
+#' US Atlantic Salmon Assessment Committee, Report No. 30 - 2017 Activities, 
+#' Portland, ME.
+#'  
 #' @export
 #' 
 make_marine_s <- function(n = 1, 

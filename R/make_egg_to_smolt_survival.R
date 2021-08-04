@@ -2,7 +2,7 @@
 #' 
 #' @description Simulate egg-to-smolt survival from the built-in
 #' \code{\link{life_stage_survival}} dataset using a truncated normal 
-#' distribution.
+#' distribution (Nieland and Sheehan 2020).
 #' 
 #' @param n Number of samples
 #' 
@@ -12,15 +12,21 @@
 #' 
 #' @param mean Mean of distribution. When `mean = NULL` (default), the mean
 #' value is parameterized from the built-in \code{\link{life_stage_survival}}
-#' dataset.
+#' dataset. Values are based on available studies cited in Nieland and 
+#' Sheehan (2020).
 #' 
 #' @param sd Standard deviation of distribution. When `mean = NULL` (default), 
 #' the mean value is parameterized from the built-in
-#'  \code{\link{life_stage_survival}} dataset.
+#' \code{\link{life_stage_survival}} dataset (Nieland and Sheehan 2020).
 #' 
 #' @return A vector of length `n`
 #' 
-#' @references Nieland et al. (2020)
+#' @references
+#' 
+#' Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
+#' in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
+#' Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
+#' Hole, MA.
 #' 
 #' @export
 #' 

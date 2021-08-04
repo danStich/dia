@@ -1,21 +1,40 @@
 #' @title Get dam-specific survival rates
 #' 
 #' @description Get correlated dam-specific downstream survival rates for 
-#' smolts at each dam from built-in `downstream_` datasets.
+#' smolts at each dam from built-in `downstream_` datasets. Values based on 
+#' Amaral et al. (2012) and sampled following Nieland et al. (2013, 2015) and
+#' Nieland and Sheehan (2020).
 #' 
 #' @param stoch_val Value to be used for a stochastic random draw from 
 #' `runif(-stoch_val, stoch_val)` to enforce variability on quantiles used
 #' for flow-correlated survival values in the underlying data sets following
-#' Nieland et al. (2020).
+#' Nieland and Sheehan (2020).
 #' 
 #' @param new_or_old A character string indicating whether to use `"new"` 
-#' (Nieland et al. 2013, 2015) or `"old"` (Nieland et al. 2020) flow-correlated
-#' probabilities of p_stillwater as well as flow-correlated survival at 
-#' `milford`, `orono`, and `stillwater` dams.
+#' (Amaral et al. 2012, Nieland and Sheehan 2020) or `"old"` (Amaral et al. 2012, 
+#' Nieland et al. 2020) flow-correlated probabilities of p_stillwater as well 
+#' as flow-correlated survival at `milford`, `orono`, and `stillwater` dams.
 #' 
 #' @return A vector with dam passage rates 
 #' 
-#' @references Nieland et al. (2013, 2020).
+#' @references
+#' Amaral S, Fay C, Hecker G, Perkins N. 2012. Atlantic salmon survival 
+#' estimates at mainstem hydroelectric projects on the Penobscot River. 
+#' Phase 3 Final Report. Alden Research Laboratory, Inc., Holden, MA.
+#' 
+#' Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
+#' in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
+#' Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
+#' Hole, MA.
+#' 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
 #' 
 #' @export
 #' 
