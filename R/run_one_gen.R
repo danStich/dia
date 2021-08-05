@@ -147,6 +147,7 @@ run_one_gen <- function(wild_adults,
   wild_smolts <- round(all_eggs * egg_to_smolt_survival, 0)
   
   pp_check <- wild_smolts > dia::production_units$Smolt_production_potential
+  pp_check[is.na(pp_check)] <- FALSE
   
   wild_smolts[pp_check == TRUE] <- 
     dia::production_units$Smolt_production_potential[pp_check == TRUE]
@@ -227,11 +228,11 @@ run_one_gen <- function(wild_adults,
   wild_adults <- spawners$wild_adults
   
   # Output ----
-    return(list(
-      n_hatchery = sum(hatchery_adults),
-      n_wild = sum(wild_adults),
+    return(data.frame(
+      production_unit = paste0("PU_", sprintf("%02d", dia::production_units$PU)),
       hatchery_adults = hatchery_adults,
       wild_adults = wild_adults
-    ))
+    )
+    )
 
 }

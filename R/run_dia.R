@@ -192,6 +192,7 @@ run_dia <- function(n_generations = 15,
   
   # Run one generation of the model ----
   out_list <- vector(mode = "list", length = n_generations)
+  g <- 1
   out_list[[1]] <- run_one_gen(wild_adults, 
                        hatchery_adults,
                        stocking,
@@ -239,17 +240,27 @@ run_dia <- function(n_generations = 15,
     names(out_list) <- paste0("generation_", sprintf("%03d", 1:length(out_list)))
   }
   
-  n_wild_start = n_wild
-  n_hatchery_start = n_hatchery
-  n_wild_end = out_list[[length(out_list)]]$n_wild
-  n_hatchery_end = out_list[[length(out_list)]]$n_hatchery
+  odf <- do.call(rbind, lapply(out_list, data.frame))
+  odf$generation <- row.names(odf)
   
-  if(is.na(n_wild_end)) n_wild_end <- 0
-  if(is.na(n_hatchery_end)) n_hatchery_end <- 0
+  if(n_generations < 100){
+    odf$generation <- as.numeric(as.factor(substr(odf$generation, 1, 13)))
+  }
   
-  out_df <- data.frame(n_wild = n_wild_end, 
-                       n_hatchery = n_hatchery_end)
+  if(n_generations >= 100){
+    odf$generation <- as.numeric(as.factor(substr(odf$generation, 1, 14)))
+  }
   
-  return(out_df)
+  row.names(odf) <- seq(1, nrow(odf))
+  
+  odf <- data.frame(
+    tidyr::pivot_longer(odf, 
+                        cols = c("hatchery_adults", "wild_adults"), 
+                        names_to = "origin", 
+                        values_to = "abundance"))
+  odf$origin <- gsub("_adults", "", odf$origin)
+  odf$abundance[is.na(odf$abundance)] <- 0
+  
+  return(odf)
   
 }
