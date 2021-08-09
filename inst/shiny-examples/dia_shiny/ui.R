@@ -2,7 +2,6 @@ library(DT)
 
 # Define UI for app that draws a histogram ----
 ui <- fluidPage(
-
   
   # App title ----
   titlePanel("Dam Impact Analysis (DIA) model for Atlantic salmon"),

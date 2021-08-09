@@ -8,7 +8,7 @@ Description: Hosts code and data for running the Atlantic salmon Dam Impact Anal
 Depends: R (>= 3.5.0)
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
-Imports: truncnorm, tidyr, shiny, DT, ggplot2
+Imports: truncnorm, tidyr, shiny, DT, dplyr, ggplot2
 LazyData: true
 RoxygenNote: 7.1.1
 Suggests: 

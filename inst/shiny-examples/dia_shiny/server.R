@@ -160,7 +160,7 @@ server <- function(input, output) {
       mydata <- model_run()
       
       if(x == "By generation"){
-        
+        # Summarize data
         plotter <- mydata %>% 
           dplyr::group_by(generation, origin, production_unit) |> 
           dplyr::summarize(abund = median(abundance),
@@ -174,19 +174,31 @@ server <- function(input, output) {
                     upr = sum(upr),
                     .groups = "keep"
                     )
-        # plot(plotter$generation, plotter$abundance)
+          plotter$origin[plotter$origin == "hatchery"] <- "Hatchery"
+          plotter$origin[plotter$origin == "wild"] <- "Wild"
+          names(plotter) <- c("Generation", "Origin",
+                              "Abundance", "lwr", "upr")
+          
+        
+        # Make plot
         p <- ggplot2::ggplot(plotter, 
-                             ggplot2::aes(x = generation, y = abundance,
-                                          fill = origin, color = origin)) +
+                             ggplot2::aes(x = Generation, y = Abundance,
+                                          fill = Origin, color = Origin)) +
              ggplot2::geom_ribbon(
-               ggplot2::aes(xmax = generation, ymin = lwr, ymax = upr,
+               ggplot2::aes(xmax = Generation, ymin = lwr, ymax = upr,
                             color = NULL), alpha = 0.15) +
-             ggplot2::geom_line()
+             ggplot2::geom_line() +
+             theme_bw() +
+             theme(
+               axis.title.x = element_text(vjust = -1),
+               axis.title.y = element_text(vjust = 3)
+             )
         
         print(p)
         
       }
       if(x == "By production unit"){
+        # Summarize data
         plotter <- mydata %>%         
           dplyr::group_by(generation, origin, production_unit) %>% 
           dplyr::filter(generation == max(generation)) %>% 
@@ -195,7 +207,23 @@ server <- function(input, output) {
                     upr = quantile(abundance, 0.975),
                     .groups = "keep"
                     )
-        boxplot(abundance ~ production_unit, data = plotter)
+          plotter$origin[plotter$origin == "hatchery"] <- "Hatchery"
+          plotter$origin[plotter$origin == "wild"] <- "Wild"
+          names(plotter) <- c("Generation", "Origin", "production_unit",
+                              "Abundance", "lwr", "upr")
+        
+        # Make plot
+        p <- ggplot2::ggplot(plotter, 
+                             ggplot2::aes(x = production_unit, y = Abundance,
+                                          fill = Origin, color = Origin)) +
+             ggplot2::geom_boxplot(alpha = 0.10) +
+             xlab("Production unit") +
+             theme_bw() +
+             theme(
+               axis.title.x = element_text(vjust = -1),
+               axis.title.y = element_text(vjust = 3)
+             )
+        print(p)
         
       }      
       
