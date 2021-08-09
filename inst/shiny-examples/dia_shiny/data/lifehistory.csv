@@ -1,0 +1,7 @@
+Parameter,Value
+Number of generations,15
+Starting number of wild adults,31
+Starting number of hatchery adults,306
+Proportion female,0.6
+Mattaceunk impoundment mortality,0.072
+Indirect latent mortality,0.06
