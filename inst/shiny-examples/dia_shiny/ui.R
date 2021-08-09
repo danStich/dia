@@ -52,7 +52,9 @@ ui <- fluidPage(
       tabsetPanel(
         tabPanel(
           title = "Tabular output",
-          dataTableOutput("model_result")    
+          br(),
+          fluidRow(dataTableOutput('model_result')),
+          br()
         ),
         tabPanel(
           title = "Plot",

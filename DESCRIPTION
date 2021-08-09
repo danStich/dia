@@ -5,10 +5,10 @@ Version: 0.1.0
 Author: D. S. Stich, J. L. Nieland, and T. F. Sheehan
 Maintainer: <daniel.stich@oneonta.edu>
 Description: Hosts code and data for running the Atlantic salmon Dam Impact Analysis (DIA) model.
-Depends: R (>= 3.5.0), shiny
+Depends: R (>= 3.5.0)
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
-Imports: truncnorm
+Imports: truncnorm, tidyr, shiny, DT, ggplot2
 LazyData: true
 RoxygenNote: 7.1.1
 Suggests: 

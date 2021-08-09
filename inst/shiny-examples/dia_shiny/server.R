@@ -3,24 +3,24 @@ server <- function(input, output) {
 
   # Library loads ----
   library(dia)
-  library(doParallel)
   library(foreach)
   library(DT)
-  library(tidyverse)
+  library(dplyr)
+  library(ggplot2)  
   
   # Data read and default parameter load ----
   # . Default fish passage ----
   passage <- read.csv("data/passage.csv")
-  r_passage <- reactiveValues(data = passage)
+  r_passage <- shiny::reactiveValues(data = passage)
   
-  output$passage <- renderDT({
+  output$passage <- DT::renderDT({
       DT::datatable(r_passage$data, editable = TRUE,
                     options = list(pageLength = 15, lengthChange = FALSE,
                                    bInfo = FALSE, searching = FALSE,
                                    ordering = FALSE, paging = FALSE))
   })
   
-  observeEvent(input$passage_cell_edit, {
+  shiny::observeEvent(input$passage_cell_edit, {
       #get values
       info = input$passage_cell_edit
       i = as.numeric(info$row)
@@ -33,16 +33,16 @@ server <- function(input, output) {
   
   # . Default life-history parameters ----
   lifehistory <- read.csv("data/lifehistory.csv")
-  r_lifehistory <- reactiveValues(data = lifehistory)
+  r_lifehistory <- shiny::reactiveValues(data = lifehistory)
   
-  output$lifehistory <- renderDT({
+  output$lifehistory <- DT::renderDT({
       DT::datatable(r_lifehistory$data, editable = TRUE,
                     options = list(pageLength = 15, lengthChange = FALSE,
                                    bInfo = FALSE, searching = FALSE,
                                    ordering = FALSE, paging = FALSE))
   })
   
-  observeEvent(input$lifehistory_cell_edit, {
+  shiny::observeEvent(input$lifehistory_cell_edit, {
       #get values
       info = input$lifehistory_cell_edit
       i = as.numeric(info$row)
@@ -56,16 +56,16 @@ server <- function(input, output) {
   # Stocking options ----
   stocking <- read.csv("data/stocking.csv")
   
-  r_stocking <- reactiveValues(data = stocking)
+  r_stocking <- shiny::reactiveValues(data = stocking)
   
-  output$stocking <- renderDT({
+  output$stocking <- DT::renderDT({
       DT::datatable(r_stocking$data[1:r_lifehistory$data[1, 2],], editable = TRUE,
                     options = list(pageLength = 15, lengthChange = FALSE,
                                    bInfo = FALSE, searching = FALSE,
                                    ordering = FALSE, paging = FALSE))
   })
   
-  observeEvent(input$stocking_cell_edit, {
+  shiny::observeEvent(input$stocking_cell_edit, {
       #get values
       info = input$stocking_cell_edit
       i = as.numeric(info$row)
@@ -79,12 +79,12 @@ server <- function(input, output) {
   
   # DIA model run ----
   
-  model_run <- reactive({
-      req(input$go)   
+  model_run <- shiny::reactive({
+      shiny::req(input$go)   
       do.call(rbind, 
-      foreach(1:input$n_runs) %do%
+      foreach::foreach(1:input$n_runs) %do%
         
-      run_dia(
+      dia::run_dia(
       n_generations = r_lifehistory$data[1, 2],
       n_wild = r_lifehistory$data[2, 2], 
       n_hatchery = r_lifehistory$data[3, 2],
@@ -136,19 +136,24 @@ server <- function(input, output) {
       })
   
   
-  
-  output$model_result <- renderDT({
-    mydata <- model_run()
-    mydata %>% 
-      group_by(generation, origin, production_unit) %>% 
-      summarize(abund = round(mean(abundance), 0),
-                lwr = round(quantile(abundance, 0.025), 0),
-                upr = round(quantile(abundance, 0.975), 0),
+  output$model_result <- renderDT(server = FALSE,
+    model_run() |>
+      dplyr::group_by(generation, origin, production_unit) |> 
+      dplyr::summarize(Abundance = round(mean(abundance), 0),
+                Lower = round(quantile(abundance, 0.025), 0),
+                Upper = round(quantile(abundance, 0.975), 0),
                 .groups = "keep"
-                )
-  })
+                ),
+    rownames = FALSE,
+    colnames = c("Generation", "Origin", "Production Unit",
+                 "Abundance", "Lower", "Upper")
+    , extensions = 'Buttons',
+    options = list(dom = 'Bfrtip', buttons = c('copy', 'csv', 'excel'), 
+                   exportOptions = list(modifier = list(page = "all")))
+  )
   
-    output$graph <- renderPlot({
+    
+    output$graph <- shiny::renderPlot({
       
       x <- input$result_type
       
@@ -157,32 +162,35 @@ server <- function(input, output) {
       if(x == "By generation"){
         
         plotter <- mydata %>% 
-          group_by(generation, origin, production_unit) %>% 
-          summarize(abund = median(abundance),
+          dplyr::group_by(generation, origin, production_unit) |> 
+          dplyr::summarize(abund = median(abundance),
                     lwr = quantile(abundance, 0.025),
                     upr = quantile(abundance, 0.975),
                     .groups = "keep"
                     ) %>% 
-          group_by(generation, origin) %>% 
-          summarize(abundance = sum(abund),
+          dplyr::group_by(generation, origin) |> 
+          dplyr::summarize(abundance = sum(abund),
                     lwr = sum(lwr),
                     upr = sum(upr),
                     .groups = "keep"
                     )
         # plot(plotter$generation, plotter$abundance)
-        p <- ggplot(plotter, aes(x = generation, y = abundance,
-               fill = origin, color = origin)) +
-             geom_ribbon(aes(xmax = generation, ymin = lwr, ymax = upr,
-                             color = NULL), alpha = 0.15) +
-             geom_line()
+        p <- ggplot2::ggplot(plotter, 
+                             ggplot2::aes(x = generation, y = abundance,
+                                          fill = origin, color = origin)) +
+             ggplot2::geom_ribbon(
+               ggplot2::aes(xmax = generation, ymin = lwr, ymax = upr,
+                            color = NULL), alpha = 0.15) +
+             ggplot2::geom_line()
+        
         print(p)
         
       }
       if(x == "By production unit"){
         plotter <- mydata %>%         
-          group_by(generation, origin, production_unit) %>% 
-          filter(generation == max(generation)) %>% 
-          summarize(abundance = mean(abundance),
+          dplyr::group_by(generation, origin, production_unit) %>% 
+          dplyr::filter(generation == max(generation)) %>% 
+          dplyr::summarize(abundance = mean(abundance),
                     lwr = quantile(abundance, 0.025),
                     upr = quantile(abundance, 0.975),
                     .groups = "keep"
