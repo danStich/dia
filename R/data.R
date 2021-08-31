@@ -21,8 +21,21 @@
 #'   \code{Dam} Name of dam at downstream end of PU
 #' }
 #'
-#' @source Nieland et al. (2013, 2015, 2020)
-#'
+#' @source 
+#' Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
+#' in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
+#' Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
+#' Hole, MA.
+#' 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
+#' 
 "production_units"
 
 #' @title Straying locations
@@ -37,7 +50,20 @@
 #'   \code{PU_01, ..., PU14 } Destination production unit as adult \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2013, 2015, 2020)
+#' @source 
+#' Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
+#' in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
+#' Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
+#' Hole, MA.
+#' 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
 #' 
 "straying_locations"
 
@@ -47,7 +73,20 @@
 #' 
 #' @format A matrix with 15 observations of 16 variables.
 #' 
-#' @source Nieland et al. (2013, 2015, 2020)
+#' @source 
+#' Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
+#' in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
+#' Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
+#' Hole, MA.
+#' 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
 #' 
 "straying_matrix"
 
@@ -67,7 +106,20 @@
 #'   \code{PU_01...PU14 } The destination PUs for failed migrants at each dam with proportion going to each \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2013, 2015, 2020)
+#' @source 
+#' Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
+#' in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
+#' Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
+#' Hole, MA.
+#' 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
 #' 
 "upstream_inefficiency"
 
@@ -77,7 +129,20 @@
 #' 
 #' @format A matrix with 15 observations of 15 variables.
 #' 
-#' @source Nieland et al. (2013, 2015, 2020)
+#' @source
+#' Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
+#' in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
+#' Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
+#' Hole, MA.
+#' 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
 #' 
 "inefficiency_matrix"
 
@@ -98,7 +163,20 @@
 #'   \code{maxes } Maximum value (where applicable) \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2013, 2015, 2020)
+#' @source 
+#' Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
+#' in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
+#' Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
+#' Hole, MA.
+#' 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
 #' 
 "life_stage_survival"
 
@@ -116,7 +194,11 @@
 #'   \code{proportion } Proportion of smolts using Stillwater Branch \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2020)
+#' @source 
+#' Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
+#' in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
+#' Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
+#' Hole, MA.
 #' 
 "stillwater_use"
 
@@ -133,7 +215,15 @@
 #'   \code{proportion } Proportion of smolts using Stillwater Branch \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2013, 2015)
+#' @source 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
 #' 
 "stillwater_use_old"
 
@@ -151,7 +241,15 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2013, 2015)
+#' @source 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
 #' 
 "downstream_brownsmills"
 
@@ -169,7 +267,15 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2013, 2015)
+#' @source 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
 #' 
 "downstream_frankfort"
 
@@ -187,7 +293,15 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2013, 2015)
+#' @source 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
 #' 
 "downstream_greatworks"
 
@@ -205,7 +319,15 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2013, 2015)
+#' @source 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
 #' 
 "downstream_howland"
 
@@ -223,7 +345,15 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #'  
-#' @source Nieland et al. (2013, 2015)
+#' @source 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
 #' 
 "downstream_lowell"
 
@@ -241,7 +371,15 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2013, 2015)
+#' @source 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
 #' 
 "downstream_mattaceunk"
 
@@ -259,7 +397,15 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2013, 2015)
+#' @source 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
 #' 
 "downstream_medway"
 
@@ -278,7 +424,11 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2020)
+#' @source 
+#' Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
+#' in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
+#' Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
+#' Hole, MA.
 #' 
 "downstream_milford"
 
@@ -296,7 +446,15 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2013, 2015)
+#' @source 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
 #' 
 "downstream_milford_old"
 
@@ -314,7 +472,15 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2013, 2015)
+#' @source 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
 #' 
 "downstream_milo"
 
@@ -332,7 +498,15 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2013, 2015)
+#' @source 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
 #' 
 "downstream_moosehead"
 
@@ -351,7 +525,11 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2020)
+#' @source 
+#' Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
+#' in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
+#' Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
+#' Hole, MA.
 #' 
 "downstream_orono"
 
@@ -369,7 +547,15 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2013, 2015)
+#' @source 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
 #' 
 "downstream_orono_old"
 
@@ -387,7 +573,15 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2013, 2015)
+#' @source 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
 #' 
 "downstream_sebec"
 
@@ -406,7 +600,11 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2020)
+#' @source 
+#' Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
+#' in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
+#' Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
+#' Hole, MA.
 #' 
 "downstream_stillwater"
 
@@ -424,7 +622,15 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2013, 2015)
+#' @source 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
 #' 
 "downstream_stillwater_old"
 
@@ -442,7 +648,15 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2013, 2015)
+#' @source 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
 #' 
 "downstream_veazie"
 
@@ -460,7 +674,15 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2013, 2015)
+#' @source 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
 #' 
 "downstream_westenfield"
 
@@ -475,7 +697,12 @@
 #'   \code{proportion_stocked } Proportion of hatchery smolts stocked in PU \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2020)
+#' @source
+#' Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
+#' in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
+#' Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
+#' Hole, MA.
+#' 
 "stocking_default"
 
 #' @title Number of dams by natal production unit (PU) and migration route
@@ -493,6 +720,30 @@
 #'   downstream migration if fish move through the mainstem Penobscot River \cr \cr  
 #' }
 #' 
-#' @source Nieland et al. (2020)
+#' @source
+#' Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
+#' in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
+#' Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
+#' Hole, MA.
+#' 
 "n_dams"
 
+#' @title In river mortality
+#' 
+#' @description Cumulative distribution function for in-river mortality of
+#' outmigrating smolts per km
+#' 
+#' @format A dataframe with 34 observations of 3 variables
+#' \describe{
+#'   \code{mort_per_km } Production unit of origin \cr \cr
+#'   \code{cum_freq } Cumulative probability at mort_per_km \cr \cr
+#'   \code{probs } Sampling probability \cr \cr  
+#' }
+#' 
+#' @source 
+#' Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
+#' in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
+#' Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
+#' Hole, MA.
+#' 
+"in_river_m"
