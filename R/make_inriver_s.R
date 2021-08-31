@@ -52,8 +52,7 @@ make_inriver_s <- function(m = NULL, initial = FALSE, hatchery_wild = "wild",
 
     # Draw in-river mortality based on Nieland et al. (2020) if not defined
     if(is.null(m)){
-    m <- truncnorm::rtruncnorm(n = 1, a = 0, b = 0.02928, mean = 0.00329,
-                               sd = 0.00459)
+    m <- sample(dia::in_river_m$mort_per_km, 1, prob = dia::in_river_m$probs)
     }
   
     if(!alt %in% c(0, 1, 2)){
