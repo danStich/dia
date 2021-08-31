@@ -18,4 +18,6 @@ To install `dia`, you will need to have `devtools` installed ahead of time in R,
 
 `R/`    R functions in scripts
 
-`inst/` includes server and ui files for `run_dia_shiny()`, a shiny-based user interface
+`inst/shiny-examples/dia_shiny` includes server and ui files for `run_dia_shiny()`, a shiny-based user interface
+
+`tests/` Includes package tests for default parameter accuracy conducted on package build
