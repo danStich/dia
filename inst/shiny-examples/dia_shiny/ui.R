@@ -26,7 +26,7 @@ ui <- fluidPage(
          individual input value is changed."), 
          br(),
          numericInput(inputId = "n_runs", label = "How many runs?",
-                      value = 100, step = 10
+                      value = 10, step = 10
                       ),
          actionButton("go",label = "Run Model")
          ),

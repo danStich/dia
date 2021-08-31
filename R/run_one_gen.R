@@ -30,7 +30,7 @@
 #' Holbrook et al. (2011) and Stich et al. (2015a).
 #' 
 #' @param p_stillwater Probability that fish use the Stillwater Branch for 
-#' downstream migration. The default (`NULL`) draws flow-correlated values from
+#' downstream migration. The default (`NA`) draws flow-correlated values from
 #' a cumulative distribution of flows with paired estimates of p_stillwater
 #' used by Nieland and Sheehan (2020), based on empirical results in Holbrook et al.
 #' (2006), Stich et al. (2014), and Stich et al. (2015a).
@@ -124,7 +124,8 @@ run_one_gen <- function(wild_adults,
                         marine_s_wild,
                         straying_matrix,
                         p_mainstem_up,
-                        n_broodstock
+                        n_broodstock,
+                        in_river_s
                         ){
       
   # Sum wild and hatchery adults 
@@ -163,7 +164,7 @@ run_one_gen <- function(wild_adults,
   # using Stillwater Branch
   dam_stuff <- dia::get_dam_passage(new_or_old = "new")
   dam_survival <- dam_stuff$dam_survival
-  if(is.null(p_stillwater)) p_stillwater <- dam_stuff$p_stillwater
+  if(is.na(p_stillwater)) p_stillwater <- dam_stuff$p_stillwater
     
   # Replace any NA values with the flow-correlated survival values
   downstream_passage[is.na(downstream_passage)] <- dam_survival[is.na(downstream_passage)]
@@ -178,7 +179,8 @@ run_one_gen <- function(wild_adults,
     mattaceunk_impoundment_mortality = mattaceunk_impoundment_mortality,
     n_dams = dia::n_dams,
     indirect_latent_mortality = indirect_latent_mortality,
-    p_female = p_female
+    p_female = p_female,
+    in_river_s = in_river_s
     )
   
   hatchery_out <- downstream_out$hatchery_out

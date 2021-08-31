@@ -53,12 +53,12 @@
 #' `milford`, `orono`, and `stillwater` dams.
 #' 
 #' @param marine_s_hatchery Numeric indicating marine survival rate for 
-#' post-smolt to adult survival of hatchery outmigrants. The default (`NULL`)
+#' post-smolt to adult survival of hatchery outmigrants. The default (`NA`)
 #' simulates values from a truncated normal distribution using hatchery smolt
 #' survival estimates from the Penobscot River, ME, USA.
 #' 
 #' @param marine_s_wild Numeric indicating marine survival rate for 
-#' post-smolt to adult survival of wild outmigrants. The default (`NULL`)
+#' post-smolt to adult survival of wild outmigrants. The default (`NA`)
 #' simulates values from a truncated normal distribution using wild smolt
 #' survival estimates from the Narraguagus River, ME, USA.
 #' 
@@ -67,8 +67,7 @@
 #' 
 #' @param p_mainstem_up Probability that fish use the mainstem Penobscot River
 #' (and not Stillwater Branch) for upstream migration around Marsh Island. The 
-#' default value (`NULL`) draws flow-correlated probabilities based on
-#' Holbrook et al. (2009).
+#' default value `1` was used by Nieland and Sheehan (2020).
 #'  
 #' @param n_broodstock Target number of adult returns collected at Milford Dam 
 #' for spawning at US Fish and Wildlife Service Craig Brook National Fish 
@@ -161,21 +160,26 @@ run_dia <- function(n_generations = 15,
                       veazie = 1,
                       frankfort = NA),
                     mattaceunk_impoundment_mortality = 0.072,
-                    p_stillwater = NULL,
+                    p_stillwater = NA,
                     indirect_latent_mortality = 0.06,
                     p_female = 0.60,
                     new_or_old = "new",
-                    marine_s_hatchery = NULL,
-                    marine_s_wild = NULL,
+                    marine_s_hatchery = NA,
+                    marine_s_wild = NA,
                     straying_matrix = NULL,
                     p_mainstem_up = 1,
-                    n_broodstock = 150
+                    n_broodstock = 150,
+                    in_river_s = NA
                     ){
   
   # Make sure n_stocked is n_generations long
   if(length(n_stocked) != n_generations){
     stop("error: n_stocked must have n_generations number of elements")
   }
+  
+  if(is.na(marine_s_hatchery)) marine_s_hatchery <- NULL
+  if(is.na(marine_s_wild)) marine_s_wild <- NULL
+  # if(is.na(in_river_s)) in_river_s <- NULL
   
   # Seed starting population ---- 
   # Multinomial draw to distribute wild adults in PUs
@@ -208,7 +212,8 @@ run_dia <- function(n_generations = 15,
                        marine_s_wild,
                        straying_matrix,
                        p_mainstem_up,
-                       n_broodstock
+                       n_broodstock,
+                       in_river_s
                        )
     if(n_generations > 1){
       for(g in 2:n_generations){
@@ -228,7 +233,8 @@ run_dia <- function(n_generations = 15,
                            marine_s_wild,
                            straying_matrix,
                            p_mainstem_up,
-                           n_broodstock
+                           n_broodstock,
+                           in_river_s
                            )
       }
     }

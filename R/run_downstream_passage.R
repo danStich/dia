@@ -48,25 +48,30 @@ run_downstream_passage <- function(stocked_smolts,
                                    mattaceunk_impoundment_mortality,
                                    n_dams,
                                    indirect_latent_mortality,
-                                   p_female
+                                   p_female,
+                                   in_river_s
                                    ){
 
+  if(is.na(in_river_s)) {
+    m <- NULL
+  } else {
+    m <- 1 - in_river_s
+  }
   # Initial and subsequent reach survival rates for smolts ----
   #. Hatchery stocking survival rates by PU ----
-  hatchery_init <- dia::make_inriver_s(m = NULL,
+  hatchery_init <- dia::make_inriver_s(m = m,
                                   initial = TRUE,
                                   hatchery_wild = "hatchery")
 
   # . Initial wild survival rates by PU using longest_segment_length/2 ----
-  wild_init <- dia::make_inriver_s(m = NULL,
+  wild_init <- dia::make_inriver_s(m = m,
                                    initial = TRUE,
                                    hatchery_wild = "wild")
   
-  
   # . Subsequent survival rates for partial-segment migrants ----
-  subseq <- dia::make_inriver_s(m = NULL, initial = FALSE)
-  alt_1 <- dia::make_inriver_s(m = NULL, initial = FALSE, alt = 1)
-  alt_2 <- dia::make_inriver_s(m = NULL, initial = FALSE, alt = 2)
+  subseq <- dia::make_inriver_s(m = m, initial = FALSE)
+  alt_1 <- dia::make_inriver_s(m = m, initial = FALSE, alt = 1)
+  alt_2 <- dia::make_inriver_s(m = m, initial = FALSE, alt = 2)
   
   # . Mattaceunk impoundment survival based on user-specified value ----
   mattaceunk_imp_s <- (1 - mattaceunk_impoundment_mortality)

@@ -122,16 +122,17 @@ server <- function(input, output) {
         orono = r_passage$data[13, 3],
         veazie = r_passage$data[14, 3],
         frankfort = r_passage$data[15, 3]),
+      in_river_s = r_lifehistory$data[7, 2],
       mattaceunk_impoundment_mortality = r_lifehistory$data[5, 2],
-      p_stillwater = NULL,
+      p_stillwater = r_lifehistory$data[10, 2],
       indirect_latent_mortality = r_lifehistory$data[6, 2],
       p_female = r_lifehistory$data[4, 2],
       new_or_old = "new",
-      marine_s_hatchery = NULL,
-      marine_s_wild = NULL,
+      marine_s_hatchery = r_lifehistory$data[8, 2],
+      marine_s_wild = r_lifehistory$data[9, 2],
       straying_matrix = NULL,
-      p_mainstem_up = 1,
-      n_broodstock = 150
+      p_mainstem_up = r_lifehistory$data[11, 2],
+      n_broodstock = r_lifehistory$data[12, 2]
     ))
       })
   

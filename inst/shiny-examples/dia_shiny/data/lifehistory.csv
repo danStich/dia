@@ -5,3 +5,9 @@ Starting number of hatchery adults,306
 Proportion female,0.6
 Mattaceunk impoundment mortality,0.072
 Indirect latent mortality,0.06
+In-river survival,
+Marine survival (hatchery),
+Marine survival (wild),
+Probability of using Stillwater Branch (downstream),
+Probability of using Mainstem (upstream),1
+Number of broodstock collected,150
