@@ -14,7 +14,14 @@ A dataframe with 3,315 observations of 4 variables
 }
 }
 \source{
-Nieland et al. (2013, 2015)
+Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+Maine. ICES Journal of Marine Science 72:2423–2437. 
+
+Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+Department of Commerce, Northeast Fisheries Science Center Reference Document 
+13-09, Woods Hole, MA.
 }
 \usage{
 downstream_howland
