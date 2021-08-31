@@ -54,7 +54,7 @@ The following built-in datasets are included:
     \code{\link{downstream_westenfield}}{ Flow-correlated estimates of smolt survival through West Enfield Dam} \cr \cr
     \code{\link{in_river_m}}{ Cumulative frequency distribution of in-river mortality per km for smolts} \cr \cr
     \code{\link{life_stage_survival}}{ Distributional parameters for year-specific number of eggs produced per female, egg-to-smolt survival rate, in-river mortality rate, and marine survival rate} \cr \cr
-    \code{\link{n_dams }} {Number of dams passed by smolts in each production unit and migration route} \cr \cr
+    \code{\link{n_dams}} { Number of dams passed by smolts in each production unit and migration route} \cr \cr
     \code{\link{production_units}}{ Division of Penobscot River watershed into sections, or Production Units (PUs)} \cr \cr
     \code{\link{stillwater_use}}{ Updated (2020) probability of smolts using Stillwater Branch for outmigration given discharge} \cr \cr
     \code{\link{stillwater_use_old}}{ Original (2013) probability of smolts using Stillwater Branch for outmigration given discharge} \cr \cr

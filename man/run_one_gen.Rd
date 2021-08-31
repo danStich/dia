@@ -11,6 +11,7 @@ run_one_gen(
   n_stocked,
   upstream,
   downstream,
+  in_river_s,
   mattaceunk_impoundment_mortality,
   p_stillwater,
   indirect_latent_mortality,
@@ -20,8 +21,7 @@ run_one_gen(
   marine_s_wild,
   straying_matrix,
   p_mainstem_up,
-  n_broodstock,
-  in_river_s
+  n_broodstock
 )
 }
 \arguments{
@@ -44,6 +44,10 @@ following implementation of the Penobscot River Restoration Project.
 The default `NULL` randomly samples correlated survival rates of smolts for 
 each dam based on cumulative flow probabilities and associated empirical 
 survival rates (Nieland et al. 2013, Nieland and Sheehan 2020).}
+
+\item{in_river_s}{In-river survival per kilometer for downstream migrating
+smolts. The default `NA` value simulates from cumulative distribution 
+function using values in \code{\link{in_river_m}}.}
 
 \item{mattaceunk_impoundment_mortality}{Mortality incurred by Atlantic salmon
 smolts during migration through the Mattaceunk (Weldon) Dam impoundment. The

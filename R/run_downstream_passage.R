@@ -1,7 +1,8 @@
 #' @title Run downstream passage routine
 #' 
 #' @description Run the downstream passage routine for Atlantic salmon Dam
-#' Impact Analysis (DIA) model v67.
+#' Impact Analysis (DIA) model v67. Default usage is to inherit all arguments
+#' from \code{\link{run_dia}} or \code{\link{run_one_gen}}.
 #' 
 #' @param stocked_smolts Number of hatchery smolts stocked by PU.
 #' 
@@ -9,27 +10,25 @@
 #' 
 #' @param downstream_passage Numeric vector with length = 15 corresponding to
 #' dam passage efficiencies at each of 15 dams in the watershed that are used 
-#' to delineate PUs. Default usage is to inherit these values from the 
-#' \code{link{run_dia}} function.
+#' to delineate PUs. 
+#' 
+#' @param in_river_s In-river survival per kilometer for downstream migrating
+#' smolts. The default `NA` value simulates from cumulative distribution 
+#' function using values in \code{\link{in_river_m}}.
 #' 
 #' @param p_stillwater Probability that fish use the Stillwater Branch for 
-#' downstream migration. Default usage is to inherit this value from the 
-#' \code{link{run_dia}} function.
+#' downstream migration.
 #' 
 #' @param mattaceunk_impoundment_mortality Mortality incurred by Atlantic salmon
 #' smolts during migration through the Mattaceunk (Weldon) Dam impoundment. 
-#' Default usage is to inherit these values from the \code{link{run_dia}} 
-#' function.
 #' 
 #' @param n_dams A dataframe with structure identical to the built-in
 #' \code{link{n_dams}} data set.
 #' 
 #' @param indirect_latent_mortality Indirect, latent mortality incurred by 
-#' Atlantic salmon smolts at each dam passed. Default usage is to inherit this value from the 
-#' \code{link{run_dia}} function.
+#' Atlantic salmon smolts at each dam passed.
 #' 
-#' @param p_female Proportion of females in population. Default usage is to 
-#' inherit this value from the \code{link{run_dia}} function.
+#' @param p_female Proportion of females in population.
 #' 
 #' @return A named list with four elements including total number of hatchery and
 #' wild smolts exiting the Penobscot River (elements 1 & 2) as well as the 
@@ -44,12 +43,12 @@
 run_downstream_passage <- function(stocked_smolts,
                                    wild_smolts,
                                    downstream_passage,
+                                   in_river_s,
                                    p_stillwater,
                                    mattaceunk_impoundment_mortality,
                                    n_dams,
                                    indirect_latent_mortality,
-                                   p_female,
-                                   in_river_s
+                                   p_female
                                    ){
 
   if(is.na(in_river_s)) {

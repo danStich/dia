@@ -24,6 +24,10 @@
 #' each dam based on cumulative flow probabilities and associated empirical 
 #' survival rates (Nieland et al. 2013, Nieland and Sheehan 2020).
 #' 
+#' @param in_river_s In-river survival per kilometer for downstream migrating
+#' smolts. The default `NA` value simulates from cumulative distribution 
+#' function using values in \code{\link{in_river_m}}.
+#' 
 #' @param mattaceunk_impoundment_mortality Mortality incurred by Atlantic salmon
 #' smolts during migration through the Mattaceunk (Weldon) Dam impoundment. The
 #' default value is based on Nieland and Sheehan (2020). Based on results of 
@@ -115,6 +119,7 @@ run_one_gen <- function(wild_adults,
                         n_stocked,
                         upstream,
                         downstream,
+                        in_river_s,
                         mattaceunk_impoundment_mortality,
                         p_stillwater,
                         indirect_latent_mortality,
@@ -124,8 +129,7 @@ run_one_gen <- function(wild_adults,
                         marine_s_wild,
                         straying_matrix,
                         p_mainstem_up,
-                        n_broodstock,
-                        in_river_s
+                        n_broodstock
                         ){
       
   # Sum wild and hatchery adults 
@@ -175,12 +179,12 @@ run_one_gen <- function(wild_adults,
     stocked_smolts = stocked_smolts,
     wild_smolts = wild_smolts,
     downstream_passage = downstream_passage,
+    in_river_s = in_river_s,
     p_stillwater = p_stillwater,
     mattaceunk_impoundment_mortality = mattaceunk_impoundment_mortality,
     n_dams = dia::n_dams,
     indirect_latent_mortality = indirect_latent_mortality,
-    p_female = p_female,
-    in_river_s = in_river_s
+    p_female = p_female
     )
   
   hatchery_out <- downstream_out$hatchery_out

@@ -30,6 +30,10 @@
 #' each dam based on cumulative flow probabilities and associated empirical 
 #' survival rates (Nieland et al. 2013, Nieland and Sheehan 2020).
 #' 
+#' @param in_river_s In-river survival per kilometer for downstream migrating
+#' smolts. The default `NA` value simulates from cumulative distribution 
+#' function using values in \code{\link{in_river_m}}.
+#' 
 #' @param mattaceunk_impoundment_mortality Mortality incurred by Atlantic salmon
 #' smolts during migration through the Mattaceunk (Weldon) Dam impoundment. The
 #' default value is based on Nieland and Sheehan (2020). Based on results of 
@@ -159,6 +163,7 @@ run_dia <- function(n_generations = 15,
                       orono = 0.96,
                       veazie = 1,
                       frankfort = NA),
+                    in_river_s = NA,
                     mattaceunk_impoundment_mortality = 0.072,
                     p_stillwater = NA,
                     indirect_latent_mortality = 0.06,
@@ -168,8 +173,7 @@ run_dia <- function(n_generations = 15,
                     marine_s_wild = NA,
                     straying_matrix = NULL,
                     p_mainstem_up = 1,
-                    n_broodstock = 150,
-                    in_river_s = NA
+                    n_broodstock = 150
                     ){
   
   # Make sure n_stocked is n_generations long
@@ -203,6 +207,7 @@ run_dia <- function(n_generations = 15,
                        n_stocked = n_stocked[1],
                        upstream,
                        downstream,
+                       in_river_s,
                        mattaceunk_impoundment_mortality,
                        p_stillwater,
                        indirect_latent_mortality,
@@ -212,8 +217,7 @@ run_dia <- function(n_generations = 15,
                        marine_s_wild,
                        straying_matrix,
                        p_mainstem_up,
-                       n_broodstock,
-                       in_river_s
+                       n_broodstock
                        )
     if(n_generations > 1){
       for(g in 2:n_generations){
@@ -224,6 +228,7 @@ run_dia <- function(n_generations = 15,
                            n_stocked = n_stocked[g],
                            upstream,
                            downstream,
+                           in_river_s,
                            mattaceunk_impoundment_mortality,
                            p_stillwater,
                            indirect_latent_mortality,
@@ -233,8 +238,7 @@ run_dia <- function(n_generations = 15,
                            marine_s_wild,
                            straying_matrix,
                            p_mainstem_up,
-                           n_broodstock,
-                           in_river_s
+                           n_broodstock
                            )
       }
     }

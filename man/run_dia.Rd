@@ -18,6 +18,7 @@ run_dia(
     0.9215, browns_mills = NA, sebec = NA, milo = NA, howland = 1, lowell = NA,
     stillwater = 0.96, milford = 0.96, great_works = 1, orono = 0.96, veazie = 1,
     frankfort = NA),
+  in_river_s = NA,
   mattaceunk_impoundment_mortality = 0.072,
   p_stillwater = NA,
   indirect_latent_mortality = 0.06,
@@ -27,8 +28,7 @@ run_dia(
   marine_s_wild = NA,
   straying_matrix = NULL,
   p_mainstem_up = 1,
-  n_broodstock = 150,
-  in_river_s = NA
+  n_broodstock = 150
 )
 }
 \arguments{
@@ -56,6 +56,10 @@ following implementation of the Penobscot River Restoration Project.
 The default `NULL` randomly samples correlated survival rates of smolts for 
 each dam based on cumulative flow probabilities and associated empirical 
 survival rates (Nieland et al. 2013, Nieland and Sheehan 2020).}
+
+\item{in_river_s}{In-river survival per kilometer for downstream migrating
+smolts. The default `NA` value simulates from cumulative distribution 
+function using values in \code{\link{in_river_m}}.}
 
 \item{mattaceunk_impoundment_mortality}{Mortality incurred by Atlantic salmon
 smolts during migration through the Mattaceunk (Weldon) Dam impoundment. The
