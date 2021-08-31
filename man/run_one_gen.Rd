@@ -20,7 +20,8 @@ run_one_gen(
   marine_s_wild,
   straying_matrix,
   p_mainstem_up,
-  n_broodstock
+  n_broodstock,
+  in_river_s
 )
 }
 \arguments{
@@ -50,7 +51,7 @@ default value is based on Nieland and Sheehan (2020). Based on results of
 Holbrook et al. (2011) and Stich et al. (2015a).}
 
 \item{p_stillwater}{Probability that fish use the Stillwater Branch for 
-downstream migration. The default (`NULL`) draws flow-correlated values from
+downstream migration. The default (`NA`) draws flow-correlated values from
 a cumulative distribution of flows with paired estimates of p_stillwater
 used by Nieland and Sheehan (2020), based on empirical results in Holbrook et al.
 (2006), Stich et al. (2014), and Stich et al. (2015a).}

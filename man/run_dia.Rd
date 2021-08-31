@@ -19,15 +19,16 @@ run_dia(
     stillwater = 0.96, milford = 0.96, great_works = 1, orono = 0.96, veazie = 1,
     frankfort = NA),
   mattaceunk_impoundment_mortality = 0.072,
-  p_stillwater = NULL,
+  p_stillwater = NA,
   indirect_latent_mortality = 0.06,
   p_female = 0.6,
   new_or_old = "new",
-  marine_s_hatchery = NULL,
-  marine_s_wild = NULL,
+  marine_s_hatchery = NA,
+  marine_s_wild = NA,
   straying_matrix = NULL,
   p_mainstem_up = 1,
-  n_broodstock = 150
+  n_broodstock = 150,
+  in_river_s = NA
 )
 }
 \arguments{
@@ -79,12 +80,12 @@ probabilities of p_stillwater as well as flow-correlated survival at
 `milford`, `orono`, and `stillwater` dams.}
 
 \item{marine_s_hatchery}{Numeric indicating marine survival rate for 
-post-smolt to adult survival of hatchery outmigrants. The default (`NULL`)
+post-smolt to adult survival of hatchery outmigrants. The default (`NA`)
 simulates values from a truncated normal distribution using hatchery smolt
 survival estimates from the Penobscot River, ME, USA.}
 
 \item{marine_s_wild}{Numeric indicating marine survival rate for 
-post-smolt to adult survival of wild outmigrants. The default (`NULL`)
+post-smolt to adult survival of wild outmigrants. The default (`NA`)
 simulates values from a truncated normal distribution using wild smolt
 survival estimates from the Narraguagus River, ME, USA.}
 
@@ -93,8 +94,7 @@ survival estimates from the Narraguagus River, ME, USA.}
 
 \item{p_mainstem_up}{Probability that fish use the mainstem Penobscot River
 (and not Stillwater Branch) for upstream migration around Marsh Island. The 
-default value (`NULL`) draws flow-correlated probabilities based on
-Holbrook et al. (2009).}
+default value `1` was used by Nieland and Sheehan (2020).}
 
 \item{n_broodstock}{Target number of adult returns collected at Milford Dam 
 for spawning at US Fish and Wildlife Service Craig Brook National Fish 

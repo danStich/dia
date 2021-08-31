@@ -12,7 +12,8 @@ run_downstream_passage(
   mattaceunk_impoundment_mortality,
   n_dams,
   indirect_latent_mortality,
-  p_female
+  p_female,
+  in_river_s
 )
 }
 \arguments{
