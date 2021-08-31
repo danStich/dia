@@ -17,13 +17,12 @@ ui <- fluidPage(
          p("To use default values from Nieland and Sheehan (2020), click 
          \"Run Model\" without changing any of the default inputs."), 
          br(),
-         p("To test new scenarios, please enter input parameter values in the tabs 
+         p("To test new scenarios, enter input parameter values in the tabs 
          below from left to right and then click \"Run Model\"  to view tabular 
          or graphical results. "),
          br(),
-         p("For multiple scenarios with many different parameters, refresh the
-         browser between scenarios to avoid re-running the model each time an
-         individual input value is changed."), 
+         p("Refresh the browser between scenarios to avoid re-running the model
+         each time an input value is changed."), 
          br(),
          numericInput(inputId = "n_runs", label = "How many runs?",
                       value = 10, step = 10
