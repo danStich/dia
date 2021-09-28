@@ -15,7 +15,7 @@ Stich et al. (2015a)}
 
 \item{initial}{Logical indicating Whether in-river mortality rate is for initial PU or
 a PU downstream from where smolts started. If `TRUE` then default hatchery 
-segment lengths is used to calculate whole-reach survival for hatchery smolts
+segment length is used to calculate whole-reach survival for hatchery smolts
 as (1 - m) ^ dia::production_units$Hatchery_segment_length) and 1/2 of the
 longest straight-line reach length 
 (dia::production_units$Longest_segment_length_km) is used to calculate 
@@ -38,6 +38,16 @@ Penobscot River watershed.
 \description{
 Create natural in-river smolt mortality per kilometer from 
 built-in datasets.
+}
+\examples{
+# 1. Simulate in-river survival value for wild fish in each production unit ----
+make_inriver_s(hatchery_wild = "wild")
+
+# 2. Simulate in-river survival value for hatchery fish in each production unit ----
+make_inriver_s(hatchery_wild = "hatchery")
+
+# 3. Simulate post-stocking survival value for hatchery fish in each production unit ----
+make_inriver_s(initial = TRUE, hatchery_wild = "hatchery")
 }
 \references{
 Holbrook CM, Kinnison MT, Zydlewski J. 2011. Survival of migrating Atlantic 

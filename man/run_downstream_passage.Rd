@@ -51,7 +51,8 @@ proportion of wild and hatchery smolts exiting the river from each natal PU.
 \description{
 Run the downstream passage routine for Atlantic salmon Dam
 Impact Analysis (DIA) model v67. Default usage is to inherit all arguments
-from \code{\link{run_dia}} or \code{\link{run_one_gen}}.
+from \code{\link{run_dia}} or \code{\link{run_one_gen}}. **Not intended to 
+be called directly.**
 }
 \references{
 Nieland et al. (2015, 2020).

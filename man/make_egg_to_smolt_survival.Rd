@@ -23,12 +23,21 @@ the mean value is parameterized from the built-in
 \code{\link{life_stage_survival}} dataset (Nieland and Sheehan 2020).}
 }
 \value{
-A vector of length `n`
+A vector of length `n` containing egg-to-smolt survival estimates
 }
 \description{
 Simulate egg-to-smolt survival from the built-in
 \code{\link{life_stage_survival}} dataset using a truncated normal 
 distribution (Nieland and Sheehan 2020).
+}
+\examples{
+# 1. Simulate a single value of egg-to-smolt survival ----
+make_egg_to_smolt_survival() 
+
+# 2. Simulate 10,000 values of egg-to-smolt survival ----
+samp <- make_egg_to_smolt_survival(n = 1e4)
+hist(samp)
+
 }
 \references{
 Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon

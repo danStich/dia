@@ -13,18 +13,34 @@ for flow-correlated survival values in the underlying data sets following
 Nieland and Sheehan (2020).}
 
 \item{new_or_old}{A character string indicating whether to use `"new"` 
-(Amaral et al. 2012, Nieland and Sheehan 2020) or `"old"` (Amaral et al. 2012, 
-Nieland et al. 2020) flow-correlated probabilities of p_stillwater as well 
+(Nieland and Sheehan 2020) or `"old"` (Amaral et al. 2012, 
+Nieland et al. 2013) flow-correlated probabilities of p_stillwater as well 
 as flow-correlated survival at `milford`, `orono`, and `stillwater` dams.}
 }
 \value{
-A vector with dam passage rates
+A list two elements. The first `dam_survival` returns downstream
+dam passage survival for smolts at each of 15 dams in the watershed. The
+second, `p_stillwater`, contains simulated value for probability of fish 
+using the Stillwater Branch during downstream migration.
 }
 \description{
 Get correlated dam-specific downstream survival rates for 
 smolts at each dam from built-in `downstream_` datasets. Values based on 
 Amaral et al. (2012) and sampled following Nieland et al. (2013, 2015) and
 Nieland and Sheehan (2020).
+}
+\examples{
+# 1. ----
+# Simulate dam survival at each of 15 dams, along with p_stillwater
+# using estimates from Nieland et al. (2015, 2020)
+get_dam_passage(stoch_val = 0.1695, new_or_old = "new")
+
+
+# 2. ----
+# Simulate dam survival at each of 15 dams, along with p_stillwater
+# using estimates from Nieland et al. (2013)
+get_dam_passage(stoch_val = 0.1695, new_or_old = "old")
+
 }
 \references{
 Amaral S, Fay C, Hecker G, Perkins N. 2012. Atlantic salmon survival 

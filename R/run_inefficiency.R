@@ -26,6 +26,18 @@
 #' 
 #' @seealso inefficiency_matrix, upstream_inefficiency
 #' 
+#' @examples
+#' # Simulate 10,000 starting fish at each dam and
+#' # randomly sample number of failures for each PU (15 of these)
+#' 
+#' failures = sample(1e4, 15, replace = TRUE)
+#' 
+#' # Use run_inefficiency to simulate where these 
+#' # failed migrants end up in the watershed based on the 
+#' # default inefficiency_matrix in dia.
+#' 
+#' run_inefficiency(failures, dia::inefficiency_matrix)
+#' 
 #' @export
 #' 
 run_inefficiency <- function(n, inefficiency_matrix){

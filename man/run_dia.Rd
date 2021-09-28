@@ -39,8 +39,8 @@ complete generation from egg to returning adult is six years.}
 
 \item{n_hatchery}{Number of starting hatchery adult salmon.}
 
-\item{stocking}{Number indicating whether hatchery stocking is on (`1`) or
-off (`0`). Will be a vector corresponding to `n_generations` at some point.}
+\item{stocking}{Numeric indicating whether hatchery stocking is on (`1`) or
+off (`0`).}
 
 \item{n_stocked}{A numeric vector corresponding to `n_generations` in length
 with number of stocked smolts per generation.}
@@ -79,7 +79,7 @@ in Nieland and Sheehan (2020), derived from estimates in Stich et al. (2015b).}
 \item{p_female}{Proportion of females in population.}
 
 \item{new_or_old}{A character string indicating whether to use `"new"` 
-(Nieland et al. 2013, 2015) or `"old"` (Nieland and Sheehan 2020) flow-correlated
+(Nieland and Sheehan 2020) or `"old"` (Nieland et al. 2013, 2015) flow-correlated
 probabilities of p_stillwater as well as flow-correlated survival at 
 `milford`, `orono`, and `stillwater` dams.}
 
@@ -106,27 +106,75 @@ Hatchery each year. Broodstock are collected upstream of Milford Dam
 in \code{\link{run_upstream_passage}}.}
 }
 \value{
-A dataframe containing inputs and outputs. Will add more
-of an explanation here once we know what they all are.
+A list with length corresponding to number of generations. Each 
+element of the list contains a dataframe with 15 observations of 
+3 variables from output of \code{\link{run_one_gen}}.
+\describe{
+  \code{production_unit } Production unit \cr \cr
+  \code{hatchery_adults } Number of hatchery adults in each PU \cr \cr
+  \code{wild_adults } Number of wild adults in each PU \cr \cr
+}
 }
 \description{
 Use functions from \code{\link{dia}} to simulate one
 generation of 2 sea-winter female Atlantic salmon through time using data
 and inputs from Nieland et al. (2013, 2015) and Nieland and Sheehan (2020) 
-as implemented in `@Risk` add-on for `Excel`.
+as implemented in `@Risk` add-on for `Excel`. This function is a wrapper 
+for \code{link{run_one_gen}} that uses output from one generation as the 
+seed for any number of subsequent generations.
 }
 \examples{
-outlist <- run_dia(n_generations = 15)
+# 1. Run dia model with defaults for 15 generations ----
+
+result <- run_dia(n_generations = 15)
+
+# 2. Run dia model with user-specified dam passage ----
+
+run_dia(
+  n_generations = 15,
+  upstream = list(
+    medway = 0, 
+    mattaceunk = 0.9, 
+    west_enfield = 0.95, 
+    upper_dover = 0.92, 
+    browns_mills = 0.92, 
+    sebec = 0, 
+    milo = 0, 
+    howland = 0.95, 
+    lowel = 0.92,
+    stillwater = 0, 
+    milford = 0.95, 
+    great_works = 1, 
+    orono = 0, 
+    veazie = 1, 
+    frankfort = 1),
+  downstream = list(
+  medway = 0, 
+  mattaceunk = 1, 
+  west_enfield = 0.96, 
+  upper_dover = 0.9215, 
+  browns_mills = 1, 
+  sebec = 1, 
+  milo = 1, 
+  howland = 1, 
+  lowell = 1,
+  stillwater = 0.96, 
+  milford = 0.96, 
+  great_works = 1, 
+  orono = 0.96, 
+  veazie = 1,
+  frankfort = 1))
+
 
 }
 \references{
 Holbrook CM, Kinnison MT, Zydlewski J. 2011. Survival of migrating Atlantic 
 salmon smolts through the Penobscot River, Maine: a prerestoration assessment. 
-Transactions of the American Fisheries Society 140:1255–1268.
+Transactions of the American Fisheries Society 140:1255-1268.
 
 Holbrook CM, Zydlewski J, Gorsky D, Shepard SL, Kinnison MT. 2009. Movements of 
 prespawn adult Atlantic salmon near hydroelectric dams in the lower Penobscot 
-River, Maine. North American Journal of Fisheries Management 29:495–505.
+River, Maine. North American Journal of Fisheries Management 29:495-505.
 
 Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
 in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
@@ -135,7 +183,7 @@ Hole, MA.
 
 Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
 on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
-Maine. ICES Journal of Marine Science 72:2423–2437. 
+Maine. ICES Journal of Marine Science 72:2423-2437. 
 
 Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
 Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
@@ -150,12 +198,12 @@ NER-2013-9640, Gloucester, MA.
 Stich DS, Bailey MM, Holbrook CM, Kinnison MT, Zydlewski JD. 2015a. 
 Catchment-wide survival of wild- and hatchery-reared Atlantic salmon smolts in
 a changing system. Canadian Journal of Fisheries and Aquatic Sciences 
-72:1352–1365.
+72:1352-1365.
 
 Stich DS, Bailey MM, Zydlewski JD. 2014. Survival of Atlantic salmon Salmo salar
-smolts through a hydropower complex. Journal of Fish Biology 85:1074–1096.
+smolts through a hydropower complex. Journal of Fish Biology 85:1074-1096.
 
 Stich DS, Kinnison MT, Kocik JF, Zydlewski JD. 2015b. Initiation of migration 
 and movement rates of Atlantic salmon smolts in fresh water. Canadian Journal 
-of Fisheries and Aquatic Sciences 72:1339–1351.
+of Fisheries and Aquatic Sciences 72:1339-1351.
 }

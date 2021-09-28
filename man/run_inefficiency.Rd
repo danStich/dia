@@ -17,6 +17,19 @@ pass dams and did not die or return to sea.}
 Adult inefficiency (homing) routine for Atlantic salmon that 
 fail to pass a dam but that also do not die or return to sea.
 }
+\examples{
+# Simulate 10,000 starting fish at each dam and
+# randomly sample number of failures for each PU (15 of these)
+
+failures = sample(1e4, 15, replace = TRUE)
+
+# Use run_inefficiency to simulate where these 
+# failed migrants end up in the watershed based on the 
+# default inefficiency_matrix in dia.
+
+run_inefficiency(failures, dia::inefficiency_matrix)
+
+}
 \references{
 Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
 Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 

@@ -35,6 +35,23 @@ is based on empirical results from Stich et al. (2015a, 2015c) and adult
 returns based on MDMR (2018). For wild fish, estimate is based on
 smolt-to-adult returns in the Narraguagus River (USASAC 2018).
 }
+\examples{
+  
+# 1. Single value for hatchery fish ----
+make_marine_s(hatchery = TRUE)
+
+# 2. Ten thousand values of marine S for hatchery fish ----
+sim <- make_marine_s(n = 1e4, hatchery = TRUE)
+hist(sim) 
+ 
+# 3. Single value for wild fish ----
+make_marine_s(hatchery = FALSE)
+
+# 4. Ten thousand values of marine S for wild fish ----
+sim_w <- make_marine_s(n = 1e4, hatchery = FALSE)
+hist(sim_w) 
+
+}
 \references{
 Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
 in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 

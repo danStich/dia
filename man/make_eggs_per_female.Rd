@@ -29,6 +29,14 @@ Simulate number of eggs per adult female based on data
 collected at the US Fish and Wildlife Service Craig Brook National Fish
 Hatchery.
 }
+\examples{
+# 1. Simulate a single value for eggs per female ----
+make_eggs_per_female()
+
+# 2. Simulate 10,000 values for eggs per female ----
+make_eggs_per_female(n = 10000)
+
+}
 \references{
 Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
 in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 

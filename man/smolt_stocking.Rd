@@ -23,6 +23,12 @@ Create smolt stocking numbers in each production unit (PU) based
 on starting number of smolts and proportion of smolts to be stocked in each
 PU.
 }
+\examples{
+# Run stocking routine for 1 million fish with default stocking
+# proportions based on built-in \code{\link{stocking_default}} data set.
+smolt_stocking(1e6, stocking_proportions = NULL)
+
+}
 \references{
 Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
 in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 

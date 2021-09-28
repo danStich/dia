@@ -11,6 +11,11 @@ Run the DIA model interactively in a browser using the shiny
 package for R. Allows users to view or download summary data from multiple
 runs of a single scenario.
 }
+\examples{
+# To open the shiny user-interface, run the following in R console:
+# run_dia_shiny()
+
+}
 \seealso{
 run_dia
 }

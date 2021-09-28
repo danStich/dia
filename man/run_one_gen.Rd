@@ -2,7 +2,7 @@
 % Please edit documentation in R/run_one_gen.R
 \name{run_one_gen}
 \alias{run_one_gen}
-\title{Run the Dam Impact Analysis}
+\title{Run the Dam Impact Analysis for One Generation}
 \usage{
 run_one_gen(
   wild_adults,
@@ -95,13 +95,19 @@ Hatchery each year. Broodstock are collected upstream of Milford Dam
 in \code{\link{run_upstream_passage}}.}
 }
 \value{
-A dataframe containing inputs and outputs. Will add more
-of an explanation here once we know what they all are.
+A dataframe with 15 observations of 3 variables.
+\describe{
+  \code{production_unit } Production unit \cr \cr
+  \code{hatchery_adults } Number of hatchery adults in each PU \cr \cr
+  \code{wild_adults } Number of wild adults in each PU \cr \cr
+}
 }
 \description{
 Use functions from \code{\link{dia}} to simulate one
 generation of 2 sea-winter female Atlantic salmon through time using data
-and inputs from Nieland et al. (2013, 2015, 2020) as implemented in `@Risk`.
+and inputs from Nieland et al. (2013, 2015, 2020) as implemented in `@Risk`. 
+Not intended to be called directly. All argument values are inherited from 
+\code{\link{run_dia}} by default.
 }
 \references{
 Holbrook CM, Kinnison MT, Zydlewski J. 2011. Survival of migrating Atlantic 

@@ -1,7 +1,8 @@
 #' @title Run upstream migration routine
 #' 
 #' @description Run the upstream migration routine for adult Atlantic salmon in
-#' the Dam Impact Analysis (DIA) model v67 during year 6.
+#' the Dam Impact Analysis (DIA) model v67 during year 6. Not intended to be
+#' called directly.
 #' 
 #' @param hatchery_returns Total number of hatchery smolts exiting river in 
 #' year 4.

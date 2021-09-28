@@ -6,6 +6,10 @@
 #' 
 #' @seealso run_dia
 #'
+#' @examples 
+#' # To open the shiny user-interface, run the following in R console:
+#' # run_dia_shiny()
+#'
 #' @export
 run_dia_shiny <- function() {
   appDir <- system.file("shiny-examples", "dia_shiny", package = "dia")

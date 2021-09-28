@@ -58,7 +58,8 @@ in \code{\link{run_upstream_passage}}.}
 }
 \description{
 Run the upstream migration routine for adult Atlantic salmon in
-the Dam Impact Analysis (DIA) model v67 during year 6.
+the Dam Impact Analysis (DIA) model v67 during year 6. Not intended to be
+called directly.
 }
 \references{
 Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon

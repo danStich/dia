@@ -45,6 +45,21 @@
 #' US Atlantic Salmon Assessment Committee, Report No. 30 - 2017 Activities, 
 #' Portland, ME.
 #'  
+#' @examples   
+#' # 1. Single value for hatchery fish ----
+#' make_marine_s(hatchery = TRUE)
+#' 
+#' # 2. Ten thousand values of marine S for hatchery fish ----
+#' sim <- make_marine_s(n = 1e4, hatchery = TRUE)
+#' hist(sim) 
+#'  
+#' # 3. Single value for wild fish ----
+#' make_marine_s(hatchery = FALSE)
+#' 
+#' # 4. Ten thousand values of marine S for wild fish ----
+#' sim_w <- make_marine_s(n = 1e4, hatchery = FALSE)
+#' hist(sim_w) 
+#' 
 #' @export
 #' 
 make_marine_s <- function(n = 1, 

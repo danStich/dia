@@ -7,14 +7,23 @@
 run_straying(returns, straying_matrix)
 }
 \arguments{
-\item{returns}{Total number of fish returning to river.}
+\item{returns}{Total number of fish returning to river by production unit.}
 
 \item{straying_matrix}{A matrix identical in structure to the built-in
 \code{\link{straying_matrix}} dataset.}
 }
+\value{
+A vector containing a number of adults of starting total (sum of all
+15 production units) that end up in each PU after straying.
+}
 \description{
 Adult straying (homing) routine for Atlantic salmon in
 the Dam Impact Analysis (DIA) model v67 during year 6.
+}
+\examples{
+# Run for 10,000 random fish returning to each PU
+run_straying(returns = rep(1e4, 15), straying_matrix = dia::straying_matrix)
+
 }
 \references{
 Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon

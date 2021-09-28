@@ -26,6 +26,13 @@
 #' Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
 #' Hole, MA.
 #' 
+#' @examples
+#' # 1. Simulate a single value for eggs per female ----
+#' make_eggs_per_female()
+#' 
+#' # 2. Simulate 10,000 values for eggs per female ----
+#' make_eggs_per_female(n = 10000)
+#' 
 #' @export
 #' 
 make_eggs_per_female <- function(n = 1, 

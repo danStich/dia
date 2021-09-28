@@ -28,6 +28,11 @@
 #' US Atlantic Salmon Assessment Committee, Report No. 30 - 2017 Activities, 
 #' Portland, ME.
 #' 
+#' @examples
+#' # Run stocking routine for 1 million fish with default stocking
+#' # proportions based on built-in \code{\link{stocking_default}} data set.
+#' smolt_stocking(1e6, stocking_proportions = NULL)
+#' 
 #' @export
 #' 
 smolt_stocking <- function(n_stocked = 545000, stocking_proportions = NULL){

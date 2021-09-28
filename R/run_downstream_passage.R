@@ -2,7 +2,8 @@
 #' 
 #' @description Run the downstream passage routine for Atlantic salmon Dam
 #' Impact Analysis (DIA) model v67. Default usage is to inherit all arguments
-#' from \code{\link{run_dia}} or \code{\link{run_one_gen}}.
+#' from \code{\link{run_dia}} or \code{\link{run_one_gen}}. **Not intended to 
+#' be called directly.**
 #' 
 #' @param stocked_smolts Number of hatchery smolts stocked by PU.
 #' 
