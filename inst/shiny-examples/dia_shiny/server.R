@@ -1,4 +1,4 @@
-# Define server logic required to draw a histogram ----
+# Define server logic required to run dia and display result ----
 server <- function(input, output) {
 
   # Library loads ----
