@@ -34,7 +34,7 @@ upstream_inefficiency
 }
 \description{
 Upstream inefficiency table from the Atlantic salmon 
-Dam Impact analysis model v67. When adult Atlantic salmon do not 
+Dam Impact Analysis model v67. When adult Atlantic salmon do not 
 pass a dam, a proportion of those fish die, a proportion return 
 to sea, and a proportion go elsewhere to attempt to spawn.
 }

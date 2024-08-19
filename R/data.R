@@ -93,7 +93,7 @@
 #' @title Upstream inefficiency of adult migrants
 #' 
 #' @description Upstream inefficiency table from the Atlantic salmon 
-#' Dam Impact analysis model v67. When adult Atlantic salmon do not 
+#' Dam Impact Analysis model v67. When adult Atlantic salmon do not 
 #' pass a dam, a proportion of those fish die, a proportion return 
 #' to sea, and a proportion go elsewhere to attempt to spawn.
 #' 
@@ -753,7 +753,7 @@
 #' @description Cumulative distribution function for in-river mortality of
 #' outmigrating smolts per km
 #' 
-#' @format A dataframe with 34 observations of 3 variables
+#' @format A dataframe with 15 observations of 2 variables
 #' \describe{
 #'   \code{PU } Production unit \cr \cr
 #'   \code{river_section } Section of watershed by PU \cr \cr

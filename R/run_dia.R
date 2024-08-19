@@ -1,10 +1,10 @@
 #' @title Run the Dam Impact Analysis
 #' 
-#' @description Use functions from \code{\link{dia}} to simulate one
-#' generation of 2 sea-winter female Atlantic salmon through time using data
+#' @description Use functions from \code{\link{dia}} to simulate multiple
+#' generations of 2 sea-winter female Atlantic salmon through time using data
 #' and inputs from Nieland et al. (2013, 2015) and Nieland and Sheehan (2020) 
-#' as implemented in `@Risk` add-on for `Excel`. This function is a wrapper 
-#' for \code{link{run_one_gen}} that uses output from one generation as the 
+#' as implemented in `@Risk` add-in for `Excel`. This function is a wrapper 
+#' for \code{\link{run_one_gen}} that uses output from one generation as the 
 #' seed for any number of subsequent generations.
 #' 
 #' @param n_generations Number of generations to simulate for simulation. One 
@@ -80,13 +80,13 @@
 #' Hatchery each year. Broodstock are collected upstream of Milford Dam
 #' in \code{\link{run_upstream_passage}}.
 #' 
-#' @return A list with length corresponding to number of generations. Each 
-#' element of the list contains a dataframe with 15 observations of 
-#' 3 variables from output of \code{\link{run_one_gen}}.
+#' @return A dataframe with four variables corresponding to each generation of
+#' the simulation. Variables correspond to output from \code{\link{run_one_gen}}.
 #' \describe{
 #'   \code{production_unit } Production unit \cr \cr
-#'   \code{hatchery_adults } Number of hatchery adults in each PU \cr \cr
-#'   \code{wild_adults } Number of wild adults in each PU \cr \cr
+#'   \code{generation } Generation number from simulation \cr \cr
+#'   \code{origin } Fish origin (hatchery or wild) \cr \cr
+#'   \code{abundance } Fish abundance within production units, generations, and origin
 #' }
 #' 
 #' @references 
@@ -130,6 +130,10 @@
 #' of Fisheries and Aquatic Sciences 72:1339-1351.
 #' 
 #' @examples 
+#' # Additional examples, including parallel implementation can be found in the
+#' # readme file for the GitHub repository for this package: 
+#' # https://github.com/danStich/dia.
+#' 
 #' # 1. Run dia model with defaults for 15 generations ----
 #' 
 #' result <- run_dia(n_generations = 15)

@@ -5,7 +5,7 @@
 \alias{river_sections}
 \title{In river mortality}
 \format{
-A dataframe with 34 observations of 3 variables
+A dataframe with 15 observations of 2 variables
 \describe{
   \code{PU } Production unit \cr \cr
   \code{river_section } Section of watershed by PU \cr \cr
