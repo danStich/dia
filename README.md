@@ -121,8 +121,7 @@ run_dia(
   marine_s_wild = NA,
   straying_matrix = NULL,
   p_mainstem_up = 1,
-  n_broodstock = 150
-)
+  n_broodstock = 150)
 ```
 
 ### Multiple simulations for a single scenario
@@ -215,6 +214,125 @@ ggplot(plotter, aes(x = generation, y = abundance,
   geom_line() +
   geom_ribbon(aes(x = generation, ymin = lwr, ymax = upr, color = NULL),
               alpha = 0.1)    
+```
+
+# Example of parallel execution for running multiple models
+```
+# Libraries ----
+library(tidyverse)
+library(snowfall)
+library(dia)
+library(data.table)
+
+# Parallel settings ----
+# Get number of nodes (cpu cores - 1)
+ncpus <- 10
+
+# Initialize snowfall socket cluster
+sfInit(parallel = TRUE, cpus = ncpus, type = "SOCK")
+
+# Wrapper function for worker nodes ----
+sim <- function(x){
+    output <- run_dia(n_generations = 15,
+    n_wild = 31, 
+    n_hatchery = 306,
+    stocking = 1,
+    n_stocked = rep(545000, 15),
+    upstream = list(
+      medway = 0,
+      mattaceunk = 0.90,
+      west_enfield = 0.95,
+      upper_dover = 0.92,
+      browns_mills = 0.92,
+      sebec = 0,
+      milo = 0,
+      howland = 0.95,
+      lowel = 0.92,
+      stillwater = 0,
+      milford = 0.95,
+      great_works = 1,
+      orono = 0,
+      veazie = 1,
+      frankfort = 1),
+    downstream = list(
+      medway = 0,
+      mattaceunk = 1,
+      west_enfield = 0.96,
+      upper_dover = 0.9215,
+      browns_mills = NA,
+      sebec = NA,
+      milo = NA,
+      howland = 1,
+      lowell = NA,
+      stillwater = 0.96,
+      milford = 0.96,
+      great_works = 1,
+      orono = 0.96,
+      veazie = 1,
+      frankfort = NA),
+    mattaceunk_impoundment_mortality = 0.072,
+    p_stillwater = NA,
+    indirect_latent_mortality = 0.06,
+    p_female = 0.60,
+    new_or_old = "new",
+    marine_s_hatchery = NA,
+    marine_s_wild = NA,
+    straying_matrix = NULL,
+    p_mainstem_up = 1,
+    n_broodstock = 150
+    )
+    
+  out_list <- list(
+    output = output)
+  
+  return(out_list)
+    
+}
 
 
+# Parallel execution ----
+# . Load libraries on workers -----
+sfLibrary(dia)
+
+
+# . Distribute to workers -----
+# Number of simulations to run
+niterations <- 5e3
+
+
+# . Run the simulation ----
+# Record start time
+start <- Sys.time()
+
+# Run simulation and return results
+result <- sfLapply(1:niterations, sim) 
+
+# Calculate total time elapsed for benchmarking
+total_time <- Sys.time()-start
+total_time
+
+
+# Result processing ----
+# Extract results dataframes by string and rbind all list elements
+res <- lapply(result, function(x) x[[c('output')]])
+out_df <- data.frame(data.table::rbindlist(res))
+
+# Result summary ----
+# Summarize results across replicate stochastic model realizations
+plotter <- out_df %>% 
+          group_by(generation, origin, production_unit) %>% 
+          summarize(abund = median(abundance),
+                    lwr = quantile(abundance, 0.025),
+                    upr = quantile(abundance, 0.975)) %>% 
+          group_by(generation, origin) %>% 
+          summarize(abundance = sum(abund),
+                    lwr = sum(lwr),
+                    upr = sum(upr))
+
+# Plot results
+ggplot(plotter, aes(x = generation, y = abundance,
+            color = origin, fill = origin)) +
+  geom_line() +
+  geom_ribbon(aes(x = generation, ymin = lwr, ymax = upr, color = NULL),
+              alpha = 0.1)          
 ```
