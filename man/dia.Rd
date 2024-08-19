@@ -9,12 +9,18 @@ The dia package is a collection of functions and datasets used to run
 the Dam Impact Analysis (DIA) for Atlantic salmon in the Penobscot
 River, Maine, USA.
 }
+\details{
+Additional examples and descriptions of the primary user-facing 
+functions (`run_dia()` and `run_dia_shiny()`) can be found on the GitHub
+repository for the `dia` package: https://github.com/danStich/dia.
+}
 \section{Functions called directly}{
 
 The following functions can be called directly from dia.
 
  \describe{
    \code{\link{run_dia}}{ The primary user-facing function used to run the multi-generation DIA model for Atlantic salmon} \cr \cr
+   \code{\link{run_dia_shiny}}{ A `shiny` implementation of `run_dia()` with graphical user interface} \cr \cr
    \code{\link{run_one_gen}}{ Run the DIA model for a single generation} \cr \cr
    \code{\link{get_dam_passage}}{ Get flow-correlated downstream dam passage values and probability of using Stillwater Branch for smolts each year in `run_one_gen`} \cr \cr
    \code{\link{make_egg_to_smolt_survival}}{ Simulate survival from egg to smolt stage for naturally produced smolts in `run_one_gen`} \cr \cr
