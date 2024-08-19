@@ -189,10 +189,10 @@ server <- function(input, output) {
                ggplot2::aes(xmax = Generation, ymin = lwr, ymax = upr,
                             color = NULL), alpha = 0.15) +
              ggplot2::geom_line() +
-             theme_bw() +
-             theme(
-               axis.title.x = element_text(vjust = -1),
-               axis.title.y = element_text(vjust = 3)
+             ggplot2::theme_bw() +
+             ggplot2::theme(
+               axis.title.x = ggplot2::element_text(vjust = -1),
+               axis.title.y = ggplot2::element_text(vjust = 3)
              )
         
         print(p)
@@ -219,16 +219,14 @@ server <- function(input, output) {
                                           fill = Origin, color = Origin)) +
              ggplot2::geom_boxplot(alpha = 0.10) +
              xlab("Production unit") +
-             theme_bw() +
-             theme(
+               ggplot2::theme_bw() +
+               ggplot2::theme(
                axis.title.x = element_text(vjust = -1),
                axis.title.y = element_text(vjust = 3)
              )
         print(p)
         
       }      
-      
-      
       
     })
 }

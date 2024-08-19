@@ -12,6 +12,11 @@
 #'
 #' @export
 run_dia_shiny <- function() {
+
+  requireNamespace(package = "dplyr")
+  requireNamespace(package = "DT")
+  requireNamespace(package = "ggplot2")
+  
   appDir <- system.file("shiny-examples", "dia_shiny", package = "dia")
   if (appDir == "") {
     stop("Could not find example directory. Try re-installing `dia`.",
