@@ -24,23 +24,12 @@ To install `dia`, you will need to have `devtools` installed ahead of time in R,
 
 ## Getting started
 There are two primary user-facing functions within the `dia` package. The 
-`run_dia()` function can be called within an Rscript to run the Dam Impact Analysis (DIA) model using default or user-defined inputs. The `run_dia_shiny()`
-function launches a graphical user interface (GUI) that opens in a web browser and is written with the `shiny` package. The former provides functionality for
-large-scale simulation studies in R whereas the latter provides and intuitive 
-interface for running smaller numbers of management scenarios.
+`run_dia()` function can be called within an Rscript to run the Dam Impact Analysis (DIA) model using default or user-defined inputs. The `run_dia_shiny()` function launches a graphical user interface (GUI) that opens in a web browser and is written with the `shiny` package. The former provides functionality for large-scale simulation studies in R whereas the latter provides an intuitive  interface for running smaller numbers of management scenarios.
 
 ### `run_dia()`
-The `run_dia()` function provides the primary user-facing function for the `dia`
-package. The purpose of the function is to run the Dam Impact Analysis for
-some number of generations (15 by default). The output of this function is a 
-dataframe (ie. data table) containing number of wild and hatchery-origin adult
-returns in each generation. All default argument values (model inputs) are 
-based on the most-recent version of the NOAA Dam Impact Analysis Excel-based
-model (v67, Nieland et al. 2013, 2015; Nieland and Sheehan 2020).
+The `run_dia()` function provides the primary user-facing function for the `dia` package. The purpose of the function is to run the Dam Impact Analysis for some number of generations (15 by default). The output of this function is a  dataframe (ie. data table) containing number of wild and hatchery-origin adult returns in each generation. All default argument values (model inputs) are  based on the most-recent version of the NOAA Dam Impact Analysis Excel-based model (v67, Nieland et al. 2013, 2015; Nieland and Sheehan 2020).
 
-The `run_dia()` function allows user to specify number of generations, 
-number of starting wild and hatchery adults, whether stocking is turned on or off, how many fish are stocked in each production unit of the river, upstream and downstream dam passage rates, and other life-history or dam-related 
-vital rates.
+The `run_dia()` function allows user to specify number of generations,  number of starting wild and hatchery adults, whether stocking is turned on or off, how many fish are stocked in each production unit of the river, upstream and downstream dam passage rates, and other life-history or dam-related vital rates.
 
 You can find the help file for the `run_dia()` function in R by running:
 `?dia::run_dia`. This file contains all accepted user arguments, explanations
@@ -48,28 +37,20 @@ of what they mean and what are default values, and examples of how to use
 the `run_dia()` function. Examples are shownd at the bottom of this page.
 
 ### `run_dia_shiny()`
-The `run_dia_shiny()` package provides and intuitive user interface for running 
-the DIA model. Though more limited in flexibility that `run_dia()`, the simplified interface should allow full exploration of management scenarios. The
-primary difference is that `run_dia_shiny()` does not allow the user to input
-custom distributions or values for some input parameters such as the `straying_matrix` or `inefficiency_matrix` implemented in the `run_dia()` 
-function. 
+The `run_dia_shiny()` package provides and intuitive user interface for running  the DIA model. Though more limited in flexibility that `run_dia()`, the simplified interface should allow full exploration of management scenarios. The primary difference is that `run_dia_shiny()` does not allow the user to input custom distributions or values for some input parameters such as the `straying_matrix` or `inefficiency_matrix` implemented in the `run_dia()` function. 
 
-Currently, the shiny interface for the DIA model can only be called directly 
-from R or Rstudio by running the following lines of code:
+Currently, the shiny interface for the DIA model can only be called directly from R or Rstudio by running the following lines of code:
 ```
 library(dia)
 run_dia_shiny()
 ```
 
-This will open the user-interface in a local instance of the default web 
-browser on the computer where further instructions are provided.
+This will open the user-interface in a local instance of the default web browser on the computer where further instructions are provided.
 
 ## Examples using `run_dia()`
 
 ### Single simulation
-An example of a single simulation using `run_dia()` is demonstrated below,
-using the default values based on Nieland et al. (2013, 2015) and
-Nieland and Sheehan (2020).
+An example of a single simulation using `run_dia()` is demonstrated below,using the default values based on Nieland et al. (2013, 2015) and Nieland and Sheehan (2020).
 
 ```
 library(dia)
