@@ -216,7 +216,7 @@ ggplot(plotter, aes(x = generation, y = abundance,
               alpha = 0.1)    
 ```
 
-# Example of parallel execution for running multiple models
+### Example of parallel execution for running multiple models
 ```
 # Libraries ----
 library(tidyverse)
