@@ -1,5 +1,9 @@
 # dia
 
+[![DOI](https://zenodo.org/badge/383607566.svg)](https://zenodo.org/doi/10.5281/zenodo.13376045)
+
+## Overview
+
 An R package for hosting code and data, and running the Atlantic salmon Dam Impact Analysis (DIA) model.
 
 ## Installation
