@@ -5,7 +5,7 @@
 #' River, Maine, USA.
 #' 
 #' Additional examples and descriptions of the primary user-facing 
-#' functions (`run_dia()` and `run_dia_shiny()`) can be found on the GitHub
+#' functions (\code{run_dia()} and \code{run_dia_shiny()}) can be found on the GitHub
 #' repository for the `dia` package: https://github.com/danStich/dia.
 #' 
 #' @section Functions called directly:
