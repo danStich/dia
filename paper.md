@@ -13,7 +13,7 @@ output:
 authors:
   - name: Daniel S. Stich
     orcid: "0000-0002-8946-1115"
-    corresponding: yes
+    corresponding: true
     affiliation: 1
   - name: Julie L. Nieland
     affiliation: 2
@@ -23,7 +23,7 @@ affiliations:
 - name: Biology Department and Biological Field Station, State University of New York at Oneonta, NY 13280 USA
   index: 1
 - name: National Oceanic and Atmospheric Administration, National Marine Fisheries Service, Northeast Fisheries Science Center, Woods Hole, MA 02543 USA
-index: 2
+  index: 2
 bibliography: paper.bib
 date: 10 September 2024
 ---
