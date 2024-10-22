@@ -1,5 +1,5 @@
 ---
-title: '{dia}: An {R} package for the {National Oceanic} and {Atmospheric Administration} dam impact analysis'
+title: 'dia: An R package for the National Oceanic and Atmospheric Administration dam impact analysis'
 tags:
   - R
   - fisheries
