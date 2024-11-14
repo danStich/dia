@@ -99,7 +99,7 @@
 <div class="section level3">
 <h3 id="single-simulation">Single simulation<a class="anchor" aria-label="anchor" href="#single-simulation"></a>
 </h3>
-<p>An example of a single simulation using <code><a href="reference/run_dia.html">run_dia()</a></code> is demonstrated below, using the default values based on Nieland et al. (2013, 2015) and Nieland and Sheehan (2020).</p>
+<p>An example of a single simulation using <code><a href="reference/run_dia.html">run_dia()</a></code> is demonstrated below, using the default values based on Nieland et al. (<a href="https://repository.library.noaa.gov/view/noaa/4559" class="external-link">2013</a>, <a href="https://academic.oup.com/icesjms/article/72/8/2423/2458708" class="external-link">2015</a>) and <a href="https://repository.library.noaa.gov/view/noaa/23714" class="external-link">Nieland and Sheehan (2020)</a>.</p>
 <pre><code><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://danstich.github.io/dia/">dia</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># For reproducibility: comment out the next line if you wish to sample stochastically</span></span>
@@ -331,7 +331,7 @@
 <span></span>
 <span></span>
 <span><span class="co"># Parallel execution ----</span></span>
-<span><span class="co"># . Load libraries on workers -----</span></span>
+<span><span class="co"># . Load libraries on nodes using sfLibrary() from the snowfall package -----</span></span>
 <span><span class="fu">sfLibrary</span><span class="op">(</span><span class="va">dia</span><span class="op">)</span></span>
 <span></span>
 <span></span>
