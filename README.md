@@ -51,7 +51,7 @@ This will open the user-interface in a local instance of the default web browser
 ## Examples using `run_dia()`
 
 ### Single simulation
-An example of a single simulation using `run_dia()` is demonstrated below, using the default values based on Nieland et al. (2013, 2015) and Nieland and Sheehan (2020).
+An example of a single simulation using `run_dia()` is demonstrated below, using the default values based on Nieland et al. ([2013](https://repository.library.noaa.gov/view/noaa/4559), [2015](https://academic.oup.com/icesjms/article/72/8/2423/2458708)) and [Nieland and Sheehan (2020)](https://repository.library.noaa.gov/view/noaa/23714).
 
 ```
 library(dia)
@@ -288,7 +288,7 @@ sim <- function(x){
 
 
 # Parallel execution ----
-# . Load libraries on workers -----
+# . Load libraries on nodes using sfLibrary() from the snowfall package -----
 sfLibrary(dia)
 
 
