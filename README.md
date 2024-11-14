@@ -38,7 +38,7 @@ You can find the help file for the `run_dia()` function in R by running: `?dia::
 the `run_dia()` function. Examples are shown at the bottom of this page.
 
 ### `run_dia_shiny()`
-The `run_dia_shiny()` function provides and intuitive user interface for running  the DIA model. Though more limited in flexibility than `run_dia()`, the simplified interface should allow full exploration of management scenarios. The primary difference is that `run_dia_shiny()` does not allow the user to input custom distributions or values for some input parameters such as the `straying_matrix` or `inefficiency_matrix` implemented in the `run_dia()` function. 
+The `run_dia_shiny()` function provides an intuitive user interface for running  the DIA model. Though more limited in flexibility than `run_dia()`, the simplified interface should allow full exploration of management scenarios. The primary difference is that `run_dia_shiny()` does not allow the user to input custom distributions or values for some input parameters such as the `straying_matrix` or `inefficiency_matrix` implemented in the `run_dia()` function. 
 
 Currently, the shiny interface for the DIA model can only be called directly from R or Rstudio by running the following lines of code:
 ```
