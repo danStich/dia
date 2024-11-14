@@ -2,8 +2,10 @@ Package: dia
 Type: Package
 Title: R package for Atlantic salmon Dam Impact Analysis (DIA) model
 Version: 1.0.0
-Author: D. S. Stich, J. L. Nieland, and T. F. Sheehan
-Maintainer: <daniel.stich@oneonta.edu>
+Authors@R: c(
+    person("Daniel S.", "Stich", email = "daniel.stich@oneonta.edu", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-8946-1115")),
+    person("Julie L.", "Nieland", role = "aut"),
+    person("Timothy F.", "Sheehan", role = "aut"))
 Description: Hosts code and data for running the Atlantic salmon Dam Impact Analysis (DIA) model.
 Depends: R (>= 3.5.0)
 License: GPL-3 + file LICENSE
