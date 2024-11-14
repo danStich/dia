@@ -51,7 +51,7 @@
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
-<p>An R package for hosting code and data, and running the Atlantic salmon Dam Impact Analysis (DIA) model.</p>
+<p>An R package for hosting code and data, and running the Atlantic salmon Dam Impact Analysis (DIA) model. This package was designed to provide a transparent, open-source version of the National Oceanic and Atmospheric Administration’s Dam Impact Analysis (DIA) model for Atlantic salmon (<em>Salmo salar</em>) in the Penobscot River, Maine, USA. We created the package for use by fisheries scientists, managers, and decision makers as a transparent tool to support decision-making related to conservation of Atlantic salmon in this priority waterbody. It uses life-history data, flow-specific survival rates and other empirical estimates to simulate the response of Atlantic salmon in the Penobscot River over multiple generations to key conservation and restoration decisions such as supplemental fish stocking and passage through hydropower dams.</p>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -77,15 +77,15 @@
 <h3 id="run_dia">
 <code>run_dia()</code><a class="anchor" aria-label="anchor" href="#run_dia"></a>
 </h3>
-<p>The <code><a href="reference/run_dia.html">run_dia()</a></code> function provides the primary user-facing function for the <code>dia</code> package. The purpose of the function is to run the Dam Impact Analysis for some number of generations (15 by default). The output of this function is a dataframe (ie. data table) containing number of wild and hatchery-origin adult returns in each generation. All default argument values (model inputs) are based on the most-recent version of the NOAA Dam Impact Analysis Excel-based model (v67, Nieland et al. 2013, 2015; Nieland and Sheehan 2020).</p>
+<p>The <code><a href="reference/run_dia.html">run_dia()</a></code> function provides the primary user-facing function for the <code>dia</code> package. The purpose of the function is to run the Dam Impact Analysis for some number of generations (15 by default). The output of this function is a dataframe (i.e., data table) containing number of wild and hatchery-origin adult returns in each generation. All default argument values (model inputs) are based on the most-recent version of the NOAA Dam Impact Analysis Excel-based model (v67, <a href="https://repository.library.noaa.gov/view/noaa/55737" class="external-link">Nieland et al. 2013</a>; <a href="https://academic.oup.com/icesjms/article-pdf/72/8/2423/31226690/fsv083.pdf" class="external-link">Nieland et al. 2015</a>; <a href="https://repository.library.noaa.gov/view/noaa/23714" class="external-link">Nieland and Sheehan 2020</a>).</p>
 <p>The <code><a href="reference/run_dia.html">run_dia()</a></code> function allows user to specify number of generations, number of starting wild and hatchery adults, whether stocking is turned on or off, how many fish are stocked in each production unit of the river, upstream and downstream dam passage rates, and other life-history or dam-related vital rates.</p>
-<p>You can find the help file for the <code><a href="reference/run_dia.html">run_dia()</a></code> function in R by running: <code><a href="reference/run_dia.html">?dia::run_dia</a></code>. This file contains all accepted user arguments, explanations of what they mean and what are default values, and examples of how to use the <code><a href="reference/run_dia.html">run_dia()</a></code> function. Examples are shownd at the bottom of this page.</p>
+<p>You can find the help file for the <code><a href="reference/run_dia.html">run_dia()</a></code> function in R by running: <code><a href="reference/run_dia.html">?dia::run_dia</a></code>. This file contains all accepted user arguments, explanations of what they mean and what are default values, and examples of how to use the <code><a href="reference/run_dia.html">run_dia()</a></code> function. Examples are shown at the bottom of this page.</p>
 </div>
 <div class="section level3">
 <h3 id="run_dia_shiny">
 <code>run_dia_shiny()</code><a class="anchor" aria-label="anchor" href="#run_dia_shiny"></a>
 </h3>
-<p>The <code><a href="reference/run_dia_shiny.html">run_dia_shiny()</a></code> function provides and intuitive user interface for running the DIA model. Though more limited in flexibility that <code><a href="reference/run_dia.html">run_dia()</a></code>, the simplified interface should allow full exploration of management scenarios. The primary difference is that <code><a href="reference/run_dia_shiny.html">run_dia_shiny()</a></code> does not allow the user to input custom distributions or values for some input parameters such as the <code>straying_matrix</code> or <code>inefficiency_matrix</code> implemented in the <code><a href="reference/run_dia.html">run_dia()</a></code> function.</p>
+<p>The <code><a href="reference/run_dia_shiny.html">run_dia_shiny()</a></code> function provides and intuitive user interface for running the DIA model. Though more limited in flexibility than <code><a href="reference/run_dia.html">run_dia()</a></code>, the simplified interface should allow full exploration of management scenarios. The primary difference is that <code><a href="reference/run_dia_shiny.html">run_dia_shiny()</a></code> does not allow the user to input custom distributions or values for some input parameters such as the <code>straying_matrix</code> or <code>inefficiency_matrix</code> implemented in the <code><a href="reference/run_dia.html">run_dia()</a></code> function.</p>
 <p>Currently, the shiny interface for the DIA model can only be called directly from R or Rstudio by running the following lines of code:</p>
 <pre><code><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://danstich.github.io/dia/">dia</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/run_dia_shiny.html">run_dia_shiny</a></span><span class="op">(</span><span class="op">)</span></span></code></pre>
@@ -99,8 +99,12 @@
 <div class="section level3">
 <h3 id="single-simulation">Single simulation<a class="anchor" aria-label="anchor" href="#single-simulation"></a>
 </h3>
-<p>An example of a single simulation using <code><a href="reference/run_dia.html">run_dia()</a></code> is demonstrated below,using the default values based on Nieland et al. (2013, 2015) and Nieland and Sheehan (2020).</p>
+<p>An example of a single simulation using <code><a href="reference/run_dia.html">run_dia()</a></code> is demonstrated below, using the default values based on Nieland et al. (2013, 2015) and Nieland and Sheehan (2020).</p>
 <pre><code><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://danstich.github.io/dia/">dia</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># For reproducibility: comment out the next line if you wish to sample stochastically</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">7475</span><span class="op">)</span></span>
+<span></span>
 <span><span class="fu"><a href="reference/run_dia.html">run_dia</a></span><span class="op">(</span></span>
 <span>  n_generations <span class="op">=</span> <span class="fl">15</span>,</span>
 <span>  n_wild <span class="op">=</span> <span class="fl">31</span>,</span>
@@ -158,6 +162,9 @@
 <pre><code><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RevolutionAnalytics/foreach" class="external-link">foreach</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://danstich.github.io/dia/">dia</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># For reproducibility: comment out the next line if you wish to sample stochastically</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">7475</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Choose number of iterations</span></span>
 <span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">100</span></span>
@@ -219,7 +226,6 @@
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">outlist</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"run_"</span>, <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">outlist</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">out_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html" class="external-link">do.call</a></span><span class="op">(</span><span class="va">rbind</span>, <span class="va">outlist</span><span class="op">)</span></span>
 <span></span>
-<span></span>
 <span><span class="co"># Summarize results across number of runs</span></span>
 <span><span class="va">plotter</span> <span class="op">&lt;-</span> <span class="va">out_df</span> <span class="op">%&gt;%</span></span>
 <span>          <span class="fu">group_by</span><span class="op">(</span><span class="va">generation</span>, <span class="va">origin</span>, <span class="va">production_unit</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
@@ -241,7 +247,7 @@
 <span>              alpha <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span>    </span></code></pre>
 </div>
 <div class="section level3">
-<h3 id="example-of-parallel-execution-for-running-multiple-models">Example of parallel execution for running multiple models<a class="anchor" aria-label="anchor" href="#example-of-parallel-execution-for-running-multiple-models"></a>
+<h3 id="example-of-parallel-execution-for-running-multiple-models-using-snowfall">Example of parallel execution for running multiple models using snowfall<a class="anchor" aria-label="anchor" href="#example-of-parallel-execution-for-running-multiple-models-using-snowfall"></a>
 </h3>
 <pre><code><span><span class="co"># Libraries ----</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
@@ -249,64 +255,73 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://danstich.github.io/dia/">dia</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com" class="external-link">data.table</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Parallel settings ----</span></span>
-<span><span class="co"># Get number of nodes (cpu cores - 1)</span></span>
-<span><span class="va">ncpus</span> <span class="op">&lt;-</span> <span class="fl">10</span></span>
+<span><span class="co"># For reproducibility: comment out this line if you wish to sample stochastically</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">7475</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Initialize snowfall socket cluster</span></span>
+<span><span class="co"># Parallel settings ----</span></span>
+<span><span class="co"># Get number of nodes (cpu cores - 1) for the sfInit() function from snowfall</span></span>
+<span><span class="va">ncpus</span> <span class="op">&lt;-</span> <span class="fu">parallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/detectCores.html" class="external-link">detectCores</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span></span>
+<span></span>
+<span><span class="co"># Initialize snowfall socket cluster to register the parallel back-end</span></span>
 <span><span class="fu">sfInit</span><span class="op">(</span>parallel <span class="op">=</span> <span class="cn">TRUE</span>, cpus <span class="op">=</span> <span class="va">ncpus</span>, type <span class="op">=</span> <span class="st">"SOCK"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Wrapper function for worker nodes ----</span></span>
+<span><span class="co"># Define a wrapper function that will be deployed to parallel nodes ----</span></span>
 <span><span class="va">sim</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span></span>
+<span></span>
+<span>    <span class="co"># Run the dia function once per deployment on a parallel node</span></span>
+<span>    <span class="co"># and save the result to an output object that can be returned</span></span>
+<span>    <span class="co"># locally in a list of results from the parallel process</span></span>
 <span>    <span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/run_dia.html">run_dia</a></span><span class="op">(</span>n_generations <span class="op">=</span> <span class="fl">15</span>,</span>
-<span>    n_wild <span class="op">=</span> <span class="fl">31</span>,</span>
-<span>    n_hatchery <span class="op">=</span> <span class="fl">306</span>,</span>
-<span>    stocking <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>    n_stocked <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">545000</span>, <span class="fl">15</span><span class="op">)</span>,</span>
-<span>    upstream <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      medway <span class="op">=</span> <span class="fl">0</span>,</span>
-<span>      mattaceunk <span class="op">=</span> <span class="fl">0.90</span>,</span>
-<span>      west_enfield <span class="op">=</span> <span class="fl">0.95</span>,</span>
-<span>      upper_dover <span class="op">=</span> <span class="fl">0.92</span>,</span>
-<span>      browns_mills <span class="op">=</span> <span class="fl">0.92</span>,</span>
-<span>      sebec <span class="op">=</span> <span class="fl">0</span>,</span>
-<span>      milo <span class="op">=</span> <span class="fl">0</span>,</span>
-<span>      howland <span class="op">=</span> <span class="fl">0.95</span>,</span>
-<span>      lowel <span class="op">=</span> <span class="fl">0.92</span>,</span>
-<span>      stillwater <span class="op">=</span> <span class="fl">0</span>,</span>
-<span>      milford <span class="op">=</span> <span class="fl">0.95</span>,</span>
-<span>      great_works <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>      orono <span class="op">=</span> <span class="fl">0</span>,</span>
-<span>      veazie <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>      frankfort <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
-<span>    downstream <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>      medway <span class="op">=</span> <span class="fl">0</span>,</span>
-<span>      mattaceunk <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>      west_enfield <span class="op">=</span> <span class="fl">0.96</span>,</span>
-<span>      upper_dover <span class="op">=</span> <span class="fl">0.9215</span>,</span>
-<span>      browns_mills <span class="op">=</span> <span class="cn">NA</span>,</span>
-<span>      sebec <span class="op">=</span> <span class="cn">NA</span>,</span>
-<span>      milo <span class="op">=</span> <span class="cn">NA</span>,</span>
-<span>      howland <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>      lowell <span class="op">=</span> <span class="cn">NA</span>,</span>
-<span>      stillwater <span class="op">=</span> <span class="fl">0.96</span>,</span>
-<span>      milford <span class="op">=</span> <span class="fl">0.96</span>,</span>
-<span>      great_works <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>      orono <span class="op">=</span> <span class="fl">0.96</span>,</span>
-<span>      veazie <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>      frankfort <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>,</span>
-<span>    mattaceunk_impoundment_mortality <span class="op">=</span> <span class="fl">0.072</span>,</span>
-<span>    p_stillwater <span class="op">=</span> <span class="cn">NA</span>,</span>
-<span>    indirect_latent_mortality <span class="op">=</span> <span class="fl">0.06</span>,</span>
-<span>    p_female <span class="op">=</span> <span class="fl">0.60</span>,</span>
-<span>    new_or_old <span class="op">=</span> <span class="st">"new"</span>,</span>
-<span>    marine_s_hatchery <span class="op">=</span> <span class="cn">NA</span>,</span>
-<span>    marine_s_wild <span class="op">=</span> <span class="cn">NA</span>,</span>
-<span>    straying_matrix <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    p_mainstem_up <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>    n_broodstock <span class="op">=</span> <span class="fl">150</span></span>
+<span>      n_wild <span class="op">=</span> <span class="fl">31</span>,</span>
+<span>      n_hatchery <span class="op">=</span> <span class="fl">306</span>,</span>
+<span>      stocking <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>      n_stocked <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">545000</span>, <span class="fl">15</span><span class="op">)</span>,</span>
+<span>      upstream <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>        medway <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>        mattaceunk <span class="op">=</span> <span class="fl">0.90</span>,</span>
+<span>        west_enfield <span class="op">=</span> <span class="fl">0.95</span>,</span>
+<span>        upper_dover <span class="op">=</span> <span class="fl">0.92</span>,</span>
+<span>        browns_mills <span class="op">=</span> <span class="fl">0.92</span>,</span>
+<span>        sebec <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>        milo <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>        howland <span class="op">=</span> <span class="fl">0.95</span>,</span>
+<span>        lowel <span class="op">=</span> <span class="fl">0.92</span>,</span>
+<span>        stillwater <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>        milford <span class="op">=</span> <span class="fl">0.95</span>,</span>
+<span>        great_works <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>        orono <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>        veazie <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>        frankfort <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
+<span>      downstream <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>        medway <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>        mattaceunk <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>        west_enfield <span class="op">=</span> <span class="fl">0.96</span>,</span>
+<span>        upper_dover <span class="op">=</span> <span class="fl">0.9215</span>,</span>
+<span>        browns_mills <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>        sebec <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>        milo <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>        howland <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>        lowell <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>        stillwater <span class="op">=</span> <span class="fl">0.96</span>,</span>
+<span>        milford <span class="op">=</span> <span class="fl">0.96</span>,</span>
+<span>        great_works <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>        orono <span class="op">=</span> <span class="fl">0.96</span>,</span>
+<span>        veazie <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>        frankfort <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>,</span>
+<span>      mattaceunk_impoundment_mortality <span class="op">=</span> <span class="fl">0.072</span>,</span>
+<span>      p_stillwater <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>      indirect_latent_mortality <span class="op">=</span> <span class="fl">0.06</span>,</span>
+<span>      p_female <span class="op">=</span> <span class="fl">0.60</span>,</span>
+<span>      new_or_old <span class="op">=</span> <span class="st">"new"</span>,</span>
+<span>      marine_s_hatchery <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>      marine_s_wild <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>      straying_matrix <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>      p_mainstem_up <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>      n_broodstock <span class="op">=</span> <span class="fl">150</span></span>
 <span>    <span class="op">)</span></span>
 <span></span>
+<span>  <span class="co"># Save the output from the call to run_dia() to an element in an</span></span>
+<span>  <span class="co"># output list that can be returned locally</span></span>
 <span>  <span class="va">out_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    output <span class="op">=</span> <span class="va">output</span><span class="op">)</span></span>
 <span></span>
@@ -326,10 +341,11 @@
 <span></span>
 <span></span>
 <span><span class="co"># . Run the simulation ----</span></span>
-<span><span class="co"># Record start time</span></span>
+<span><span class="co"># Record start time for benchmarking</span></span>
 <span><span class="va">start</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Run simulation and return results</span></span>
+<span><span class="co"># Run simulation and return results using the sfLapply() function</span></span>
+<span><span class="co"># from the snowfall package</span></span>
 <span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">sfLapply</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="va">niterations</span>, <span class="va">sim</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Calculate total time elapsed for benchmarking</span></span>
@@ -341,6 +357,7 @@
 <span><span class="co"># Extract results dataframes by string and rbind all list elements</span></span>
 <span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">result</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">[[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'output'</span><span class="op">)</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="va">out_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="fu">data.table</span><span class="fu">::</span><span class="fu">rbindlist</span><span class="op">(</span><span class="va">res</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
 <span></span>
 <span><span class="co"># Result summary ----</span></span>
 <span><span class="co"># Summarize results across replicate stochastic model realizations</span></span>
@@ -361,6 +378,13 @@
 <span>  <span class="fu">geom_ribbon</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">generation</span>, ymin <span class="op">=</span> <span class="va">lwr</span>, ymax <span class="op">=</span> <span class="va">upr</span>, color <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>,</span>
 <span>              alpha <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span>          </span></code></pre>
 </div>
+</div>
+<div class="section level2">
+<h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h2>
+<p>Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods Hole, MA. URL: <a href="https://repository.library.noaa.gov/view/noaa/23714" class="external-link">https://repository.library.noaa.gov/view/noaa/23714</a>.</p>
+<p>Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams on diadromous fish: a case study for Atlantic salmon in the Penobscot River, Maine. ICES Journal of Marine Science 72:2423–2437. URL: <a href="https://academic.oup.com/icesjms/article/72/8/2423/2458708" class="external-link">https://academic.oup.com/icesjms/article/72/8/2423/2458708</a>.</p>
+<p>Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US Department of Commerce, Northeast Fisheries Science Center Reference Document 13-09, Woods Hole, MA. URL: <a href="https://repository.library.noaa.gov/view/noaa/4559" class="external-link">https://repository.library.noaa.gov/view/noaa/4559</a>.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="license">
