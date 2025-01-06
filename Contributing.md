@@ -2,6 +2,7 @@
 
 Welcome to the `dia` repository! We’re excited to have you here. To ensure a positive and productive experience for everyone, please follow these guidelines when contributing to or engaging with the project.
 
+
 ---
 
 ## 1. **Code of Conduct**
