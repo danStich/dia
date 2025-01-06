@@ -1,3 +1,37 @@
+# Community Guidelines for the `dia` Package
+
+Welcome to the `dia` repository! We’re excited to have you here. To ensure a positive and productive experience for everyone, please follow these guidelines when contributing to or engaging with the project.
+
+---
+
+## 1. **Code of Conduct**
+We are committed to fostering an open, welcoming, and inclusive community. Please review and adhere to the [Contributor Covenant Code of Conduct](https://www.contributor-covenant.org/version/2/0/code_of_conduct/) when interacting with others in this project.
+
+---
+
+## 2. **How to Contribute**
+We welcome contributions to improve the `dia` package. Contributions can include:
+- Reporting bugs
+- Proposing new features
+- Improving documentation
+- Submitting code (e.g., fixing bugs, adding functionality)
+
+### Contribution Process
+1. **Fork the Repository**  
+   Create a copy of this repository under your GitHub account using the "Fork" button.
+
+2. **Create a Branch**  
+   Create a new branch in your forked repository for your changes:
+
+```git checkout -b feature-or-bug-description```
+
+3. **Make Changes**  
+Make your changes in the new branch. Ensure your code adheres to the project’s coding standards.
+
+4. **Test Your Changes**  
+Run all automated tests to verify that your changes do not break existing functionality:z
+
+```devtools::test()```
 
 5. **Submit a Pull Request**  
 Push your changes to your forked repository and submit a pull request (PR) to the main repository. Include a clear description of the changes you’ve made and reference related issues, if any.
