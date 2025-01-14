@@ -53,19 +53,45 @@ repository for the `dia` package: https://github.com/danStich/dia.</p>
 
 
 <p>The following functions can be called directly from dia.</p>
-<p></p><dl><a href="run_dia.html">run_dia</a> The primary user-facing function used to run the multi-generation DIA model for Atlantic salmon
-   <a href="run_dia_shiny.html">run_dia_shiny</a> A `shiny` implementation of `run_dia()` with graphical user interface
-   <a href="run_one_gen.html">run_one_gen</a> Run the DIA model for a single generation
-   <a href="get_dam_passage.html">get_dam_passage</a> Get flow-correlated downstream dam passage values and probability of using Stillwater Branch for smolts each year in `run_one_gen`
-   <a href="make_egg_to_smolt_survival.html">make_egg_to_smolt_survival</a> Simulate survival from egg to smolt stage for naturally produced smolts in `run_one_gen`
-   <a href="make_eggs_per_female.html">make_eggs_per_female</a> Simulate number of eggs per female each year in `run_one_gen`
-   <a href="make_inriver_s.html">make_inriver_s</a> Simulate natural, in-river survival per km for downstream migrating smolts in `run_one_gen`
-   <a href="make_marine_s.html">make_marine_s</a> Simulate marine survival each year in `run_one_gen`
-   <a href="run_downstream_passage.html">run_downstream_passage</a> Run the downstream smolt passage module in `run_one_gen`
-   <a href="run_inefficiency.html">run_inefficiency</a> Re-distribute adult upstream migrants following failed dam passage in `run_one_gen`
-   <a href="run_straying.html">run_straying</a> Assign destination production units for adult returns in `run_one_gen`
-   <a href="run_upstream_passage.html">run_upstream_passage</a> Function used to run the upstream passage module for adults in `run_one_gen`
-   <a href="smolt_stocking.html">smolt_stocking</a> Function used to distribute stocked smolts among production units in `run_one_gen`
+<p></p><dl><dt><code><a href="run_dia.html">run_dia</a></code></dt>
+<dd><p>The primary user-facing function used to run the multi-generation DIA model for Atlantic salmon</p></dd>
+
+   <dt><code><a href="run_dia_shiny.html">run_dia_shiny</a></code></dt>
+<dd><p>A `shiny` implementation of `run_dia()` with graphical user interface</p></dd>
+
+   <dt><code><a href="run_one_gen.html">run_one_gen</a></code></dt>
+<dd><p>Run the DIA model for a single generation</p></dd>
+
+   <dt><code><a href="get_dam_passage.html">get_dam_passage</a></code></dt>
+<dd><p>Get flow-correlated downstream dam passage values and probability of using Stillwater Branch for smolts each year in `run_one_gen`</p></dd>
+
+   <dt><code><a href="make_egg_to_smolt_survival.html">make_egg_to_smolt_survival</a></code></dt>
+<dd><p>Simulate survival from egg to smolt stage for naturally produced smolts in `run_one_gen`</p></dd>
+
+   <dt><code><a href="make_eggs_per_female.html">make_eggs_per_female</a></code></dt>
+<dd><p>Simulate number of eggs per female each year in `run_one_gen`</p></dd>
+
+   <dt><code><a href="make_inriver_s.html">make_inriver_s</a></code></dt>
+<dd><p>Simulate natural, in-river survival per km for downstream migrating smolts in `run_one_gen`</p></dd>
+
+   <dt><code><a href="make_marine_s.html">make_marine_s</a></code></dt>
+<dd><p>Simulate marine survival each year in `run_one_gen`</p></dd>
+
+   <dt><code><a href="run_downstream_passage.html">run_downstream_passage</a></code></dt>
+<dd><p>Run the downstream smolt passage module in `run_one_gen`</p></dd>
+
+   <dt><code><a href="run_inefficiency.html">run_inefficiency</a></code></dt>
+<dd><p>Re-distribute adult upstream migrants following failed dam passage in `run_one_gen`</p></dd>
+
+   <dt><code><a href="run_straying.html">run_straying</a></code></dt>
+<dd><p>Assign destination production units for adult returns in `run_one_gen`</p></dd>
+
+   <dt><code><a href="run_upstream_passage.html">run_upstream_passage</a></code></dt>
+<dd><p>Function used to run the upstream passage module for adults in `run_one_gen`</p></dd>
+
+   <dt><code><a href="smolt_stocking.html">smolt_stocking</a></code></dt>
+<dd><p>Function used to distribute stocked smolts among production units in `run_one_gen`</p></dd>
+
 
 </dl></div>
     <div class="section level2">
@@ -73,37 +99,106 @@ repository for the `dia` package: https://github.com/danStich/dia.</p>
 
 
 <p>The following built-in datasets are included:</p>
-<p></p><dl><a href="downstream_brownsmills.html">downstream_brownsmills</a> Flow-correlated estimates of smolt survival through Browns Mills Dam
-    <a href="downstream_frankfort.html">downstream_frankfort</a> Flow-correlated estimates of smolt survival through Frankfort Dam
-    <a href="downstream_greatworks.html">downstream_greatworks</a> Flow-correlated estimates of smolt survival through Great Works Dam
-    <a href="downstream_howland.html">downstream_howland</a> Flow-correlated estimates of smolt survival through Howland Dam
-    <a href="downstream_lowell.html">downstream_lowell</a> Flow-correlated estimates of smolt survival through Lowell Dam
-    <a href="downstream_mattaceunk.html">downstream_mattaceunk</a> Flow-correlated estimates of smolt survival through Mattaceunk Dam
-    <a href="downstream_medway.html">downstream_medway</a> Flow-correlated estimates of smolt survival through Medway Dam
-    <a href="downstream_milford.html">downstream_milford</a> Updated (2020) flow-correlated estimates of smolt survival through Milford Dam
-    <a href="downstream_milford_old.html">downstream_milford_old</a> Original (2013) flow-correlated estimates of smolt survival through Milford Dam
-    <a href="downstream_milo.html">downstream_milo</a> Flow-correlated estimates of smolt survival through Milo Dam
-    <a href="downstream_moosehead.html">downstream_moosehead</a> Flow-correlated estimates of smolt survival through Moosehead Dam
-    <a href="downstream_orono.html">downstream_orono</a> Updated (2020) flow-correlated estimates of smolt survival through Orono Dam
-    <a href="downstream_orono_old.html">downstream_orono_old</a> Original (2013) flow-correlated estimates of smolt survival through Orono Dam
-    <a href="downstream_sebec.html">downstream_sebec</a> Flow-correlated estimates of smolt survival through Sebec Dam
-    <a href="downstream_stillwater.html">downstream_stillwater</a> Updated (2020) flow-correlated estimates of smolt survival through Stillwater Dam
-    <a href="downstream_stillwater_old.html">downstream_stillwater_old</a> Original (2013) flow-correlated estimates of smolt survival through Stillwater Dam
-    <a href="downstream_veazie.html">downstream_veazie</a> Flow-correlated estimates of smolt survival through Veazie Dam
-    <a href="downstream_westenfield.html">downstream_westenfield</a> Flow-correlated estimates of smolt survival through West Enfield Dam
-    <a href="in_river_m.html">in_river_m</a> Cumulative frequency distribution of in-river mortality per km for smolts
-    <a href="life_stage_survival.html">life_stage_survival</a> Distributional parameters for year-specific number of eggs produced per female, egg-to-smolt survival rate, in-river mortality rate, and marine survival rate
-    <a href="n_dams.html">n_dams</a>  Number of dams passed by smolts in each production unit and migration route
-    <a href="production_units.html">production_units</a> Division of Penobscot River watershed into sections, or Production Units (PUs)
-    <a href="stillwater_use.html">stillwater_use</a> Updated (2020) probability of smolts using Stillwater Branch for outmigration given discharge
-    <a href="stillwater_use_old.html">stillwater_use_old</a> Original (2013) probability of smolts using Stillwater Branch for outmigration given discharge
-    <a href="stocking_default.html">stocking_default</a> Default stocking proportions of smolts by PU
-    <a href="straying_locations.html">straying_locations</a> Straying locations of adult Atlantic salmon based on behavioral patterns
-    <a href="straying_matrix.html">straying_matrix</a> Numeric columns only from `straying_locations`
-    <a href="upstream_inefficiency.html">upstream_inefficiency</a> Destination PUs and probabilities for adults that fail to pass dams
-    <a href="inefficiency_matrix.html">inefficiency_matrix</a> Columns 5 through 20 from `upstream_inefficiency`
+<p></p><dl><dt><code><a href="downstream_brownsmills.html">downstream_brownsmills</a></code></dt>
+<dd><p>Flow-correlated estimates of smolt survival through Browns Mills Dam</p></dd>
+
+    <dt><code><a href="downstream_frankfort.html">downstream_frankfort</a></code></dt>
+<dd><p>Flow-correlated estimates of smolt survival through Frankfort Dam</p></dd>
+
+    <dt><code><a href="downstream_greatworks.html">downstream_greatworks</a></code></dt>
+<dd><p>Flow-correlated estimates of smolt survival through Great Works Dam</p></dd>
+
+    <dt><code><a href="downstream_howland.html">downstream_howland</a></code></dt>
+<dd><p>Flow-correlated estimates of smolt survival through Howland Dam</p></dd>
+
+    <dt><code><a href="downstream_lowell.html">downstream_lowell</a></code></dt>
+<dd><p>Flow-correlated estimates of smolt survival through Lowell Dam</p></dd>
+
+    <dt><code><a href="downstream_mattaceunk.html">downstream_mattaceunk</a></code></dt>
+<dd><p>Flow-correlated estimates of smolt survival through Mattaceunk Dam</p></dd>
+
+    <dt><code><a href="downstream_medway.html">downstream_medway</a></code></dt>
+<dd><p>Flow-correlated estimates of smolt survival through Medway Dam</p></dd>
+
+    <dt><code><a href="downstream_milford.html">downstream_milford</a></code></dt>
+<dd><p>Updated (2020) flow-correlated estimates of smolt survival through Milford Dam</p></dd>
+
+    <dt><code><a href="downstream_milford_old.html">downstream_milford_old</a></code></dt>
+<dd><p>Original (2013) flow-correlated estimates of smolt survival through Milford Dam</p></dd>
+
+    <dt><code><a href="downstream_milo.html">downstream_milo</a></code></dt>
+<dd><p>Flow-correlated estimates of smolt survival through Milo Dam</p></dd>
+
+    <dt><code><a href="downstream_moosehead.html">downstream_moosehead</a></code></dt>
+<dd><p>Flow-correlated estimates of smolt survival through Moosehead Dam</p></dd>
+
+    <dt><code><a href="downstream_orono.html">downstream_orono</a></code></dt>
+<dd><p>Updated (2020) flow-correlated estimates of smolt survival through Orono Dam</p></dd>
+
+    <dt><code><a href="downstream_orono_old.html">downstream_orono_old</a></code></dt>
+<dd><p>Original (2013) flow-correlated estimates of smolt survival through Orono Dam</p></dd>
+
+    <dt><code><a href="downstream_sebec.html">downstream_sebec</a></code></dt>
+<dd><p>Flow-correlated estimates of smolt survival through Sebec Dam</p></dd>
+
+    <dt><code><a href="downstream_stillwater.html">downstream_stillwater</a></code></dt>
+<dd><p>Updated (2020) flow-correlated estimates of smolt survival through Stillwater Dam</p></dd>
+
+    <dt><code><a href="downstream_stillwater_old.html">downstream_stillwater_old</a></code></dt>
+<dd><p>Original (2013) flow-correlated estimates of smolt survival through Stillwater Dam</p></dd>
+
+    <dt><code><a href="downstream_veazie.html">downstream_veazie</a></code></dt>
+<dd><p>Flow-correlated estimates of smolt survival through Veazie Dam</p></dd>
+
+    <dt><code><a href="downstream_westenfield.html">downstream_westenfield</a></code></dt>
+<dd><p>Flow-correlated estimates of smolt survival through West Enfield Dam</p></dd>
+
+    <dt><code><a href="in_river_m.html">in_river_m</a></code></dt>
+<dd><p>Cumulative frequency distribution of in-river mortality per km for smolts</p></dd>
+
+    <dt><code><a href="life_stage_survival.html">life_stage_survival</a></code></dt>
+<dd><p>Distributional parameters for year-specific number of eggs produced per female, egg-to-smolt survival rate, in-river mortality rate, and marine survival rate</p></dd>
+
+    <dt><code><a href="n_dams.html">n_dams</a></code></dt>
+<dd><p>Number of dams passed by smolts in each production unit and migration route</p></dd>
+
+    <dt><code><a href="production_units.html">production_units</a></code></dt>
+<dd><p>Division of Penobscot River watershed into sections, or Production Units (PUs)</p></dd>
+
+    <dt><code><a href="stillwater_use.html">stillwater_use</a></code></dt>
+<dd><p>Updated (2020) probability of smolts using Stillwater Branch for outmigration given discharge</p></dd>
+
+    <dt><code><a href="stillwater_use_old.html">stillwater_use_old</a></code></dt>
+<dd><p>Original (2013) probability of smolts using Stillwater Branch for outmigration given discharge</p></dd>
+
+    <dt><code><a href="stocking_default.html">stocking_default</a></code></dt>
+<dd><p>Default stocking proportions of smolts by PU</p></dd>
+
+    <dt><code><a href="straying_locations.html">straying_locations</a></code></dt>
+<dd><p>Straying locations of adult Atlantic salmon based on behavioral patterns</p></dd>
+
+    <dt><code><a href="straying_matrix.html">straying_matrix</a></code></dt>
+<dd><p>Numeric columns only from `straying_locations`</p></dd>
+
+    <dt><code><a href="upstream_inefficiency.html">upstream_inefficiency</a></code></dt>
+<dd><p>Destination PUs and probabilities for adults that fail to pass dams</p></dd>
+
+    <dt><code><a href="inefficiency_matrix.html">inefficiency_matrix</a></code></dt>
+<dd><p>Columns 5 through 20 from `upstream_inefficiency`</p></dd>
+
 
 </dl></div>
+    <div class="section level2">
+    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
+    <div class="dont-index"><p>Useful links:</p><ul><li><p><a href="https://danstich.github.io/dia/">https://danstich.github.io/dia/</a></p></li>
+</ul></div>
+    </div>
+    <div class="section level2">
+    <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
+    <p><strong>Maintainer</strong>: Daniel S. Stich <a href="mailto:daniel.stich@oneonta.edu">daniel.stich@oneonta.edu</a> (<a href="https://orcid.org/0000-0002-8946-1115" class="external-link">ORCID</a>)</p>
+<p>Authors:</p><ul><li><p>Julie L. Nieland</p></li>
+<li><p>Timothy F. Sheehan</p></li>
+</ul></div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
