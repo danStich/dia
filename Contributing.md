@@ -30,7 +30,7 @@ We welcome contributions to improve the `dia` package. Contributions can include
 Make your changes in the new branch. Ensure your code adheres to the project’s coding standards.
 
 4. **Test Your Changes**  
-Run all automated tests to verify that your changes do not break existing functionality:z
+Run all automated tests to verify that your changes do not break existing functionality:
 
 ```devtools::test()```
 
