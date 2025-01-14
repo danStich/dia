@@ -7,11 +7,9 @@
 \format{
 A dataframe with 15 observations of 3 variables
 \describe{
-  \code{PU } Production unit of origin \cr \cr
-  \code{stillwater } Number of dams by natal PU encountered during 
-  downstream migration if fish move through the Stillwater Branch \cr \cr
-  \code{mainstem } Number of dams by natal PU encountered during 
-  downstream migration if fish move through the mainstem Penobscot River \cr \cr  
+  \item{\code{PU}}{Production unit of origin}
+  \item{\code{stillwater}}{Number of dams by natal PU encountered during downstream migration if fish move through the Stillwater Branch}
+  \item{\code{mainstem}}{Number of dams by natal PU encountered during downstream migration if fish move through the mainstem Penobscot River} 
 }
 }
 \source{

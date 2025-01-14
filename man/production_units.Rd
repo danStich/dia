@@ -7,18 +7,18 @@
 \format{
 A dataframe with 15 observations of 12 variables
 \describe{
-  \code{PU }{Production unit number (Neiland et al. 2015)} \cr \cr
-  \code{Boundaries }{Boundaries used to delimit PU} \cr \cr
-  \code{HU } Habitat units \cr \cr
-  \code{HU_scen } Habitat units in default scenario \cr \cr
-  \code{Proportion_of_HUS_in_scenario} Proportion of habitat units within PU (of entire watershed) \cr \cr
-  \code{Adjusted_proportion_of_HUs_in_scenario} Adjusted cumulative proportion of habitat units within PU (of entire watershed) \cr \cr
-  \code{Smolt_production_potential} Number of smolts that can be produced in each PU based on HUs \cr \cr
-  \code{Longest_segment_length_km} Maximum segment length of PU (km) \cr \cr
-  \code{Partial_segment_length_1} First partial segment length, if applicable \cr \cr
-  \code{Partial_segment_length_2} Second partial segment length, if applicable \cr \cr
-  \code{Hatchery_segment_length} Length of hatchery stocking segment \cr \cr
-  \code{Dam} Name of dam at downstream end of PU
+  \item{\code{PU}}{Production unit number (Neiland et al. 2015)}
+  \item{\code{Boundaries}}{Boundaries used to delimit PU}
+  \item{\code{HU}}{Habitat units}
+  \item{\code{HU_scen}}{Habitat units in default scenario}
+  \item{\code{Proportion_of_HUS_in_scenario}}{Proportion of habitat units within PU (of entire watershed)}
+  \item{\code{Adjusted_proportion_of_HUs_in_scenario}}{Adjusted cumulative proportion of habitat units within PU (of entire watershed)}
+  \item{\code{Smolt_production_potential}}{Number of smolts that can be produced in each PU based on HUs}
+  \item{\code{Longest_segment_length_km}}{Maximum segment length of PU (km)}
+  \item{\code{Partial_segment_length_1}}{First partial segment length, if applicable}
+  \item{\code{Partial_segment_length_2}}{Second partial segment length, if applicable}
+  \item{\code{Hatchery_segment_length}}{Length of hatchery stocking segment}
+  \item{\code{Dam}}{Name of dam at downstream end of PU}
 }
 }
 \source{

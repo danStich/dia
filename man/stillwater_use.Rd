@@ -7,8 +7,8 @@
 \format{
 A dataframe with 5,000 observations of 2 variables
 \describe{
-  \code{cum_prob } Cumulative probability for proportion \cr \cr
-  \code{proportion } Proportion of smolts using Stillwater Branch \cr \cr
+  \item{\code{cum_prob}}{Cumulative probability for proportion}
+  \item{\code{proportion}}{Proportion of smolts using Stillwater Branch}
 }
 }
 \source{

@@ -7,10 +7,10 @@
 \format{
 A dataframe with 9,368 observations of 4 variables
 \describe{
-  \code{flow_cfs } Value of flow (discharge) \cr \cr
-  \code{cumulative_prob } Cumulative flow probability \cr \cr
-  \code{flow_prob } Probability of individual flow value \cr \cr
-  \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
+  \item{\code{flow_cfs}}{Value of flow (discharge)}
+  \item{\code{cumulative_prob}}{Cumulative flow probability}
+  \item{\code{flow_prob}}{Probability of individual flow value}
+  \item{\code{smolt_surv_prob}}{Smolt survival probability given flow}
 }
 }
 \source{

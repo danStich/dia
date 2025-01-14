@@ -7,8 +7,8 @@
 \format{
 A dataframe with 15 observations of 2 variables
 \describe{
-  \code{PU } Production unit \cr \cr
-  \code{proportion_stocked } Proportion of hatchery smolts stocked in PU \cr \cr
+  \item{\code{PU}}{Production unit}
+  \item{\code{proportion_stocked}}{Proportion of hatchery smolts stocked in PU}
 }
 }
 \source{

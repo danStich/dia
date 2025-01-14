@@ -7,8 +7,8 @@
 \format{
 A dataframe with 15 observations of 16 variables.
 \describe{
-  \code{Natal_PU }{Natal production unit as smolt} \cr \cr
-  \code{PU_01, ..., PU14 } Destination production unit as adult \cr \cr
+  \item{\code{Natal_PU}}{Natal production unit as smolt}
+  \item{\code{PU_01, ..., PU14}}{Destination production unit as adult}
 }
 }
 \source{

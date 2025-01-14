@@ -7,8 +7,8 @@
 \format{
 A dataframe with 5,000 observations of 2 variables
 \describe{
-  \code{cum_prob } Cumulative probability for proportion \cr \cr
-  \code{proportion } Proportion of smolts using Stillwater Branch \cr \cr
+  \item{\code{cum_prob}}{Cumulative probability for proportion}
+  \item{\code{proportion}}{Proportion of smolts using Stillwater Branch}
 }
 }
 \source{
@@ -28,6 +28,10 @@ stillwater_use_old
 Stillwater use table from the Atlantic salmon 
 Dam Impact analysis model v67. Previous values used for 
 Cumulative probabilities of proportional use of Stillwater Branch by 
-outmigrating Atlantic salmon smolts in the Penobscot River, ME.
+outmigrating Atlantic salmon smolts in the Penobscot River, ME. This 
+version can be used to reproduce analyses from Nieland et al. (2013, 2015)
+and to explore current scenarios relative to historical conditions (e.g., 
+conditions prior to removal of dams and implementation of new fish
+passage systems).
 }
 \keyword{datasets}

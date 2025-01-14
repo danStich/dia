@@ -7,8 +7,8 @@
 \format{
 A dataframe with 15 observations of 2 variables
 \describe{
-  \code{PU } Production unit \cr \cr
-  \code{river_section } Section of watershed by PU \cr \cr
+  \item{\code{PU}}{Production unit}
+  \item{\code{river_section}}{Section of watershed by PU}
 }
 }
 \source{

@@ -7,9 +7,9 @@
 \format{
 A dataframe with 34 observations of 3 variables
 \describe{
-  \code{mort_per_km } Production unit of origin \cr \cr
-  \code{cum_freq } Cumulative probability at mort_per_km \cr \cr
-  \code{probs } Sampling probability \cr \cr  
+  \item{\code{mort_per_km}}{Production unit of origin}
+  \item{\code{cum_freq}}{Cumulative probability at mort_per_km}
+  \item{\code{probs}}{Sampling probability}
 }
 }
 \source{
