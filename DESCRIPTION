@@ -5,7 +5,7 @@ Version: 1.0.1
 Authors@R: c(
     person("Daniel S.", "Stich", email = "daniel.stich@oneonta.edu", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-8946-1115")),
     person("Julie L.", "Nieland", role = "aut"),
-    person("Timothy F.", "Sheehan", role = "aut"))
+    person("Timothy F.", "Sheehan", role = "aut"), comment = c(ORCID = "0000-0002-9689-1180"))
 Description: Hosts code and data for running the Atlantic salmon Dam Impact Analysis (DIA) model.
 Depends: R (>= 3.5.0)
 License: GPL-3 + file LICENSE
