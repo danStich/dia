@@ -1,7 +1,7 @@
 Package: dia
 Type: Package
 Title: R package for Atlantic salmon Dam Impact Analysis (DIA) model
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: c(
     person("Daniel S.", "Stich", email = "daniel.stich@oneonta.edu", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-8946-1115")),
     person("Julie L.", "Nieland", role = "aut"),
