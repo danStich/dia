@@ -1,6 +1,9 @@
 # dia
 
-[![DOI](https://zenodo.org/badge/383607566.svg)](https://zenodo.org/doi/10.5281/zenodo.13376045)
+An R package for the National Oceanic and Atmospheric Administration dam impact analysis
+
+[![DOI](https://zenodo.org/badge/383607566.svg)](https://zenodo.org/doi/10.5281/zenodo.13376045) 
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ## Table of Contents
 - [Overview](#overview)
