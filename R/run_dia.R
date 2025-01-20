@@ -3,60 +3,68 @@
 #' @description Use functions from \code{\link{dia}} to simulate multiple
 #' generations of 2 sea-winter female Atlantic salmon through time using data
 #' and inputs from Nieland et al. (2013, 2015) and Nieland and Sheehan (2020) 
-#' as implemented in `@Risk` add-in for `Excel`. This function is a wrapper 
-#' for \code{\link{run_one_gen}} that uses output from one generation as the 
-#' seed for any number of subsequent generations.
+#' as implemented in `@Risk` add-in for `Excel`. This function is a wrapper for 
+#' \code{\link{run_one_gen}} that uses output from one generation as the seed 
+#' for user-specified number of subsequent generations.
 #' 
-#' @param n_generations Number of generations to simulate for simulation. One 
+#' @param n_generations Number of generations to simulate. One 
 #' complete generation from egg to returning adult is six years.
 #' 
-#' @param n_wild Number of starting wild adult salmon.
+#' @param n_wild Number of starting wild, adult Atlantic salmon.
 #' 
-#' @param n_hatchery Number of starting hatchery adult salmon.
+#' @param n_hatchery Number of starting hatchery adult Atlantic salmon.
 #' 
 #' @param stocking Numeric indicating whether hatchery stocking is on (`1`) or
-#' off (`0`). 
+#' off (`0`). If hatchery stocking is on, then hatchery smolts are stocked into
+#' production units based on the \code{proportion_stocked} column in the
+#' built-in \code{\link{stocking_default}} dataset.
 #' 
 #' @param n_stocked A numeric vector corresponding to `n_generations` in length
-#' with number of stocked smolts per generation.
+#' with the number of stocked hatchery smolts per generation.
 #' 
 #' @param upstream Upstream passage efficiency of adult Atlantic salmon through
 #' dams. Default values are based on NMFS (2013) prescriptions as implemented
-#' in Nieland and Sheehan (2020).
+#' in Nieland and Sheehan (2020). Any numeric value between zero and 1, 
+#' inclusive, can be specified for any dam by the user.
 #' 
 #' @param downstream Downstream survival of Atlantic salmon smolts through dams.
 #' The default values are based on the most recent values used by Nieland et al. 
 #' (2020) based on standards established in the the NOAA Species Protection Plan
 #' following implementation of the Penobscot River Restoration Project.
-#' The default `NULL` randomly samples correlated survival rates of smolts for 
+#' The default `NA` randomly samples correlated survival rates of smolts for 
 #' each dam based on cumulative flow probabilities and associated empirical 
-#' survival rates (Nieland et al. 2013, Nieland and Sheehan 2020).
+#' survival rates (Nieland et al. 2013, Nieland and Sheehan 2020), and can also
+#' be used for dams that have a default value other than \code{NA}.
 #' 
 #' @param in_river_s In-river survival per kilometer for downstream migrating
-#' smolts. The default `NA` value simulates from cumulative distribution 
-#' function using values in \code{\link{in_river_m}}.
+#' smolts. The default `NA` value simulates from a cumulative distribution 
+#' function using values in \code{\link{in_river_m}}. This value is the same
+#' for hatchery stocked and wild smolts.
 #' 
 #' @param mattaceunk_impoundment_mortality Mortality incurred by Atlantic salmon
 #' smolts during migration through the Mattaceunk (Weldon) Dam impoundment. The
-#' default value is based on Nieland and Sheehan (2020). Based on results of 
+#' default value is based on Nieland and Sheehan (2020), who used results of 
 #' Holbrook et al. (2011) and Stich et al. (2015a).
 #' 
 #' @param p_stillwater Probability that fish use the Stillwater Branch for 
-#' downstream migration. The default (`NULL`) draws flow-correlated values from
-#' a cumulative distribution of flows with paired estimates of p_stillwater
-#' used by Nieland and Sheehan (2020), based on empirical results in Holbrook et al.
-#' (2006), Stich et al. (2014), and Stich et al. (2015a).
+#' downstream migration. The default (\code{NULL}) draws flow-correlated probability
+#' of using the Stillwater Branch from a cumulative distribution of flows with 
+#' paired estimates of \code{p_stillwater} used by Nieland and Sheehan (2020), 
+#' based on empirical results in Holbrook et al. (2006), Stich et al. (2014), 
+#' and Stich et al. (2015a).
 #'
 #' @param indirect_latent_mortality Indirect, latent mortality incurred by 
-#' Atlantic salmon smolts at each dam passed. The default value is what was used
-#' in Nieland and Sheehan (2020), derived from estimates in Stich et al. (2015b).
+#' Atlantic salmon smolts at each dam passed. The default value of \code{0.06}
+#' is what was used in Nieland and Sheehan (2020), derived from estimates in 
+#' Stich et al. (2015b).
 #' 
-#' @param p_female Proportion of females in population.
+#' @param p_female Proportion of females in population. Any value between zero
+#' and one, inclusive, is allowable.
 #' 
-#' @param new_or_old A character string indicating whether to use `"new"` 
-#' (Nieland and Sheehan 2020) or `"old"` (Nieland et al. 2013, 2015) flow-correlated
-#' probabilities of p_stillwater as well as flow-correlated survival at 
-#' `milford`, `orono`, and `stillwater` dams.
+#' @param new_or_old A character string indicating whether to use \code{"new"} 
+#' (Nieland and Sheehan 2020) or \code{"old"} (Nieland et al. 2013, 2015) 
+#' flow-correlated probabilities of \code{p_stillwater} as well as 
+#' flow-correlated survival at \code{milford, orono}, and \code{stillwater} dams.
 #' 
 #' @param marine_s_hatchery Numeric indicating marine survival rate for 
 #' post-smolt to adult survival of hatchery outmigrants. The default (`NA`)
@@ -64,12 +72,14 @@
 #' survival estimates from the Penobscot River, ME, USA.
 #' 
 #' @param marine_s_wild Numeric indicating marine survival rate for 
-#' post-smolt to adult survival of wild outmigrants. The default (`NA`)
-#' simulates values from a truncated normal distribution using wild smolt
-#' survival estimates from the Narraguagus River, ME, USA.
+#' post-smolt to adult survival of wild outmigrants during two winters at sea. 
+#' The default (`NA`) simulates values from a truncated normal distribution 
+#' using wild smolt survival estimates from the Narraguagus River, ME, USA.
 #' 
 #' @param straying_matrix A dataframe identical in structure to the built-in
-#' \code{\link{straying_locations}} dataset.
+#' \code{\link{straying_locations}} dataset. By default, uses the built-in
+#' data set to parameterize straying probabilities to destination PUs from 
+#' starting PUs.
 #' 
 #' @param p_mainstem_up Probability that fish use the mainstem Penobscot River
 #' (and not Stillwater Branch) for upstream migration around Marsh Island. The 
@@ -78,7 +88,8 @@
 #' @param n_broodstock Target number of adult returns collected at Milford Dam 
 #' for spawning at US Fish and Wildlife Service Craig Brook National Fish 
 #' Hatchery each year. Broodstock are collected upstream of Milford Dam
-#' in \code{\link{run_upstream_passage}}.
+#' in \code{\link{run_upstream_passage}} and removed from the population for
+#' that generation, as is the case in reality.
 #' 
 #' @return A dataframe with four variables corresponding to each generation of
 #' the simulation. Variables correspond to output from \code{\link{run_one_gen}}.
