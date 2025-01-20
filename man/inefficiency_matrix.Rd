@@ -28,4 +28,7 @@ inefficiency_matrix
 \description{
 Numeric columns 5 - 20 from \code{\link{upstream_inefficiency}}
 }
+\details{
+See \code{\link{upstream_inefficiency}} for additional details.
+}
 \keyword{datasets}

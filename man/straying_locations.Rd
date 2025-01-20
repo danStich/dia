@@ -8,7 +8,7 @@
 A dataframe with 15 observations of 16 variables.
 \describe{
   \item{\code{Natal_PU}}{Natal production unit as smolt}
-  \item{\code{PU_01, ..., PU14}}{Destination production unit as adult}
+  \item{\code{PU_01, ..., PU14}}{Probability of returning to each destination production unit as an adult conditioned on natal PU}
 }
 }
 \source{
@@ -31,7 +31,7 @@ straying_locations
 }
 \description{
 Straying matrix from the Atlantic salmon Dam 
-Impact Analysis model v67. Straying locations of adult Atlantic 
-salmon based on behavioral patterns.
+Impact Analysis model v67. Straying locations (PUs) of returning adult Atlantic 
+salmon based on natal PU.
 }
 \keyword{datasets}

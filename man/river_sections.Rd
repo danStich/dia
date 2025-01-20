@@ -3,7 +3,7 @@
 \docType{data}
 \name{river_sections}
 \alias{river_sections}
-\title{In river mortality}
+\title{River sections}
 \format{
 A dataframe with 15 observations of 2 variables
 \describe{
@@ -30,7 +30,8 @@ Department of Commerce, Northeast Fisheries Science Center Reference Document
 river_sections
 }
 \description{
-Cumulative distribution function for in-river mortality of
-outmigrating smolts per km
+Associations between production units and river "sections" used
+to organize results in the output of \code{\link{run_dia}} and 
+\code{\link{run_one_gen}} functions. Included for convenience.
 }
 \keyword{datasets}

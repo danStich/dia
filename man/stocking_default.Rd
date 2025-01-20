@@ -21,7 +21,10 @@ Hole, MA.
 stocking_default
 }
 \description{
-Default stocking proportions from the Hatchery worksheet
-in the Atlantic salmon Dam Impact Analysis model v67.
+Default proportion of stocked fish allocated to each PU
+in the watershed from the Hatchery worksheet in the Atlantic salmon Dam 
+Impact Analysis model v67. Used to distribute the number of stocked hatchery
+smolts from the argument \code{n_stocked} in \code{\link{rund_dia}} when 
+\code{stocking = 1}.
 }
 \keyword{datasets}

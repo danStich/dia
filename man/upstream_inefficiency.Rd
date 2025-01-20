@@ -10,8 +10,8 @@ A dataframe with 15 observations of 15 variables
   \item{\code{dam_failed_to_pass}}{The dam the adults fail to pass}
   \item{\code{p_die}}{The proportion of failed migrants that die}
   \item{\code{p_return_to_sea}}{The proportion of failed migrants that return to sea}
-  \item{\code{p_go_elsewhere}}{The proportion going elsewhere}
-  \item{\code{PU_01...PU14}}{The destination PUs for failed migrants at each dam with proportion going to each}
+  \item{\code{p_go_elsewhere}}{The proportion of failed migrants going elsewhere}
+  \item{\code{PU_01...PU14}}{The destination PUs for failed migrants at each dam with proportion of failed migrants going to each}
 }
 }
 \source{
@@ -36,6 +36,8 @@ upstream_inefficiency
 Upstream inefficiency table from the Atlantic salmon 
 Dam Impact Analysis model v67. When adult Atlantic salmon do not 
 pass a dam, a proportion of those fish die, a proportion return 
-to sea, and a proportion go elsewhere to attempt to spawn.
+to sea, and a proportion go elsewhere to attempt to spawn. These values are
+used in combination with the \code{\link{straying_matrix}} to spatially
+distribute returning adult spawners in each generation of simulations.
 }
 \keyword{datasets}

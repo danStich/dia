@@ -25,6 +25,7 @@ Stillwater use table from the Atlantic salmon
 Dam Impact analysis model v67. Cumulative probabilities of proportional
 use of Stillwater Branch by outmigrating Atlantic salmon smolts in the 
 Penobscot River, ME. This dataset was updated in 2020 following changes
-associated with the Penobscot River restoration project.
+associated with the Penobscot River Restoration Project 
+(Nieland et al. 2020).
 }
 \keyword{datasets}

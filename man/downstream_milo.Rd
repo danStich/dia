@@ -14,6 +14,10 @@ A dataframe with 925 observations of 4 variables
 }
 }
 \source{
+Amaral S, Fay C, Hecker G, Perkins N. 2012. Atlantic salmon survival 
+estimates at mainstem hydroelectric projects on the Penobscot River. 
+Holden (MA): Alden Research Laboratory, Inc. Phase 3 Final Report. 
+
 Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
 on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
 Maine. ICES Journal of Marine Science 72:2423–2437. 

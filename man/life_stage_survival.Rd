@@ -37,6 +37,8 @@ life_stage_survival
 Life Stage Survival table from the Atlantic salmon 
 Dam Impact analysis model v67. Distributional parameters for year-specific
 number of eggs produced per female, egg-to-smolt survival rate, 
-in-river mortality rate, and marine survival rate.
+in-river mortality rate, and marine survival rate. These variables provide
+default descriptive statistics used to simulate life stage-specific vital 
+rates within the \code{\link{run_one_gen}} function.
 }
 \keyword{datasets}

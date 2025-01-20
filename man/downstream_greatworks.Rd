@@ -14,6 +14,10 @@ A dataframe with 7,168 observations of 4 variables
 }
 }
 \source{
+Amaral S, Fay C, Hecker G, Perkins N. 2012. Atlantic salmon survival 
+estimates at mainstem hydroelectric projects on the Penobscot River. 
+Holden (MA): Alden Research Laboratory, Inc. Phase 3 Final Report. 
+
 Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
 on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
 Maine. ICES Journal of Marine Science 72:2423–2437. 
@@ -28,7 +32,15 @@ downstream_greatworks
 }
 \description{
 Alden research estimates of downstream survival from the 
-Atlantic salmon Dam Impact analysis model v67. Estimates are based on 
-in-river flow.
+Atlantic salmon Dam Impact analysis model v67 for Great Works Dam. 
+Annual survival estimates 
+from a variety of acoustic- and radio-telemetry studies were correlated with
+annual, in-river discharge data from hydropower facilities by Amaral 
+et al. (2012) to result in cumulative distribution functions from which 
+smolt survival can be drawn probabilistically. This is the approach
+used in the list of \code{downstream} passage rates for \code{great_works}
+in the \code{\link{run_dia}} function when \code{great_works = NA}. However,
+following removal of Great Works Dam in 2012, the default value used in 
+the \code{\link{run_dia}} function is \code{great_works = 1}.
 }
 \keyword{datasets}

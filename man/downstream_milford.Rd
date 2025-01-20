@@ -14,6 +14,10 @@ A dataframe with 9,356 observations of 4 variables
 }
 }
 \source{
+Amaral S, Fay C, Hecker G, Perkins N. 2012. Atlantic salmon survival 
+estimates at mainstem hydroelectric projects on the Penobscot River. 
+Holden (MA): Alden Research Laboratory, Inc. Phase 3 Final Report. 
+
 Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
 in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
 Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
@@ -24,8 +28,16 @@ downstream_milford
 }
 \description{
 Alden research estimates of downstream survival from the 
-Atlantic salmon Dam Impact analysis model v67. Estimates are based on 
-in-river flow. This dataset was updated in 2020 following changes to the
-hydrosystem associated with the Penobscot River Restoration Project.
+Atlantic salmon Dam Impact analysis model v67 for Milford Dam.
+Annual survival estimates from a variety of acoustic- and 
+radio-telemetry studies were correlated with annual, in-river discharge data
+from hydropower facilities by Amaral et al. (2012) to result in cumulative 
+distribution functions from which smolt survival can be drawn 
+probabilistically. This is the default approach used in the list of
+\code{downstream} passage rates for \code{milford} in the 
+\code{\link{run_dia}} function when \code{milford = NA}.
+This dataset was updated in 2020 following changes to the
+hydrosystem associated with the Penobscot River Restoration Project (Nieland
+et al. 2020).
 }
 \keyword{datasets}

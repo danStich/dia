@@ -23,6 +23,6 @@ in_river_m
 }
 \description{
 Cumulative distribution function for in-river mortality of
-outmigrating smolts per km
+outmigrating smolts per km.
 }
 \keyword{datasets}

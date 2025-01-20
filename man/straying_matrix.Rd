@@ -5,7 +5,7 @@
 \alias{straying_matrix}
 \title{Straying matrix}
 \format{
-A matrix with 15 observations of 16 variables.
+A matrix with 15 observations of 15 variables.
 }
 \source{
 Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
@@ -26,6 +26,11 @@ Department of Commerce, Northeast Fisheries Science Center Reference Document
 straying_matrix
 }
 \description{
-Numeric columns only from \code{\link{straying_locations}}
+Numeric columns only from \code{\link{straying_locations}}. A 
+matrix of return probabilities to destination PUs (columns) conditioned on 
+natal PU (rows) where the diagonal represents probability of returning to 
+natal PU (i.e., homing rate). These values are used in combination with the
+\code{\link{inefficiency_matrix}} to spatially distribute returning adult 
+spawners in each generation of simulations.
 }
 \keyword{datasets}
