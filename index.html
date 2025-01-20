@@ -49,9 +49,27 @@
 </h1></div>
 <p><a href="https://zenodo.org/doi/10.5281/zenodo.13376045" class="external-link"><img src="https://zenodo.org/badge/383607566.svg" alt="DOI"></a></p>
 <div class="section level2">
-<h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+<h2 id="table-of-contents">Table of Contents<a class="anchor" aria-label="anchor" href="#table-of-contents"></a>
 </h2>
-<p>An R package for hosting code and data, and running the Atlantic salmon Dam Impact Analysis (DIA) model. This package was designed to provide a transparent, open-source version of the National Oceanic and Atmospheric Administration’s Dam Impact Analysis (DIA) model for Atlantic salmon (<em>Salmo salar</em>) in the Penobscot River, Maine, USA. We created the package for use by fisheries scientists, managers, and decision makers as a transparent tool to support decision-making related to conservation of Atlantic salmon in this priority waterbody. It uses life-history data, flow-specific survival rates and other empirical estimates to simulate the response of Atlantic salmon in the Penobscot River over multiple generations to key conservation and restoration decisions such as supplemental fish stocking and passage through hydropower dams.</p>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#examples">Examples</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
+</div>
+<div class="section level1">
+<h1 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+</h1>
+<p>An R package for hosting code and data, and running the Atlantic salmon Dam Impact Analysis (DIA) model. This package was designed to provide a transparent, open-source version of the National Oceanic and Atmospheric Administration’s Dam Impact Analysis (DIA) model for Atlantic salmon (<em>Salmo salar</em>) in the Penobscot River, Maine, USA, that was previously hosted as an @RISK add on for Microsoft Excel. We created the package for use by fisheries scientists, managers, and decision makers as a transparent tool to support decision-making related to conservation of Atlantic salmon in this priority waterbody that hosts the majority of adult returns to the USA each year. It uses life-history data, flow-specific survival rates and other empirical estimates to simulate the response of Atlantic salmon in the Penobscot River over multiple generations to key conservation and restoration decisions such as supplemental fish stocking and passage through hydropower dams. A number of example uses are provided below that build in complexity.</p>
+<p>The full details of the model parameterization, including background information about the Atlantic salmon life cycle and the Penobscot River, are available from <a href="https://repository.library.noaa.gov/view/noaa/4559" class="external-link">Nieland et al. (2013)</a>, with a specific case study by <a href="https://academic.oup.com/icesjms/article/72/8/2423/2458708" class="external-link">Nieland et al. (2015)</a> and updated biological data and a second case study in <a href="https://repository.library.noaa.gov/view/noaa/23714" class="external-link">Nieland and Sheehan (2020)</a>. Below is a comparison of the original model parameterized by Nieland et al. (2013) and the core workflow of the <code>dia</code> package. Helper functions and built-in data sets are used to simulate a population through space in a single generation using the <code><a href="reference/run_one_gen.html">run_one_gen()</a></code> function, which is then wrapped in the <code><a href="reference/run_dia.html">run_dia()</a></code> function that facilitates stochastic simulation over a user-specified number of generations.</p>
+<p>We are actively working to generalize the functions in the <code>dia</code> package and others to facilitate use for other efforts. While many of the data sets, population vital-rate simulation routines, and helper functions are relatively generalizable among populations or even to other species, the underlying <code>production_units</code> table and associated default <code>straying_matrix</code> for natal homing are currently river-specific. For this reason, we welcome contributions that would help generalize the approach to creating structural river systems that underly population models in this package. You can learn more about contributing to this package in <a href="https://github.com/danStich/dia/blob/main/Contributing.md" class="external-link"><code>Contributing.md</code></a> in this GitHub repository.</p>
+<p><br></p>
+<div class="float">
+<img src="inst/images/Figure2.png?raw=true" alt='Figure: Graphical overview of the dia work flow (right) compared to the original Atlantic salmon Salmo salar lifecycle model presented by Nieland et al. (2013, 2015, 2020). Rounded rectangles are Atlantic salmon life stages, ovals are additions to population, and rectangles are subtractions from populations. Dashed rectangles indicate stochastic dynamics that are implemented within the model but that are neither additions nor subtractions. In the dia workflow, some noteable helper functions are shown in bold and have trailing parentheses (e.g., smolt_stocking()), built-in datasets are in bold with no trailing parentheses (e.g., life_stage_survival), and user-specified arguments to run_dia() are in plain font. You can learn more about these and other user-facing functions by running help("dia") after you’ve installed the package. The source code for run_dia() and all helper functions can be exposed by running, for example, print(run_dia) to further clarify workflows.'><div class="figcaption">
+<strong>Figure</strong>: Graphical overview of the <em>dia</em> work flow (right) compared to the original Atlantic salmon <em>Salmo salar</em> lifecycle model presented by Nieland et al. (2013, 2015, 2020). Rounded rectangles are Atlantic salmon life stages, ovals are additions to population, and rectangles are subtractions from populations. Dashed rectangles indicate stochastic dynamics that are implemented within the model but that are neither additions nor subtractions. In the <em>dia</em> workflow, some noteable helper functions are shown in bold and have trailing parentheses (e.g., <strong><code><a href="reference/smolt_stocking.html">smolt_stocking()</a></code></strong>), built-in datasets are in bold with no trailing parentheses (e.g., <strong><code>life_stage_survival</code></strong>), and user-specified arguments to <code><a href="reference/run_dia.html">run_dia()</a></code> are in plain font. You can learn more about these and other user-facing functions by running <code><a href="reference/dia.html">help("dia")</a></code> after you’ve installed the package. The source code for <code><a href="reference/run_dia.html">run_dia()</a></code> and all helper functions can be exposed by running, for example, <code>print(run_dia)</code> to further clarify workflows.</div>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -66,6 +84,7 @@
 <p><code>data/</code> Contains built-in data sets for the package</p>
 <p><code>man/</code> help files and documentation</p>
 <p><code>R/</code> R functions in scripts</p>
+<p><code>inst/images</code> includes images used in this README</p>
 <p><code>inst/shiny-examples/dia_shiny</code> includes server and ui files for <code><a href="reference/run_dia_shiny.html">run_dia_shiny()</a></code>, a shiny-based user interface</p>
 <p><code>tests/</code> Includes package tests for default parameter accuracy conducted on package build</p>
 </div>
@@ -78,8 +97,8 @@
 <code>run_dia()</code><a class="anchor" aria-label="anchor" href="#run_dia"></a>
 </h3>
 <p>The <code><a href="reference/run_dia.html">run_dia()</a></code> function provides the primary user-facing function for the <code>dia</code> package. The purpose of the function is to run the Dam Impact Analysis for some number of generations (15 by default). The output of this function is a dataframe (i.e., data table) containing number of wild and hatchery-origin adult returns in each generation. All default argument values (model inputs) are based on the most-recent version of the NOAA Dam Impact Analysis Excel-based model (v67, <a href="https://repository.library.noaa.gov/view/noaa/55737" class="external-link">Nieland et al. 2013</a>; <a href="https://academic.oup.com/icesjms/article-pdf/72/8/2423/31226690/fsv083.pdf" class="external-link">Nieland et al. 2015</a>; <a href="https://repository.library.noaa.gov/view/noaa/23714" class="external-link">Nieland and Sheehan 2020</a>).</p>
-<p>The <code><a href="reference/run_dia.html">run_dia()</a></code> function allows user to specify number of generations, number of starting wild and hatchery adults, whether stocking is turned on or off, how many fish are stocked in each production unit of the river, upstream and downstream dam passage rates, and other life-history or dam-related vital rates.</p>
-<p>You can find the help file for the <code><a href="reference/run_dia.html">run_dia()</a></code> function in R by running: <code><a href="reference/run_dia.html">?dia::run_dia</a></code>. This file contains all accepted user arguments, explanations of what they mean and what are default values, and examples of how to use the <code><a href="reference/run_dia.html">run_dia()</a></code> function. Examples are shown at the bottom of this page.</p>
+<p>The <code><a href="reference/run_dia.html">run_dia()</a></code> function allows users to specify number of generations, number of starting wild and hatchery adults, whether stocking is turned on or off, how many fish are stocked in each production unit of the river, upstream and downstream dam passage rates, and other life-history or dam-related vital rates.</p>
+<p>You can find the help file for the <code><a href="reference/run_dia.html">run_dia()</a></code> function in R by running: <code><a href="reference/run_dia.html">?dia::run_dia</a></code>. This file contains all accepted user arguments, explanations of what they mean and what are default values, and examples of how to use the <code><a href="reference/run_dia.html">run_dia()</a></code> function. Examples are shown at the bottom of this page. You can browse a list of all helper functions called by <code><a href="reference/run_dia.html">run_dia()</a></code> as well as all built-in datasets and their metadata by running <code>help("dia") or ?dia</code>.</p>
 </div>
 <div class="section level3">
 <h3 id="run_dia_shiny">
@@ -93,13 +112,16 @@
 </div>
 </div>
 <div class="section level2">
-<h2 id="examples-using-run_dia">Examples using <code>run_dia()</code>
-<a class="anchor" aria-label="anchor" href="#examples-using-run_dia"></a>
+<h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
 </h2>
+<p>We provide a range of examples for using the <code><a href="reference/run_dia.html">run_dia()</a></code> function below to demonstrate flexibility in application for predicting population response to restoration scenarios or uncertainty and variability in biological parameters.</p>
+<p>We build complexity from single-use cases, to small simulation studies, to large parallel computations that can be used to explore restoration scenarios or model uncertainties further by the users. To do this, we use the default model parameters for the first three examples to demonstrate a single realization, a small run of 100 iterations, and a larger simulation of hundreds or thousands of iterations in parallel. We then use the parallel framework, which we prefer for simulation studies, to demonstrate how the user can specify custom argument values to provide concrete applications of this tool to answer restoration questions.</p>
+<p>Most of the arguments passed to <code><a href="reference/run_dia.html">run_dia()</a></code> can accept custom user input, for a near infinite number of potential scenarios that could be assessed for a wide variety of questions. We have selected two common examples for demonstration: 1) simulating outcomes of hypothetical dam removals, and 2) testing sensitivity of restoration outcomes to biological uncertainty or variability.</p>
 <div class="section level3">
-<h3 id="single-simulation">Single simulation<a class="anchor" aria-label="anchor" href="#single-simulation"></a>
+<h3 id="single-simulation-using-default-values">Single simulation using default values<a class="anchor" aria-label="anchor" href="#single-simulation-using-default-values"></a>
 </h3>
-<p>An example of a single simulation using <code><a href="reference/run_dia.html">run_dia()</a></code> is demonstrated below, using the default values based on Nieland et al. (<a href="https://repository.library.noaa.gov/view/noaa/4559" class="external-link">2013</a>, <a href="https://academic.oup.com/icesjms/article/72/8/2423/2458708" class="external-link">2015</a>) and <a href="https://repository.library.noaa.gov/view/noaa/23714" class="external-link">Nieland and Sheehan (2020)</a>.</p>
+<p>An example of a single simulation using <code><a href="reference/run_dia.html">run_dia()</a></code> is demonstrated below, using the default values based on Nieland et al. (<a href="https://repository.library.noaa.gov/view/noaa/4559" class="external-link">2013</a>, <a href="https://academic.oup.com/icesjms/article/72/8/2423/2458708" class="external-link">2015</a>) and <a href="https://repository.library.noaa.gov/view/noaa/23714" class="external-link">Nieland and Sheehan (2020)</a>. Each of these default values can be modified by the user, as we demonstrate in later examples. They each have default values and do not need to be explicitly specified unless changing the value, but all are shown here so we can see what they are.</p>
+<p>The output is a dataframe with 1 observation of 2 sea-winter spawning females (<code>abundance</code>) reaching each production unit in the watershed in each generation, by rearing origin (<code>'hatchery'</code> or <code>'wild'</code>). Graphically, we’ll need to run more simulations to summarize these results in a meaningful way. That is the objective of the next several examples.</p>
 <pre><code><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://danstich.github.io/dia/">dia</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># For reproducibility: comment out the next line if you wish to sample stochastically</span></span>
@@ -156,9 +178,9 @@
 <span>  n_broodstock <span class="op">=</span> <span class="fl">150</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="section level3">
-<h3 id="multiple-simulations-for-a-single-scenario">Multiple simulations for a single scenario<a class="anchor" aria-label="anchor" href="#multiple-simulations-for-a-single-scenario"></a>
+<h3 id="multiple-simulations-using-default-values">Multiple simulations using default values<a class="anchor" aria-label="anchor" href="#multiple-simulations-using-default-values"></a>
 </h3>
-<p>An example of a single simulation using <code><a href="reference/run_dia.html">run_dia()</a></code> is demonstrated below, using the default values based on Nieland et al. (2013, 2015) and Nieland and Sheehan (2020).</p>
+<p>An example of a single simulation using <code><a href="reference/run_dia.html">run_dia()</a></code> is demonstrated below, using the default values based on Nieland et al. (2013, 2015) and Nieland and Sheehan (2020). This example demonstrates serial, looped execution using the <code>foreach</code> package, although we do not recommend this approach for large numbers of simulations (see subsequent examples about parallel execution for these). This example includes code for processing serial list output, summarizing results through tidy workflows using the <code>tidyverse</code>, and visualization of results with <code>ggplot2</code> and related utilities.</p>
 <pre><code><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RevolutionAnalytics/foreach" class="external-link">foreach</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://danstich.github.io/dia/">dia</a></span><span class="op">)</span></span>
@@ -247,8 +269,9 @@
 <span>              alpha <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span>    </span></code></pre>
 </div>
 <div class="section level3">
-<h3 id="example-of-parallel-execution-for-running-multiple-models-using-snowfall">Example of parallel execution for running multiple models using snowfall<a class="anchor" aria-label="anchor" href="#example-of-parallel-execution-for-running-multiple-models-using-snowfall"></a>
+<h3 id="parallel-execution-of-multiple-simulations-using-default-values">Parallel execution of multiple simulations using default values<a class="anchor" aria-label="anchor" href="#parallel-execution-of-multiple-simulations-using-default-values"></a>
 </h3>
+<p>This example demonstrates execution of multiple simulations in parallel to make better use of local or remote compute clusters. We rely primarily on the <code>snowfall</code> package, but this approach is transferrable to any parallel back-end in R as far as we know. This example includes code for processing parallel output, summarizing results through tidy workflows using the <code>tidyverse</code>, and visualization of results with <code>ggplot2</code> and related utilities.</p>
 <pre><code><span><span class="co"># Libraries ----</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">snowfall</span><span class="op">)</span></span>
@@ -378,6 +401,267 @@
 <span>  <span class="fu">geom_ribbon</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">generation</span>, ymin <span class="op">=</span> <span class="va">lwr</span>, ymax <span class="op">=</span> <span class="va">upr</span>, color <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>,</span>
 <span>              alpha <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span>          </span></code></pre>
 </div>
+<div class="section level3">
+<h3 id="simulating-population-response-to-dam-removals">Simulating population response to dam removals<a class="anchor" aria-label="anchor" href="#simulating-population-response-to-dam-removals"></a>
+</h3>
+<p>This example demonstrates how to simulate, for example, the removal of several dams as part of a hypothetical dam removal fabricated for the sake of demonstration. We use the parallel approach to stochastic sampling demonstrated above to simulate new population abundances when four dams are removed from the Piscataquis River (Upper Dover, Browns Mills, Sebec, Milo, and Howland dams). To do this, we can simply set their list elements in <code>upstream</code> and <code>downstream</code> to <code>1</code>, indicating that the dams present no impediment to migration. We demonstrate how the parallel simulation outputs can be processed through convenient, tidy workflows using the <code>tidyverse</code> and visualized with <code>ggplot2</code>.</p>
+<pre><code><span><span class="co"># Example of parallel execution for assessing dam removals ----</span></span>
+<span><span class="co"># . Libraries ----</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">snowfall</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://danstich.github.io/dia/">dia</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com" class="external-link">data.table</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># For reproducibility: uncomment the line below to sample stochastically</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">7475</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># . Parallel settings ----</span></span>
+<span><span class="co"># Get number of nodes (cpu cores - 1)</span></span>
+<span><span class="va">ncpus</span> <span class="op">&lt;-</span> <span class="fu">parallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/detectCores.html" class="external-link">detectCores</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span></span>
+<span></span>
+<span><span class="co"># Initialize snowfall socket cluster</span></span>
+<span><span class="fu">sfInit</span><span class="op">(</span>parallel <span class="op">=</span> <span class="cn">TRUE</span>, cpus <span class="op">=</span> <span class="va">ncpus</span>, type <span class="op">=</span> <span class="st">"SOCK"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># . Wrapper function for worker nodes ----</span></span>
+<span><span class="va">sim</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span></span>
+<span></span>
+<span>    <span class="co"># Replace upstream and downstream passage rates</span></span>
+<span>    <span class="co"># with "1" to indicate removal of dam. In this example,</span></span>
+<span>    <span class="co"># we'll assess influence of removing all dams in the</span></span>
+<span>    <span class="co"># Piscataquis River (upper_dover, browns_mills, sebec, milo,</span></span>
+<span>    <span class="co"># and howland).</span></span>
+<span>    <span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/run_dia.html">run_dia</a></span><span class="op">(</span>n_generations <span class="op">=</span> <span class="fl">15</span>,</span>
+<span>    n_wild <span class="op">=</span> <span class="fl">31</span>,</span>
+<span>    n_hatchery <span class="op">=</span> <span class="fl">306</span>,</span>
+<span>    stocking <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>    n_stocked <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">545000</span>, <span class="fl">15</span><span class="op">)</span>,</span>
+<span>    upstream <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>      medway <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>      mattaceunk <span class="op">=</span> <span class="fl">0.90</span>,</span>
+<span>      west_enfield <span class="op">=</span> <span class="fl">0.95</span>,</span>
+<span>      upper_dover <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>      browns_mills <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>      sebec <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>      milo <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>      howland <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>      lowel <span class="op">=</span> <span class="fl">0.92</span>,</span>
+<span>      stillwater <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>      milford <span class="op">=</span> <span class="fl">0.95</span>,</span>
+<span>      great_works <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>      orono <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>      veazie <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>      frankfort <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
+<span>    downstream <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>      medway <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>      mattaceunk <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>      west_enfield <span class="op">=</span> <span class="fl">0.96</span>,</span>
+<span>      upper_dover <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>      browns_mills <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>      sebec <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>      milo <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>      howland <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>      lowell <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>      stillwater <span class="op">=</span> <span class="fl">0.96</span>,</span>
+<span>      milford <span class="op">=</span> <span class="fl">0.96</span>,</span>
+<span>      great_works <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>      orono <span class="op">=</span> <span class="fl">0.96</span>,</span>
+<span>      veazie <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>      frankfort <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>,</span>
+<span>    mattaceunk_impoundment_mortality <span class="op">=</span> <span class="fl">0.072</span>,</span>
+<span>    p_stillwater <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>    indirect_latent_mortality <span class="op">=</span> <span class="fl">0.06</span>,</span>
+<span>    p_female <span class="op">=</span> <span class="fl">0.60</span>,</span>
+<span>    new_or_old <span class="op">=</span> <span class="st">"new"</span>,</span>
+<span>    marine_s_hatchery <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>    marine_s_wild <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>    straying_matrix <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>    p_mainstem_up <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>    n_broodstock <span class="op">=</span> <span class="fl">150</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="va">out_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    output <span class="op">=</span> <span class="va">output</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html" class="external-link">return</a></span><span class="op">(</span><span class="va">out_list</span><span class="op">)</span></span>
+<span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># . Parallel execution ----</span></span>
+<span><span class="co"># .. Load libraries on workers -----</span></span>
+<span><span class="fu">sfLibrary</span><span class="op">(</span><span class="va">dia</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># .. Distribute to workers -----</span></span>
+<span><span class="co"># Number of simulations to run</span></span>
+<span><span class="va">niterations</span> <span class="op">&lt;-</span> <span class="fl">1e4</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># .. Run the simulation ----</span></span>
+<span><span class="co"># Record start time</span></span>
+<span><span class="va">start</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Run simulation and return results</span></span>
+<span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">sfLapply</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="va">niterations</span>, <span class="va">sim</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Calculate total time elapsed for benchmarking</span></span>
+<span><span class="va">total_time</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span><span class="op">-</span><span class="va">start</span></span>
+<span><span class="va">total_time</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># . Result processing ----</span></span>
+<span><span class="co"># Extract results dataframes by string and rbind all list elements</span></span>
+<span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">result</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">[[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'output'</span><span class="op">)</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="va">out_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="fu">data.table</span><span class="fu">::</span><span class="fu">rbindlist</span><span class="op">(</span><span class="va">res</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># . Result summary ----</span></span>
+<span><span class="co"># .. By generation ----</span></span>
+<span><span class="co"># Summarize results across replicate stochastic model realizations</span></span>
+<span><span class="va">plotter</span> <span class="op">&lt;-</span> <span class="va">out_df</span> <span class="op">%&gt;%</span></span>
+<span>          <span class="fu">group_by</span><span class="op">(</span><span class="va">generation</span>, <span class="va">origin</span>, <span class="va">production_unit</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>          <span class="fu">summarize</span><span class="op">(</span>abund <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html" class="external-link">median</a></span><span class="op">(</span><span class="va">abundance</span><span class="op">)</span>,</span>
+<span>                    lwr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span><span class="va">abundance</span>, <span class="fl">0.025</span><span class="op">)</span>,</span>
+<span>                    upr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span><span class="va">abundance</span>, <span class="fl">0.975</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>          <span class="fu">group_by</span><span class="op">(</span><span class="va">generation</span>, <span class="va">origin</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>          <span class="fu">summarize</span><span class="op">(</span>abundance <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">abund</span><span class="op">)</span>,</span>
+<span>                    lwr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">lwr</span><span class="op">)</span>,</span>
+<span>                    upr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">upr</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>          <span class="fu">mutate</span><span class="op">(</span>origin <span class="op">=</span> <span class="fu">str_to_sentence</span><span class="op">(</span><span class="va">origin</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Plot results by generation</span></span>
+<span><span class="va">generations</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span><span class="va">plotter</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">generation</span>, y <span class="op">=</span> <span class="va">abundance</span>,</span>
+<span>            color <span class="op">=</span> <span class="va">origin</span>, fill <span class="op">=</span> <span class="va">origin</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_ribbon</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">generation</span>, ymin <span class="op">=</span> <span class="va">lwr</span>, ymax <span class="op">=</span> <span class="va">upr</span>, color <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>,</span>
+<span>              alpha <span class="op">=</span> <span class="fl">0.25</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">xlab</span><span class="op">(</span><span class="st">"Generation number"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ylab</span><span class="op">(</span><span class="st">"Abundance"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span>color <span class="op">=</span> <span class="st">"Origin"</span>, fill <span class="op">=</span> <span class="st">"Origin"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">annotate</span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">1</span>, y <span class="op">=</span> <span class="fl">3500</span>, label <span class="op">=</span> <span class="st">"(a)"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># .. By production unit ----</span></span>
+<span><span class="co"># Summarize results across replicate stochastic model realizations</span></span>
+<span><span class="va">plotter</span> <span class="op">&lt;-</span> <span class="va">out_df</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">generation</span> <span class="op">==</span> <span class="fl">15</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>production_unit <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/substr.html" class="external-link">substr</a></span><span class="op">(</span><span class="va">production_unit</span>, <span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>origin <span class="op">=</span> <span class="fu">str_to_sentence</span><span class="op">(</span><span class="va">origin</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Plot results by generation</span></span>
+<span><span class="va">pus</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span><span class="va">plotter</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">production_unit</span>, y <span class="op">=</span> <span class="va">abundance</span>,</span>
+<span>                    color <span class="op">=</span> <span class="va">origin</span>, fill <span class="op">=</span> <span class="va">origin</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_boxplot</span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.25</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">xlab</span><span class="op">(</span><span class="st">"Production unit"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ylab</span><span class="op">(</span><span class="st">"Abundance"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span>color <span class="op">=</span> <span class="st">"Origin"</span>, fill <span class="op">=</span> <span class="st">"Origin"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">annotate</span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">1</span>, y <span class="op">=</span> <span class="fl">5000</span>, label <span class="op">=</span> <span class="st">"(b)"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">gridExtra</span><span class="fu">::</span><span class="fu">grid.arrange</span><span class="op">(</span><span class="va">generations</span>, <span class="va">pus</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="assess-sensitivity-of-restoration-outcomes-to-uncertainty-or-variability">Assess sensitivity of restoration outcomes to uncertainty or variability<a class="anchor" aria-label="anchor" href="#assess-sensitivity-of-restoration-outcomes-to-uncertainty-or-variability"></a>
+</h3>
+<p>This example demonstrates how to simulate population sensitivity to underlying model parameters using the parallel approach to stochastic sampling demonstrated above. In this example, we run the model under a wide range of marine survival rates for wild fish to investigate how uncertainty or variability in this parameter could influence predicted outcomes of restoration efforts. We continue to demonstrate how to summarize simulation outputs using tidy workflows from the <code>tidyverse</code> and visualization with <code>ggplot2</code>. We recommend copying the code below into an editor such as RStudio to view syntax highlighting and make use of code-folding tabs.</p>
+<pre><code><span><span class="co"># Example of parallel execution for assessing marine survival ----</span></span>
+<span><span class="co"># . Libraries ----</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">snowfall</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://danstich.github.io/dia/">dia</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com" class="external-link">data.table</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># For reproducibility: uncomment the line below to sample stochastically</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">7475</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># . Parallel settings ----</span></span>
+<span><span class="co"># Get number of nodes (cpu cores - 1)</span></span>
+<span><span class="va">ncpus</span> <span class="op">&lt;-</span> <span class="fu">parallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/detectCores.html" class="external-link">detectCores</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span></span>
+<span></span>
+<span><span class="co"># Initialize snowfall socket cluster</span></span>
+<span><span class="fu">sfInit</span><span class="op">(</span>parallel <span class="op">=</span> <span class="cn">TRUE</span>, cpus <span class="op">=</span> <span class="va">ncpus</span>, type <span class="op">=</span> <span class="st">"SOCK"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># . Wrapper function for worker nodes ----</span></span>
+<span><span class="va">sim</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span></span>
+<span></span>
+<span>  <span class="co"># Here, we use the default values for everything except marine survival</span></span>
+<span>  <span class="co"># of wild fish and then plot the results to determine sensitivity of</span></span>
+<span>  <span class="co"># species recovery to changes in marine survival.</span></span>
+<span></span>
+<span>  <span class="co"># Simulate marine survival from a truncated normal distribution</span></span>
+<span>  <span class="co"># using the make_marine_s() function from the dia package</span></span>
+<span>  <span class="co"># like this (uncomment to run).</span></span>
+<span>  <span class="co"># marine_s_wild &lt;- dia::make_marine_s(n = 1, a = 0, b = 0.25,</span></span>
+<span>  <span class="co">#                                     hatchery = FALSE)</span></span>
+<span></span>
+<span>  <span class="co"># Alternatively, we could just specify a sample from a range of values:</span></span>
+<span>  <span class="va">marine_s_wild</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.025</span>, <span class="fl">0.001</span><span class="op">)</span>, <span class="fl">1</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/run_dia.html">run_dia</a></span><span class="op">(</span>marine_s_wild <span class="op">=</span> <span class="va">marine_s_wild</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="va">output</span><span class="op">$</span><span class="va">marine_s_wild</span> <span class="op">&lt;-</span> <span class="va">marine_s_wild</span></span>
+<span></span>
+<span>  <span class="va">out_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    output <span class="op">=</span> <span class="va">output</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html" class="external-link">return</a></span><span class="op">(</span><span class="va">out_list</span><span class="op">)</span></span>
+<span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># . Parallel execution ----</span></span>
+<span><span class="co"># .. Load libraries on workers -----</span></span>
+<span><span class="fu">sfLibrary</span><span class="op">(</span><span class="va">dia</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># .. Distribute to workers -----</span></span>
+<span><span class="co"># Number of simulations to run</span></span>
+<span><span class="va">niterations</span> <span class="op">&lt;-</span> <span class="fl">1e3</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># .. Run the simulation ----</span></span>
+<span><span class="co"># Record start time</span></span>
+<span><span class="va">start</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Run simulation and return results</span></span>
+<span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">sfLapply</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="va">niterations</span>, <span class="va">sim</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Calculate total time elapsed for benchmarking</span></span>
+<span><span class="va">total_time</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span><span class="op">-</span><span class="va">start</span></span>
+<span><span class="va">total_time</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># . Result processing ----</span></span>
+<span><span class="co"># Extract results dataframes by string and rbind all list elements</span></span>
+<span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">result</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">[[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'output'</span><span class="op">)</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="va">out_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="fu">data.table</span><span class="fu">::</span><span class="fu">rbindlist</span><span class="op">(</span><span class="va">res</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># . Result summary ----</span></span>
+<span><span class="co"># .. Sensitivity to marine s ----</span></span>
+<span><span class="co"># Summarize results across replicate stochastic model realizations</span></span>
+<span><span class="co"># to examine variability in abundance in generation 15 compared to</span></span>
+<span><span class="co"># variability in marine survival</span></span>
+<span><span class="va">plotter</span> <span class="op">&lt;-</span> <span class="va">out_df</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">generation</span> <span class="op">==</span> <span class="fl">15</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>marine_s_wild <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="va">marine_s_wild</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">production_unit</span>, <span class="va">origin</span>, <span class="va">marine_s_wild</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">summarize</span><span class="op">(</span>abund <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html" class="external-link">median</a></span><span class="op">(</span><span class="va">abundance</span><span class="op">)</span>,</span>
+<span>            lwr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span><span class="va">abundance</span>, <span class="fl">0.025</span><span class="op">)</span>,</span>
+<span>            upr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span><span class="va">abundance</span>, <span class="fl">0.975</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">origin</span>, <span class="va">marine_s_wild</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">summarize</span><span class="op">(</span>abundance <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">abund</span><span class="op">)</span>,</span>
+<span>            lwr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">lwr</span><span class="op">)</span>,</span>
+<span>            upr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">upr</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>origin <span class="op">=</span> <span class="fu">str_to_sentence</span><span class="op">(</span><span class="va">origin</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Plot results by generation</span></span>
+<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="va">plotter</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">marine_s_wild</span>,</span>
+<span>                      y <span class="op">=</span> <span class="va">abundance</span>,</span>
+<span>                      color <span class="op">=</span> <span class="va">origin</span>,</span>
+<span>                      fill <span class="op">=</span> <span class="va">origin</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">geom_ribbon</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>xmax <span class="op">=</span> <span class="va">marine_s_wild</span>, ymin <span class="op">=</span> <span class="va">lwr</span>, ymax <span class="op">=</span> <span class="va">upr</span>, color <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>,</span>
+<span>                alpha <span class="op">=</span> <span class="fl">0.50</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">xlab</span><span class="op">(</span><span class="st">"Generation number"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ylab</span><span class="op">(</span><span class="st">"Abundance"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">labs</span><span class="op">(</span>color <span class="op">=</span> <span class="st">"Origin"</span>, fill <span class="op">=</span> <span class="st">"Origin"</span><span class="op">)</span></span></code></pre>
+</div>
 </div>
 <div class="section level2">
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
@@ -387,6 +671,7 @@
 <p>Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US Department of Commerce, Northeast Fisheries Science Center Reference Document 13-09, Woods Hole, MA. URL: <a href="https://repository.library.noaa.gov/view/noaa/4559" class="external-link">https://repository.library.noaa.gov/view/noaa/4559</a>.</p>
 </div>
 </div>
+
   </main><aside class="col-md-3"><div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
