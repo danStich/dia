@@ -4,6 +4,7 @@ An R package for the National Oceanic and Atmospheric Administration dam impact 
 
 [![DOI](https://zenodo.org/badge/383607566.svg)](https://zenodo.org/doi/10.5281/zenodo.13376045) 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![DOI](https://joss.theoj.org/papers/10.21105/joss.07475/status.svg)](https://doi.org/10.21105/joss.07475)
 
 ## Table of Contents
 - [Overview](#overview)
